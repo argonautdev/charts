@@ -25,7 +25,7 @@ spec:
     - {{ $host }}
     {{- end }}
   gateways:
-    - istio-system/ingress-gateway
+    - tools/ingress-gateway
   exportTo:
     - "*" # TBD - env interaction
   {{- if or (eq .protocol "http") (and (eq .protocol "tls") (eq .ingress.tls "terminated")) }}
