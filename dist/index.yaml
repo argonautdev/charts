@@ -3,9 +3,9 @@ entries:
   managed:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2020-11-27T14:17:33.752415+05:30"
+    created: "2020-12-06T12:22:33.290279+05:30"
     description: Argonaut Resource Template - ART
-    digest: 096a31060240ea2cb278f0bcb8dafec8d37faf99399e507361af17efc9144b6a
+    digest: e6f745b531ca33004b906594d813f910861f1dd223d426a0cd64f32ef8ead811
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -20,9 +20,9 @@ entries:
   service:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2020-11-27T14:17:33.754022+05:30"
+    created: "2020-12-06T12:22:33.291063+05:30"
     description: Argonaut Resource Template - ART
-    digest: af25ac7eeff7227c904c851b03f2a3d5cb859541e98573f5e014352e63b27540
+    digest: 08e122299f677252ee07af14005085d238b2f5025c1caf0cd3ce80d8670ce82a
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -34,4 +34,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/argonautdev/charts/main/dist/service-v0.1.0.tgz
     version: v0.1.0
-generated: "2020-11-27T14:17:33.751033+05:30"
+generated: "2020-12-06T12:22:33.289544+05:30"
