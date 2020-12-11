@@ -35,41 +35,22 @@ entrypoint: ["echo"]
 cmd: ["Hello World"]
 
 services:
-  - name: nh7-8080 # appname will be prefixed, needs to be unique
+  - name: wp8080 # appname will be prefixed
     protocol: http # http, tls, tcp
     port: 8080 # number only
     ingress:
       enabled: false
       tls: "" # "terminated" or "" (not applicable) or "passthrough" (to be implemented)
       port: 8080
-      path: "" # prefix regex match
-      # httpsRedirect: false # TBD implementation - can't be set at service level but will need to be cluster level
-      # hosts: # OR matched
-      #   - "*"
-      #   - "aws.tritonhq.io"
-      # headers: unused # To be implemented
-  - name: hs8080 # appname will be prefixed, needs to be unique
+      path: "/" # prefix regex match and exact match without trailing '/'
+  - name: hs8080 # appname will be prefixed
     protocol: tls # http, tls, tcp
     port: 8080 # number only
     ingress:
       enabled: true
-      tls: "terminated" # "terminated" or "" (not applicable) or "passthrough" (to be implemented)
+      tls: "terminated"
       port: 443
-      path: "/hasura/" # prefix regex match
-  - name: mq8883 # appname will be prefixed, needs to be unique
-    protocol: tcp # http, tls, tcp
-    port: 8883 # number only
-    ingress:
-      enabled: true
-      tls: "" # "terminated" or "" (not applicable) or "passthrough" (to be implemented)
-      port: 8883
-  - name: mq1883 # appname will be prefixed, needs to be unique
-    protocol: tcp # http, tls, tcp
-    port: 1883 # number only
-    ingress:
-      enabled: true
-      tls: "" # "terminated" or "" (not applicable) or "passthrough" (to be implemented)
-      port: 1883
+      path: "/hs/"
   - name: nx80 # appname will be prefixed, needs to be unique
     protocol: http # http, tls, tcp
     port: 80 # number only
@@ -125,10 +106,10 @@ readinessProbe:
   periodSeconds: 10
   timeoutSeconds: 5
 
-########################################################################################
-# Everything below this is optional and advanced configuration
-# and irrelevant in most scenarios.
-########################################################################################
+#########################################################################################
+# Everything below this is optional and advanced configuration                          #
+# and irrelevant in most scenarios.                                                     #
+#########################################################################################
 
 externalServices:
   []
