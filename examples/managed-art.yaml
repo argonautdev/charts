@@ -14,3 +14,12 @@ externalServices:
         protocol: TCP
     resolution: NONE # DNS
     location: MESH_EXTERNAL
+
+argonaut:
+  cloudProvider: aws
+  cloudRegion: us-east-2
+  cloudCluster: argonaut-dev
+  artDir: .art
+  artFile: art.yaml
+  artDirGitURL: "https://github.com/argonautdev/argonaut/.art"
+  imageRegistry: ghcr.io
