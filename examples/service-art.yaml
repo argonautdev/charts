@@ -13,6 +13,7 @@ argonaut:
   artFile: art.yaml
   artDirGitURL: "https://github.com/argonautdev/argonaut/.art"
   imageRegistry: ghcr.io
+  gitBranch: main
 
 image: "nginx"
 imageTag: "latest"
