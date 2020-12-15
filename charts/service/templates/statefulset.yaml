@@ -150,7 +150,6 @@ spec:
       {{- end }}
       imagePullSecrets:
         - name: {{ template "argonaut-deployment.uname" . }}-img-secret
-      {{- end }}
       initContainers:
       {{- if .Values.initContainer.enabled }}
       - name: init-container
