@@ -181,7 +181,8 @@ spec:
         {{- end }}
         ports:
         {{- range .Values.services }}
-        - name: "{{ $name | trunc 4 -}}-{{- .name | trunc 9 }}"
+        - name: "{{ .protocol | trunc 8 }}-{{ $name | trunc 5 -}}"
+        # - name: "{{ $name | trunc 4 -}}-{{- .name | trunc 9 }}"
           containerPort: {{ .port }}
           # protocol: {{ .protocol }}
         {{- end }}

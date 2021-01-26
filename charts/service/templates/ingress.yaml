@@ -3,12 +3,13 @@
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
 {{- $host := .Values.host -}}
+{{- $env := .Values.env -}}
 
 ---
 # Configure Virtual Services
 {{- range .Values.services }}
 {{- if .ingress }}
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: "{{ $name }}-{{- .name -}}-vs"
@@ -28,6 +29,7 @@ spec:
     - tools/ingress-gateway
   exportTo:
     - "*" # TBD - env interaction
+  # terminated tls implementation
   {{- if or (eq .protocol "http") (and (eq .protocol "tls") (eq .ingress.tls "terminated")) }}
   http:
     - match:
@@ -39,9 +41,9 @@ spec:
         - destination:
             port:
               number: {{ .port }}
-            host: "{{- $name -}} .dev.svc.cluster.local"
+            host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"
   {{- else if and (eq .protocol "tls") (eq .ingress.tls "passthrough") -}}
-  # https implementation
+  # https passthrough implementation
   https:
     - match:
       - port: {{ .ingress.port }}
@@ -49,7 +51,7 @@ spec:
         - {{ $host }}
       route:
       - destination:
-          host: "{{- $name -}} .dev.svc.cluster.local"
+          host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"
           port:
             number: {{ .port }}
   {{- else if eq .protocol "tcp" }}
@@ -59,7 +61,7 @@ spec:
     - port: {{ .ingress.port }}
     route:
     - destination:
-        host: "{{- $name -}} .dev.svc.cluster.local"
+        host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"
         port:
           number: {{ .port }}
   {{- end -}}

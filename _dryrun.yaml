@@ -1,0 +1,179 @@
+---
+# Source: service/templates/poddisruptionbudget.yaml
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: "nginx-pdb"
+spec:
+  maxUnavailable: 25%
+  selector:
+    matchLabels:
+      app: "nginx"
+---
+# Source: service/templates/service.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: "nginx"
+  labels:
+    heritage: "Helm"
+    release: "RELEASE-NAME"
+    chart: "service"
+    version: "v1"
+    app: "nginx"
+spec:
+  type: ClusterIP
+  selector:
+    release: "RELEASE-NAME"
+    chart: "service"
+    app: "nginx"
+  ports: 
+    - name: "http-nginx-80"
+      protocol: TCP # UDP and SCTP are the other options
+      port: 80 
+    - name: "tls-nginx-443"
+      protocol: TCP # UDP and SCTP are the other options
+      port: 443
+---
+# Source: service/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx
+  labels:
+    heritage: "Helm"
+    release: "RELEASE-NAME"
+    chart: "service"
+    app: "nginx"
+    version: "v1"
+  annotations:
+    {}
+spec:
+  serviceName: nginx
+  selector:
+    matchLabels:
+      app: "nginx"
+  replicas: 1
+  podManagementPolicy: Parallel
+  updateStrategy:
+    type: RollingUpdate
+  volumeClaimTemplates:
+  - metadata:
+      name: "storage-vol-0"
+      labels:
+        heritage: "Helm"
+        release: "RELEASE-NAME"
+        chart: service
+        app: nginx
+    spec:
+      storageClassName: "ebs-gp2-resizable"
+      accessModes:
+        - "ReadWriteOnce"
+      resources:
+        requests:
+          storage: "600M"
+  template:
+    metadata:
+      name: "nginx"
+      labels:
+        heritage: "Helm"
+        release: "RELEASE-NAME"
+        chart: "service"
+        app: "nginx"
+      annotations:
+        
+    spec:
+      securityContext:
+        {}
+      terminationGracePeriodSeconds: 120
+      # Mount Secrets
+      volumes:
+      # extraConfig
+      imagePullSecrets:
+        - name: nginx-img-secret
+      initContainers:
+      containers:
+      - name: "service"
+        securityContext:
+          {}
+        image: "nginx:latest"
+        imagePullPolicy: "Always"
+        ports:
+        - name: "http-nginx"
+        # - name: "ngin-80"
+          containerPort: 80
+          # protocol: http
+        - name: "tls-nginx"
+        # - name: "ngin-443"
+          containerPort: 443
+          # protocol: tls
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200M
+        env:
+        # Persistence Enabled - volume mounts
+        volumeMounts:
+          - name: "storage-vol-0"
+            mountPath: "/usr/share/appdata"
+---
+# Source: service/templates/ingress.yaml
+# Configure Virtual Services
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: "nginx-80-vs"
+  labels:
+    heritage: "Helm"
+    release: "RELEASE-NAME"
+    chart: "service"
+    app: "nginx"
+spec:
+  hosts:
+    - app.tritonhq.io
+  gateways:
+    - tools/ingress-gateway
+  exportTo:
+    - "*" # TBD - env interaction
+  # terminated tls implementation
+  http:
+    - match:
+        - uri:
+            prefix: /
+      rewrite:
+        uri: "/" # /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: "nginx.dev.svc.cluster.local"
+---
+# Source: service/templates/ingress.yaml
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: "nginx-443-vs"
+  labels:
+    heritage: "Helm"
+    release: "RELEASE-NAME"
+    chart: "service"
+    app: "nginx"
+spec:
+  hosts:
+    - app.tritonhq.io
+  gateways:
+    - tools/ingress-gateway
+  exportTo:
+    - "*" # TBD - env interaction
+  # terminated tls implementation
+  http:
+    - match:
+        - uri:
+            prefix: /
+      rewrite:
+        uri: "/" # /
+      route:
+        - destination:
+            port:
+              number: 443
+            host: "nginx.dev.svc.cluster.local"

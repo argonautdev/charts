@@ -4,7 +4,7 @@
 {{- $releaseService := .Release.Service -}}
 
 {{- range $index, $value := .Values.externalServices }}
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
   name: "{{- .name }}"

@@ -23,7 +23,7 @@ spec:
     app: {{ $name | quote }}
   ports:
     {{- range .Values.services }} 
-    - name: "{{ $name | trunc 5 }}-{{- .name -}}"
+    - name: "{{ .protocol }}-{{ $name | trunc 5 }}-{{- .name -}}"
       protocol: TCP # UDP and SCTP are the other options
       port: {{ .port }}
     {{- end }}
