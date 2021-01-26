@@ -18,6 +18,9 @@ image: "nginx"
 imageTag: "latest"
 
 replicas: 1
+minReplicas: 1
+maxReplicas: 5
+
 resources:
   requests:
     cpu: "100m"

@@ -35,6 +35,25 @@ spec:
       protocol: TCP # UDP and SCTP are the other options
       port: 443
 ---
+# Source: service/templates/hpa.yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx-hpa
+  labels:
+    heritage: "Helm"
+    release: "RELEASE-NAME"
+    chart: "service"
+    app: "nginx"
+spec:
+  maxReplicas: 5
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: "nginx"
+  targetCPUUtilizationPercentage: 80
+---
 # Source: service/templates/statefulset.yaml
 apiVersion: apps/v1
 kind: StatefulSet
