@@ -4,7 +4,7 @@ home: https://argonaut.dev
 maintainers:
   - email: dev@argonaut.dev
     name: Argonaut
-name: stateful-service
+name: stateful
 version: "v0.1.0"
 appVersion: "v0.1.0"
 sources:

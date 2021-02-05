@@ -1,37 +1,54 @@
 apiVersion: v1
 entries:
-  managed:
+  external:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-01-26T12:01:39.984726+05:30"
+    created: "2021-02-04T23:38:43.813686-08:00"
     description: Argonaut Resource Template - ART
-    digest: de1b3e0585efddd9b9413c125cd7827dd6d3a9dfe2a9153fd024b6e98ac1cbd1
+    digest: 3811e51eb0da1be4335bda51f14fadd6b39dc79c1cc236da8af43c8ae46e14a3
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
-    name: managed
+    name: external
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/main/dist/managed-v0.1.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/main/dist/external-v0.1.0.tgz
     version: v0.1.0
-  service:
+  stateful:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-01-26T12:01:39.985097+05:30"
+    created: "2021-02-04T23:38:43.813995-08:00"
     description: Argonaut Resource Template - ART
-    digest: a2666973d34eee97274a8a48ff913a122b306d3a064149ab0328dc751fd9fc9c
+    digest: 61c650a4921e2078ab73f3773ec7bb0909dc6735790ac3b64212ef27e82fe327
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
-    name: service
+    name: stateful
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/main/dist/service-v0.1.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/main/dist/stateful-v0.1.0.tgz
     version: v0.1.0
-generated: "2021-01-26T12:01:39.984349+05:30"
+  stateless:
+  - apiVersion: v1
+    appVersion: v0.1.0
+    created: "2021-02-04T23:38:43.81427-08:00"
+    description: Argonaut Resource Template - ART
+    digest: 47ae0f9e30dcd3acc0c3ed956f2e242e0a81ba181874a456c21fd48f45a3407b
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: stateless
+    sources:
+    - https://argonaut.dev
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/main/dist/stateless-v0.1.0.tgz
+    version: v0.1.0
+generated: "2021-02-04T23:38:43.813216-08:00"
