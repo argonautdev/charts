@@ -141,7 +141,7 @@ sidecarResources:
 
 # The default value of 1 will make sure that kubernetes won't allow more than 1
 # of your pods to be unavailable during maintenance
-maxUnavailable: 25%
+# maxUnavailable: 25%
 updateStrategy: RollingUpdate
 # How long to wait for myapp to stop gracefully
 terminationGracePeriod: 120
