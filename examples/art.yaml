@@ -8,11 +8,10 @@ argonaut:
   cloudProvider: aws
   cloudRegion: us-east-2
   cloudCluster: argonaut
-  # artDir: .art
-  # artFile: art.yaml
   artDirGitURL: "https://github.com/argonautdev/art/" # Git URL that contains a ".art" folder which contains this "art.yaml" file
   gitBranch: main
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed
+  serviceType: "stateless" # One of {stateful, stateless, managed}
 
 image: "nginx"
 imageTag: "latest"
