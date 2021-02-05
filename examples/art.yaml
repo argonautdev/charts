@@ -1,6 +1,6 @@
 ---
 version: "v1"
-appName: "nginx"
+appName: "nginx-deployment"
 env: "dev"
 host: "app.tritonhq.io"
 
@@ -29,11 +29,6 @@ resources:
   #   cpu: "200m"
   #   memory: "256M"
 
-persistentStorage: # Set to [] if no persistent storage is required
-  - capacity: "600M"
-    mountPath: "/usr/share/appdata"
-    accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
-
 # entrypoint: ["echo"] # overrides
 # cmd: ["Hello World"] # overrides
 
@@ -46,14 +41,14 @@ services:
       tls: "" # "terminated" or "" (not applicable) or "passthrough"
       port: 80
       path: "/" # prefix regex match
-  - name: "443" # appname will be prefixed, needs to be unique
-    protocol: tls # http, tls, tcp
-    port: 443 # number only
-    ingress:
-      enabled: true
-      tls: "terminated" # "terminated" or "" (not applicable) or "passthrough"
-      port: 80
-      path: "/" # prefix regex match
+  # - name: "443" # appname will be prefixed, needs to be unique
+  #   protocol: tls # http, tls, tcp
+  #   port: 443 # number only
+  #   ingress:
+  #     enabled: true
+  #     tls: "terminated" # "terminated" or "" (not applicable) or "passthrough"
+  #     port: 80
+  #     path: "/" # prefix regex match
 
 # Can only do one of the httpGet and exec handler methods for livenessProbe
 livenessProbe:

@@ -135,7 +135,7 @@ spec:
         {{- if .Values.extraConfig }}
         - name: extraconfig
           configMap:
-            name: {{ template "argonaut-deployment.uname" . }}-config
+            name: {{ template "argonaut-deployment.uname" . }}-extraconfig
         {{- end }}
 {{- if .Values.keystore }}
         - name: keystore
@@ -150,8 +150,8 @@ spec:
       {{- end }}
       imagePullSecrets:
         - name: {{ template "argonaut-deployment.uname" . }}-img-secret
-      initContainers:
       {{- if .Values.initContainer.enabled }}
+      initContainers:
       - name: init-container
         securityContext:
           # runAsUser: 0
@@ -181,7 +181,7 @@ spec:
         {{- end }}
         ports:
         {{- range .Values.services }}
-        - name: "{{ .protocol | trunc 8 }}-{{ $name | trunc 5 -}}"
+        - name: "{{ .protocol }}-{{ $name | trunc 5 }}-{{- .name -}}"
         # - name: "{{ $name | trunc 4 -}}-{{- .name | trunc 9 }}"
           containerPort: {{ .port }}
           # protocol: {{ .protocol }}
