@@ -30,20 +30,20 @@ spec:
   {{- if .Values.persistentStorage }}
   volumeClaimTemplates:
   {{- range $index, $volumeMount := .Values.persistentStorage }}
-  - metadata:
-      name: "storage-vol-{{ $index }}"
-      labels:
-        heritage: {{ $releaseService }}
-        release: {{ $releaseName }}
-        chart: {{ $chartName }}
-        app: {{ $name }}
-    spec:
-      storageClassName: "ebs-gp2-resizable"
-      accessModes:
-        - {{ $volumeMount.accessMode | quote }}
-      resources:
-        requests:
-          storage: {{ $volumeMount.capacity | quote }}
+    - metadata:
+        name: "storage-vol-{{ $index }}"
+        labels:
+          heritage: {{ $releaseService }}
+          release: {{ $releaseName }}
+          chart: {{ $chartName }}
+          app: {{ $name }}
+      spec:
+        storageClassName: "ebs-gp2-resizable"
+        accessModes:
+          - {{ $volumeMount.accessMode | quote }}
+        resources:
+          requests:
+            storage: {{ $volumeMount.capacity | quote }}
   {{- end }}
   {{- end }}
   template:

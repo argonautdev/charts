@@ -60,9 +60,15 @@ spec:
       {{- if .Values.hostAliases }}
       hostAliases: {{ toYaml .Values.hostAliases | quote | nindent 6 }}
       {{- end }}
-      # Mount Secrets
       volumes:
+        {{- if .Values.persistentStorage }}
+        {{- range $index, $volumeMount := .Values.persistentStorage }}
+        - name: "storage-vol-{{ $index }}"
+          emptyDir: {}
+        {{- end }}
+        {{- end }}
         {{- range .Values.secretMounts }}
+        # Mount Secrets
         - name: {{ .name | quote }}
           secret:
             secretName: {{ .secretName | quote  }}
@@ -70,8 +76,8 @@ spec:
             defaultMode: {{ .defaultMode | quote  }}
             {{- end }}
         {{- end }}
+        {{- if .Values.extraConfig }}
         # extraConfig
-        {{- if .Values.extraConfig | quote  }}
         - name: extraconfig
           configMap:
             name: {{ template "argonaut-deployment.uname" . }}-extraconfig

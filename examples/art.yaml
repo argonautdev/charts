@@ -16,6 +16,11 @@ argonaut:
 image: "nginx"
 imageTag: "latest"
 
+persistentStorage: # Set to [] if no persistent storage is required
+  - capacity: "1000M"
+    mountPath: "/usr/share/appdata"
+    accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
+
 replicas: 1
 minReplicas: 1
 maxReplicas: 5
