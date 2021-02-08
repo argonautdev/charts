@@ -18,3 +18,4 @@ helm repo index dist --url https://raw.githubusercontent.com/argonautdev/charts/
 
 - Add the chart generation to CI so that the right versions of charts are prepared automatically on push
 - Move the chart serving to a `release package`
+- Add `values.yaml` to each of the charts
