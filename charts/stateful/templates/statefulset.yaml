@@ -120,10 +120,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: environment-{{ .Values.env }}
+              - key: argonaut.dev/environment-{{ .Values.env }}
                 operator: In
                 values:
-                  - true
+                  - "true"
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       # Mount Secrets
       volumes:
