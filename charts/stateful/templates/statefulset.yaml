@@ -116,10 +116,14 @@ spec:
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
       {{- end }}
-      {{- with .Values.nodeAffinity }}
         nodeAffinity:
-{{ toYaml . | indent 10 }}
-      {{- end }}
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: environment-{{ .Values.env }}
+                operator: In
+                values:
+                  - true
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       # Mount Secrets
       volumes:

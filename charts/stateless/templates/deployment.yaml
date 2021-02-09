@@ -112,10 +112,15 @@ spec:
                   - "{{ template "argonaut-deployment.uname" . }}"
         {{- end }}
       {{- end }}
-      {{- with .Values.nodeAffinity }}
       nodeAffinity:
-{{ toYaml . | indent 10 }}
-      {{- end }}  
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: environment-{{ .Values.env }}
+              operator: In
+              values:
+                - true
+
       {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}
