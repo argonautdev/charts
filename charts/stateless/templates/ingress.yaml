@@ -8,7 +8,7 @@
 ---
 # Configure Virtual Services
 {{- range .Values.services }}
-{{- if .ingress }}
+{{- if and .ingress .ingress.enabled }}
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
