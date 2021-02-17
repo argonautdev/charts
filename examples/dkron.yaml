@@ -1,29 +1,25 @@
 ---
 version: "v1"
-appName: "nginx-deployment"
-env: "dev"
-host: "app.tritonhq.io"
+appName: "dkron"
+env: "demo"
+
+host: "demo.bytebeam.io"
 
 argonaut:
   cloudProvider: aws
-  cloudRegion: us-east-2
-  cloudCluster: argonaut
-  artDirGitURL: "https://github.com/argonautdev/art/" # Git URL that contains a ".art" folder which contains this "art.yaml" file
-  gitBranch: main
-  imageRegistry: ghcr.io # corresponding to the image that is to be deployed
-  serviceType: "stateful" # One of {stateful, stateless, managed}
+  cloudRegion: ap-south-1
+  cloudCluster: demo
+  artDirGitURL: ""
+  imageRegistry: registry.gitlab.com/
+  gitBranch: dockerfile
+  serviceType: "stateful" # One of {stateful, stateless, external}
 
-image: "nginx"
+image: "dkron/dkron"
 imageTag: "latest"
-
-persistentStorage: # Set to [] if no persistent storage is required
-  - capacity: "1000M"
-    mountPath: "/usr/share/appdata"
-    accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
 
 replicas: 1
 minReplicas: 1
-maxReplicas: 5
+maxReplicas: 1
 
 resources:
   requests:
@@ -33,39 +29,45 @@ resources:
   #   cpu: "200m"
   #   memory: "256M"
 
-# entrypoint: ["echo"] # overrides
-# cmd: ["Hello World"] # overrides
+persistentStorage: # Set to [] if no persistent storage is required
+  - capacity: "600M"
+    mountPath: "/usr/share/appdata"
+    accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
+
+entrypoint: ["/opt/local/dkron/dkron"]
+cmd: ["agent"]
 
 services:
-  - name: "80" # appname will be prefixed, needs to be unique
-    protocol: http # http, tls, tcp
-    port: 80 # number only
+  - name: dk-8080 # appname will be prefixed, needs to be unique
+    protocol: tcp # http, tls, tcp
+    port: 8080 # number only
     ingress:
-      enabled: true
-      tls: "" # "terminated" or "" (not applicable) or "passthrough"
-      port: 3000
-      path: "/" # prefix regex match
-  # - name: "443" # appname will be prefixed, needs to be unique
-  #   protocol: tls # http, tls, tcp
-  #   port: 443 # number only
-  #   ingress:
-  #     enabled: true
-  #     tls: "terminated" # "terminated" or "" (not applicable) or "passthrough"
-  #     port: 80
-  #     path: "/" # prefix regex match
+      enabled: false
+      tls: ""
+      port: 80
+      path: "/"
+
+  - name: dk-8946 # appname will be prefixed, needs to be unique
+    protocol: tcp # http, tls, tcp
+    port: 8946 # number only
+    ingress: {}
+  - name: dk-6868 # appname will be prefixed, needs to be unique
+    protocol: tcp # http, tls, tcp
+    port: 6868 # number only
+    ingress: {}
 
 # Can only do one of the httpGet and exec handler methods for livenessProbe
 livenessProbe:
-  httpGet:
-    path: /
-    port: http
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       #!/usr/bin/env sh
-  #       test -f /etc/
+  # httpGet:
+  #   path: /ping
+  #   port: http
+  exec:
+    command:
+      - sh
+      - -c
+      - |
+        #!/usr/bin/env sh
+        test -f /etc/
   failureThreshold: 5
   initialDelaySeconds: 10
   periodSeconds: 10
@@ -73,18 +75,18 @@ livenessProbe:
 
 # Can only do one of the httpGet and exec handler methods for readinessProbe
 readinessProbe:
-  # Handler 1
-  httpGet:
-    path: /
-    port: 80
-  # # Handler 2
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       #!/usr/bin/env sh
-  #       test -f /etc/
+  # # Handler 1
+  # httpGet:
+  #   path: /ping
+  #   port: 80
+  # Handler 2
+  exec:
+    command:
+      - sh
+      - -c
+      - |
+        #!/usr/bin/env sh
+        test -f /etc/
   # Common fields
   failureThreshold: 5
   initialDelaySeconds: 10
@@ -146,7 +148,7 @@ sidecarResources:
 
 # The default value of 1 will make sure that kubernetes won't allow more than 1
 # of your pods to be unavailable during maintenance
-# maxUnavailable: 25%
+maxUnavailable: 25%
 updateStrategy: RollingUpdate
 # How long to wait for myapp to stop gracefully
 terminationGracePeriod: 120

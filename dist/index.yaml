@@ -3,9 +3,9 @@ entries:
   external:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-02-10T07:08:43.272825-08:00"
+    created: "2021-02-17T09:34:16.17984-08:00"
     description: Argonaut Resource Template - ART
-    digest: f8bf482e79399258695ba3d851579b0947421be402a1e93cc51b9b163dc28221
+    digest: 7bdded703ab484a60f905672b4798d0a1d98261ff3dd16d7e779acea3b20ab58
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -20,9 +20,9 @@ entries:
   stateful:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-02-10T07:08:43.273129-08:00"
+    created: "2021-02-17T09:34:16.180261-08:00"
     description: Argonaut Resource Template - ART
-    digest: 37bdd699a2d8ece9e81c04f049869651a55d8d6e26707f0f17b4f6617da0998e
+    digest: 1bf1fc971d36db5e2ad125a4249019439c25a063e8b115a117340d8fa99ebe0f
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -37,9 +37,9 @@ entries:
   stateless:
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-02-10T07:08:43.273411-08:00"
+    created: "2021-02-17T09:34:16.180569-08:00"
     description: Argonaut Resource Template - ART
-    digest: 43070835dbaf504ac92fecd762cc2d6639fe28796bbb1fb0a0d4e424373b643d
+    digest: 5e36cf22f0bdf3e03a709eeb7cae80fc20f96383ac3d5697cbc6c26e8ec80695
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -51,4 +51,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/argonautdev/charts/main/dist/stateless-v0.1.0.tgz
     version: v0.1.0
-generated: "2021-02-10T07:08:43.272394-08:00"
+generated: "2021-02-17T09:34:16.178871-08:00"
