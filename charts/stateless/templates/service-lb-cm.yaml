@@ -24,17 +24,19 @@ data:
           protocol: TCP
           port: {{ .port }}
         {{- end }}
-  # loadbalancerJson: |
-  #   {"spec":
-  #     {"ports":
-  #       [
-  #         {{- range .Values.services }} 
-  #         "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
-  #           "protocol": "TCP",
-  #           "port": {{ .port }}
-  #         {{- end }}
-  #       ]
-  #     }
-  #   }
+  loadbalancerJson: |
+    [
+      {{- range .Values.services }}
+      {    
+        "op": "add",
+        "path": "/spec/ports/-",
+        "value":{
+          "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
+          "protocol": "TCP",
+          "port": {{ .port }}
+        }
+      }
+      {{- end }}
+    ]
 ---
 {{- end -}}
