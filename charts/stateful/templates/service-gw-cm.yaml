@@ -17,7 +17,7 @@ metadata:
     version: {{ $version | quote }}
     app: {{ $name | quote }}
 data:
-  gateway: |
+  gatewayYaml: |
     spec:
       servers:
       {{- range .Values.services }} 
@@ -39,5 +39,36 @@ data:
           {{- end }}
           {{- end }}
       {{- end }}
+  gatewayJson: |
+    [
+      {{- range .Values.services }} 
+      {
+        "op": "add",
+        "path": "/spec/servers/-",
+        "value":{
+          "port":{
+              "number": {{ .port }},
+              "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
+              "protocol": {{ .protocol | quote }}
+          },
+          "hosts": [{{ $host | quote }}],
+          {{- if or (eq .protocol "https") (eq .protocol "tls") }}
+          {{- if eq .ingress.tls "terminated" }}
+          "tls": {
+            "mode": "SIMPLE",
+            "credentialName": "ingress-letsencrypt"
+          },
+          {{- else if eq .ingress.tls "passthrough" }}
+          "tls": {
+            "mode": "PASSTHROUGH",
+            "credentialName": "ingress-letsencrypt",
+          },
+          {{- end }}
+          {{- end }}
+        }
+      }
+      {{- end }}
+    ]
+
 ---
 {{- end -}}

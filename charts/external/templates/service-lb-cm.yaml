@@ -16,7 +16,7 @@ metadata:
     version: {{ $version | quote }}
     app: {{ $name | quote }}
 data:
-  loadbalancer: |
+  loadbalancerYaml: |
     spec:
       ports:
         {{- range .Values.services }} 
@@ -24,5 +24,17 @@ data:
           protocol: TCP
           port: {{ .port }}
         {{- end }}
+  loadbalancerJson: |
+    {"spec":
+      {"ports":
+        [
+          {{- range .Values.services }} 
+          "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
+            "protocol": "TCP",
+            "port": {{ .port }}
+          {{- end }}
+        ]
+      }
+    }
 ---
 {{- end -}}
