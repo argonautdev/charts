@@ -22,7 +22,7 @@ data:
       servers:
       {{- range .Values.services }} 
         - port:
-            number: {{ .port }}
+            number: {{ .ingress.port }}
             name: "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}"
             protocol: {{ .protocol }}
           hosts:
@@ -47,7 +47,7 @@ data:
         "path": "/spec/servers/-",
         "value":{
           "port":{
-              "number": {{ .port }},
+              "number": {{ .ingress.port }},
               "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
               "protocol": {{ .protocol | quote }}
           },

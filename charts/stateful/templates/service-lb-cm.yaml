@@ -22,7 +22,7 @@ data:
         {{- range .Values.services }} 
         - name: "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}"
           protocol: TCP
-          port: {{ .port }}
+          port: {{ .ingress.port }}
         {{- end }}
   loadbalancerJson: |
     [
@@ -33,7 +33,7 @@ data:
         "value":{
           "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
           "protocol": "TCP",
-          "port": {{ .port }}
+          "port": {{ .ingress.port }}
         }
       }
       {{- end }}
