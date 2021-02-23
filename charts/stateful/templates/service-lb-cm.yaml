@@ -38,7 +38,7 @@ data:
           "protocol": "TCP",
           "port": {{ .ingress.port }}
         }
-      }
+      },
       {{- end }}
       {{- end }}
     ]
