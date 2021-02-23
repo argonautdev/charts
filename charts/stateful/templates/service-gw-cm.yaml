@@ -42,6 +42,7 @@ data:
   gatewayJson: |
     [
       {{- range .Values.services }} 
+      {{- if and (.ingress) (.ingress.enabled)}}
       {
         "op": "add",
         "path": "/spec/servers/-",
@@ -67,6 +68,7 @@ data:
           {{- end }}
         }
       }
+      {{- end }}
       {{- end }}
     ]
 

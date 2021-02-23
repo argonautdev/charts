@@ -20,13 +20,16 @@ data:
     spec:
       ports:
         {{- range .Values.services }} 
+        {{- if and (.ingress) (.ingress.enabled)}}
         - name: "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}"
           protocol: TCP
           port: {{ .ingress.port }}
         {{- end }}
+        {{- end }}
   loadbalancerJson: |
     [
       {{- range .Values.services }}
+      {{- if and .ingress .ingress.enabled}}
       {    
         "op": "add",
         "path": "/spec/ports/-",
@@ -36,6 +39,7 @@ data:
           "port": {{ .ingress.port }}
         }
       }
+      {{- end }}
       {{- end }}
     ]
 ---
