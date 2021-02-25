@@ -24,6 +24,11 @@ data:
         - port:
             number: {{ .ingress.port }}
             name: "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}"
+            {{- if or (eq .protocol "https") (eq .protocol "tls") }}
+            protocol: "HTTPS"
+            {{- else }}
+            protocol: {{ .protocol | quote }}
+            {{- end}}
             protocol: {{ .protocol }}
           hosts:
             - {{ $host | quote }}
@@ -50,7 +55,11 @@ data:
           "port":{
               "number": {{ .ingress.port }},
               "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
+              {{- if or (eq .protocol "https") (eq .protocol "tls") }}
+              "protocol": "HTTPS"
+              {{- else }}
               "protocol": {{ .protocol | quote }}
+              {{- end}}
           },
           "hosts": [{{ $host | quote }}],
           {{- if or (eq .protocol "https") (eq .protocol "tls") }}
