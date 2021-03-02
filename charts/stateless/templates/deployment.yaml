@@ -207,10 +207,10 @@ spec:
             subPath: {{ .subPath }}
             {{- end }}
           {{- end }}
-          {{- range $path, $config := .Values.extraConfig }}
+          {{- if .Values.extraConfig }}
           - name: extraconfig
-            mountPath: /usr/share/"{{ template "argonaut-deployment.uname" . }}"/config/{{ $path }}
-            subPath: {{ $path }}
+            mountPath: {{ .Values.extraConfig.path }}
+            readOnly: {{ .Values.extraConfig.readOnly }}
           {{- end -}}
           {{ if .Values.extraContainers }}
 {{ toYaml .Values.extraContainers  | quote | indent 6 }}

@@ -11,7 +11,7 @@ argonaut:
   artDirGitURL: "https://github.com/argonautdev/art/" # Git URL that contains a ".art" folder which contains this "art.yaml" file
   gitBranch: main
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed
-  serviceType: "stateful" # One of {stateful, stateless, managed}
+  serviceType: "stateless" # One of {stateful, stateless, managed}
 
 image: "nginx"
 imageTag: "latest"
@@ -265,7 +265,18 @@ extraContainers:
 
 # Allows you to add any config files in /usr/share/myapp/config/
 # as a ConfigMap
-extraConfig: {}
+extraConfig:
+  {}
+  # path: "/path/to/config/folder/"
+  # readOnly: true
+  # data:
+  #   pokedex.yaml: |
+  #     pokemonName: Pikachu
+  #     pokemonType: Lightning
+
+  #   battle.yaml: |
+  #     pokemon1: Pikachu
+  #     pokemon2: MewTwo
 
 # Extra environment variables to append to this nodeGroup
 # This will be appended to the current 'env:' key. You can use any of the kubernetes env
