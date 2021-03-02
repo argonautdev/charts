@@ -133,11 +133,11 @@ spec:
             defaultMode: {{ .defaultMode }}
             {{- end }}
         {{- end }}
-        {{- if .Values.extraConfig }}
+        {{- range .Values.extraConfig }}
         # extraConfig
-        - name: extraconfig
+        - name: {{ .name | lower }}
           configMap:
-            name: {{ template "argonaut-deployment.uname" . }}-extraconfig
+            name: "{{ $name }}-{{ .name | lower }}"
         {{- end }}
 {{- if .Values.keystore }}
         - name: keystore
@@ -224,10 +224,10 @@ spec:
             subPath: {{ .subPath }}
             {{- end }}
           {{- end }}
-          {{- if .Values.extraConfig }}
-          - name: extraconfig
-            mountPath: {{ .Values.extraConfig.path }}
-            readOnly: {{ .Values.extraConfig.readOnly }}
+          {{- range .Values.extraConfig }}
+          - name: {{ .name | lower }}
+            mountPath: {{ .path }}
+            readOnly: {{ .readOnly }}
           {{- end -}}
         {{- if .Values.extraVolumeMounts }}
 {{ toYaml .Values.extraVolumeMounts | indent 10 }}

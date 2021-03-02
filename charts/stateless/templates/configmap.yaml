@@ -1,14 +1,19 @@
-{{- if .Values.extraConfig }}
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $releaseService := .Release.Service | quote -}}
+{{- $releaseName := .Release.Name | quote -}}
+{{- $chartName := .Chart.Name -}}
+
+{{- range .Values.extraConfig }}
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "argonaut-deployment.uname" . }}-extraconfig
+  name: "{{ $name }}-{{ .name | lower }}"
   labels:
-    heritage: {{ .Release.Service | quote }}
-    release: {{ .Release.Name | quote }}
-    chart: "{{ .Chart.Name }}"
-    app: "{{ template "argonaut-deployment.uname" . }}"
+    heritage: {{ $releaseService }}
+    release: {{ $releaseName }}
+    chart: "{{ $chartName }}"
+    app: {{ $name }}
 data:
-{{ toYaml .Values.extraConfig.data | indent 2 }}
-
+{{ toYaml .data | indent 2 }}
 {{- end }}

@@ -125,8 +125,7 @@ envFrom: []
 #     name: config-map
 
 # A list of secrets and their paths to mount inside the pod
-# This is useful for mounting certificates for security and for mounting
-# the X-Pack license
+# This is useful for mounting certificates for security
 secretMounts: []
 #  - name: myapp-certificates
 #    secretName: myapp-certificates
@@ -149,7 +148,7 @@ sidecarResources:
 # maxUnavailable: 25%
 updateStrategy: RollingUpdate
 # How long to wait for myapp to stop gracefully
-terminationGracePeriod: 120
+terminationGracePeriod: 30
 
 lifecycle:
   {}
@@ -266,17 +265,28 @@ extraContainers:
 # Allows you to add any config files in /usr/share/myapp/config/
 # as a ConfigMap
 extraConfig:
-  {}
-  # path: "/path/to/config/folder/"
-  # readOnly: true
-  # data:
-  #   pokedex.yaml: |
-  #     pokemonName: Pikachu
-  #     pokemonType: Lightning
+  - name: configName
+    path: "/path/to/config/folder/"
+    readOnly: true
+    data:
+      pokedex.yaml: |
+        pokemonName: Pikachu
+        pokemonType: Lightning
 
-  #   battle.yaml: |
-  #     pokemon1: Pikachu
-  #     pokemon2: MewTwo
+      battle.yaml: |
+        pokemon1: Pikachu
+        pokemon2: MewTwo
+  - name: configName2
+    path: "/path/to/config/anotherfolder/"
+    readOnly: true
+    data:
+      pokedex.yaml: |
+        pokemonName: Pikachu
+        pokemonType: Lightning
+
+      battle.yaml: |
+        pokemon1: Pikachu
+        pokemon2: MewTwo
 
 # Extra environment variables to append to this nodeGroup
 # This will be appended to the current 'env:' key. You can use any of the kubernetes env
