@@ -5,8 +5,8 @@ maintainers:
   - email: dev@argonaut.dev
     name: Argonaut
 name: "external"
-version: "v0.1.0"
-appVersion: "v0.1.0"
+version: v0.1.2
+appVersion: v0.1.2
 sources:
   - https://argonaut.dev
 icon: https://argonaut.dev/images/logo-dark.png

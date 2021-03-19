@@ -116,10 +116,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: argonaut.dev/environment-{{ .Values.env }}
+              - key: argonaut.dev/environment
                 operator: In
                 values:
-                  - "true"
+                  - {{ .Values.env }}
       {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}
