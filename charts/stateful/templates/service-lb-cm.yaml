@@ -4,7 +4,6 @@
 {{- $releaseService := .Release.Service -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
-{{- if .Values.services -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -43,4 +42,3 @@ data:
       {{- end }}
     ]
 ---
-{{- end -}}

@@ -5,7 +5,6 @@
 {{- $version := .Values.version | default .Release.Revision -}}
 {{- $host := .Values.host -}}
 
-{{- if .Values.services -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -82,4 +81,3 @@ data:
     ]
 
 ---
-{{- end -}}
