@@ -4,7 +4,6 @@
 {{- $releaseService := .Release.Service -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 {{- $hosts := .Values.hosts -}}
-{{- $rand := randAlphaNum 6 | lower -}}
 
 apiVersion: v1
 kind: ConfigMap
@@ -23,7 +22,7 @@ data:
       {{- range .Values.services }} 
         - port:
             number: {{ .ingress.port }}
-            name: "{{ .protocol | trunc 8 -}}-{{- $rand -}}"
+            name: "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}"
             {{- if or (eq .protocol "https") (eq .protocol "tls") }}
             protocol: "https"
             {{- else }}
@@ -56,7 +55,7 @@ data:
         "value":{
           "port":{
               "number": {{ .ingress.port }},
-              "name": "{{ .protocol | trunc 8 -}}-{{- $rand -}}",
+              "name": "{{ .protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
               {{- if or (eq .protocol "https") (eq .protocol "tls") }}
               "protocol": "https"
               {{- else }}
