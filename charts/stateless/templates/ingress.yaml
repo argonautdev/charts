@@ -2,13 +2,13 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
-{{- $host := .Values.host -}}
+{{- $hosts := .Values.hosts -}}
 {{- $env := .Values.env -}}
 
 ---
 # Configure Virtual Services
 {{- range .Values.services }}
-{{- if and .ingress .ingress.enabled }}
+{{- if and .ingress .ingress.enabled $hosts }}
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
@@ -20,11 +20,7 @@ metadata:
     app: {{ $name | quote }}
 spec:
   hosts:
-    {{- if or (empty $host) (eq $host "local") }}
-    - "*"
-    {{- else }}
-    - {{ $host }}
-    {{- end }}
+{{ toYaml $hosts | indent 4 }}
   gateways:
     - tools/ingress-gateway
   exportTo:
@@ -48,7 +44,7 @@ spec:
     - match:
       - port: {{ .ingress.port }}
         sniHosts:
-        - {{ $host }}
+{{ toYaml $hosts | indent 10 }}
       route:
       - destination:
           host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"

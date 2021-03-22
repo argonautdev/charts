@@ -2,7 +2,9 @@
 version: "v1"
 appName: "nginx-deployment"
 env: "dev"
-host: "app.tritonhq.io"
+hosts:
+  - "app.tritonhq.io"
+  - dev.tritonhq.io
 
 argonaut:
   cloudProvider: aws
