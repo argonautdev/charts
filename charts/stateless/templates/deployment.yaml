@@ -73,7 +73,7 @@ spec:
           secret:
             secretName: {{ .secretName | quote  }}
             {{- if .defaultMode }}
-            defaultMode: {{ .defaultMode | quote  }}
+            defaultMode: {{ .defaultMode }}
             {{- end }}
         {{- end }}
         {{- range .Values.extraConfig }}
