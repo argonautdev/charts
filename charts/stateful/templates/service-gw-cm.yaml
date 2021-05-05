@@ -62,7 +62,7 @@ data:
               "protocol": {{ .protocol | quote }}
               {{- end}}
           },
-          "hosts": [ {{- range $hosts -}} {{- . | quote -}}, {{- end -}} ],
+          "hosts": [ {{- range $hosts -}} {{- . | quote -}} {{- end -}} ],
           {{- if or (eq .protocol "https") (eq .protocol "tls") }}
           {{- if eq .ingress.tls "terminated" }}
           "tls": {
