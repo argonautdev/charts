@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Argonaut Resource Template - ART
+home: https://argonaut.dev
+maintainers:
+  - email: dev@argonaut.dev
+    name: Argonaut
+name: stateless-app
+version: v0.1.4
+appVersion: v0.1.4
+sources:
+  - https://argonaut.dev
+icon: https://argonaut.dev/images/logo-dark.png
