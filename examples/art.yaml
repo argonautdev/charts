@@ -1,15 +1,15 @@
 ---
 version: "v1"
 appName: "nginx-deployment"
-env: "dev"
+env: "next"
 hosts:
-  - "app.tritonhq.io"
+  - "next.tritonhq.io"
   - dev.tritonhq.io
 
 argonaut:
   cloudProvider: aws
   cloudRegion: us-east-2
-  cloudCluster: argonaut
+  cloudCluster: next
   artDirGitURL: "https://github.com/argonautdev/art/" # Git URL that contains a ".art" folder which contains this "art.yaml" file
   gitBranch: main
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed

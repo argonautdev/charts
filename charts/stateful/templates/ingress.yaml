@@ -4,6 +4,7 @@
 {{- $releaseService := .Release.Service -}}
 {{- $hosts := .Values.hosts -}}
 {{- $env := .Values.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
 
 ---
 # Configure Virtual Services
@@ -14,10 +15,12 @@ kind: VirtualService
 metadata:
   name: "{{ $name }}-{{- .name -}}-vs"
   labels:
-    heritage: {{ $releaseService | quote }}
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
 spec:
   hosts:
 {{ toYaml $hosts | indent 4 }}
