@@ -1,14 +1,14 @@
 ---
 version: "v1"
 appName: "nginx-h3"
-env: "next"
 # hosts:
 #   - "app.tritonhq.io"
 #   # - "dev.tritonhq.io"
 
 argonaut:
-  cloudRegion: us-east-2
-  cloudCluster: simp
+  env: "next"
+  region: us-east-2
+  # cluster: simp
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, managed}
 

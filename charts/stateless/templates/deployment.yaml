@@ -3,7 +3,7 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
-{{- $env := .Values.env -}}
+{{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 ---
@@ -126,7 +126,7 @@ spec:
               - key: argonaut.dev/environment
                 operator: In
                 values:
-                  - {{ .Values.env }}
+                  - {{ $env }}
       {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}
