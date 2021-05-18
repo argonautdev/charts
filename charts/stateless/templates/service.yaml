@@ -20,9 +20,10 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
   ports:
     {{- range .Values.services }} 
     - name: "{{ .protocol | trunc 5 -}}-{{- $name | trunc 4 -}}-{{- randAlphaNum 4 | lower -}}"

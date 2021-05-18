@@ -1,9 +1,17 @@
 ---
 version: "v1"
-appName: "nginx-h3"
-# hosts:
-#   - "app.tritonhq.io"
-#   # - "dev.tritonhq.io"
+appName: "bs1"
+image: "ghcr.io/argonautdev/battleship"
+imageTag: "latest"
+
+services:
+  - port: "80"
+    protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+    external:
+      hosts:
+        - "next.x.tritonhq.io"
+      hostPort: "9000"
+      path: "/"
 
 argonaut:
   env: "next"
@@ -11,9 +19,6 @@ argonaut:
   # cluster: simp
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, managed}
-
-image: "nginx"
-imageTag: "latest"
 
 persistentStorage: # Set to [] if no persistent storage is required
   - capacity: "1000M"
@@ -28,24 +33,6 @@ resources:
   requests:
     cpu: "100m"
     memory: "200M"
-
-services:
-  - port: "80"
-    protocol: "http" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
-    external:
-      hosts:
-        - "next.tritonhq.io"
-        - "app0.tritonhq.io"
-      hostPort: "9000"
-      path: "/"
-  - port: "8080"
-    protocol: "http" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
-    external:
-      hosts:
-        - "next.tritonhq.io"
-        - "app0.tritonhq.io"
-      hostPort: "80"
-      path: "/"
 
 #########################################################################################
 # Everything below this is optional and advanced configuration                          #
