@@ -2,7 +2,7 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
-{{- $env := .Values.env -}}
+{{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 {{- if .Values.services -}}
@@ -20,13 +20,13 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
   ports:
     {{- range .Values.services }} 
     - name: "{{ .protocol | trunc 5 -}}-{{- $name | trunc 4 -}}-{{- randAlphaNum 4 | lower -}}"
-    # - name: "{{- $name | trunc 4 -}}-{{ .port | trunc 5 -}}-{{- randAlphaNum 4 | lower -}}"
       protocol: TCP # UDP and SCTP are the other options
       port: {{ .port }}
     {{- end }}

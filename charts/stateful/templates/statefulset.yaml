@@ -3,7 +3,7 @@
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
 {{- $hosts := .Values.hosts -}}
-{{- $env := .Values.env -}}
+{{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 ---
@@ -21,7 +21,6 @@ metadata:
     {{- range $key, $value := .Values.labels }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
-    version: {{ .Values.version | default .Release.Revision | quote }}
   annotations:
     {}
 spec:
@@ -58,17 +57,19 @@ spec:
     metadata:
       name: "{{ template "argonaut-deployment.uname" . }}"
       labels:
-        heritage: {{ .Release.Service | quote }}
-        release: {{ .Release.Name | quote }}
-        chart: {{ .Chart.Name | quote }}
-        app: "{{ template "argonaut-deployment.uname" . }}"
+        helm.sh/chart: {{ $chartName | quote }}
+        app.kubernetes.io/name: {{ $name | quote }}
+        app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+        app.kubernetes.io/instance: {{ $releaseName | quote }}
+        argonaut.dev/env: {{ $env | quote }}
+        app.kubernetes.io/version: {{ $version | quote }}
         {{- range $key, $value := .Values.labels }}
         {{ $key }}: {{ $value | quote }}
         {{- end }}
       annotations:
         {{- range $key, $value := .Values.podAnnotations }}
         {{ $key }}: {{ $value | quote }}
-        {{- end }}
+        {{- end -}}
         {{/* This forces a restart if the configmap has changed */}}
         {{- if .Values.extraConfig }}
         configchecksum: {{ include (print .Template.BasePath "/configmap.yaml") . | sha256sum | trunc 63 }}
@@ -129,7 +130,7 @@ spec:
               - key: argonaut.dev/environment
                 operator: In
                 values:
-                  - {{ .Values.env }}
+                  - {{ $env }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       # Mount Secrets
       volumes:
