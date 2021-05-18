@@ -3,8 +3,7 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
-{{- $hosts := .Values.hosts -}}
-{{- $env := .Values.env -}}
+{{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 
