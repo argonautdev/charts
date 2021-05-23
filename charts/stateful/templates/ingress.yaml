@@ -40,7 +40,7 @@ spec:
             host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"
   {{- else if and (eq .protocol "tls") (eq .ingress.tls "passthrough") -}}
   # https passthrough implementation
-  https:
+  tls:
     - match:
       - port: {{ .ingress.port }}
         sniHosts:

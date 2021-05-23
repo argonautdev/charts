@@ -5,8 +5,8 @@ maintainers:
   - email: dev@argonaut.dev
     name: Argonaut
 name: stateless
-version: v0.1.4
-appVersion: v0.1.4
+version: v0.1.3
+appVersion: v0.1.3
 sources:
   - https://argonaut.dev
 icon: https://argonaut.dev/images/logo-dark.png
