@@ -1,5 +1,9 @@
 #! /bin/bash
 
+## Usage
+# ./create-helm-dist.sh vx.y.z
+# example: ./create-helm-dist.sh v0.2.0
+
 VERSION=$1
 
 for d in charts/*
