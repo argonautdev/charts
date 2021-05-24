@@ -2,6 +2,7 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
+{{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 {{- if .Values.services -}}
@@ -10,17 +11,19 @@ apiVersion: v1
 metadata:
   name: {{ $name | quote }}
   labels:
-    heritage: {{ $releaseService | quote }}
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    version: {{ $version | quote }}
-    app: {{ $name | quote }}
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
 spec:
   type: ClusterIP
   selector:
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
   ports:
     {{- range .Values.services }} 
     - name: "{{ .protocol | trunc 5 -}}-{{- $name | trunc 4 -}}-{{- randAlphaNum 4 | lower -}}"
@@ -29,3 +32,4 @@ spec:
     {{- end }}
 ---
 {{- end -}}
+

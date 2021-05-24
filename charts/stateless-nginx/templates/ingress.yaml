@@ -1,0 +1,69 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $env := .Values.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+
+---
+# Configure Service Ingress
+{{- range .Values.services }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "{{ $name }}-{{- .port -}}-ingress"
+  labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx-ingress
+    nginx.org/ssl-services: "{{ $name }}-{{- .port -}}"
+spec:
+  {{- $servicePort := .port }}
+  # ingressClassName: nginx
+  {{- if eq .protocol "http" }}
+  rules:
+    {{- range .external }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
+        {{- range .paths }}
+          - path: {{ . }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $name | quote }}
+                port:
+                  number: {{ $servicePort }}
+        {{- end }}
+    {{- end }}
+  {{ else if eq .protocol "tls-terminated" }}
+  tls:
+    - hosts:
+        {{- range .external }}
+        - {{ .host | quote }}
+        {{- end }}
+      secretName: letsencrypt-prod
+  rules:
+  {{- range .external }}
+    - host: {{ .host | quote}}
+      http:
+        paths:
+        {{- range .paths }}
+          - path: {{ . }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $name | quote }}
+                port:
+                  number: {{ $servicePort }}
+        {{- end }}
+  {{- end }}
+  {{ end }}
+---
+{{- end }}

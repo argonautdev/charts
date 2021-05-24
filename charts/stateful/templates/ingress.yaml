@@ -2,65 +2,139 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
-{{- $hosts := .Values.hosts -}}
-{{- $env := .Values.env -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
 
 ---
 # Configure Virtual Services
 {{- range .Values.services }}
-{{- if and .ingress .ingress.enabled $hosts }}
+{{- if .external }}
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: "{{ $name }}-{{- .name -}}-vs"
+  name: "{{ $name }}-{{- .port -}}-vs"
   labels:
-    heritage: {{ $releaseService | quote }}
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
 spec:
   hosts:
-{{ toYaml $hosts | indent 4 }}
+{{ toYaml .external.hosts | indent 4 }}
   gateways:
-    - tools/ingress-gateway
+    - "ingress-gw-{{- $name }}"
   exportTo:
-    - "*" # TBD - env interaction
+    - "."
   # terminated tls implementation
-  {{- if or (eq .protocol "http") (and (eq .protocol "tls") (eq .ingress.tls "terminated")) }}
+  {{- if or (eq .protocol "http") (eq .protocol "tls-terminated") (eq .protocol "grpc") }}
   http:
     - match:
         - uri:
-            prefix: {{ .ingress.path }}
+            prefix: {{ .external.path }}
       rewrite:
-        uri: "/" # {{ .ingress.path }}
+        uri: "/" 
       route:
         - destination:
             port:
               number: {{ .port }}
-            host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"
-  {{- else if and (eq .protocol "tls") (eq .ingress.tls "passthrough") -}}
+            host: "{{- $name -}}.{{- $env -}}.svc.cluster.local"
+  {{- else if eq .protocol "tls-passthrough" -}}
   # https passthrough implementation
   tls:
     - match:
-      - port: {{ .ingress.port }}
+      - port: {{ .external.port }}
         sniHosts:
-{{ toYaml $hosts | indent 10 }}
+{{ toYaml .external.hosts | indent 10 }}
       route:
       - destination:
-          host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"
+          host: "{{- $name -}}.{{- $env -}}.svc.cluster.local"
           port:
             number: {{ .port }}
-  {{- else if eq .protocol "tcp" }}
+  {{- else }}
   # tcp implementation
   tcp:
   - match:
-    - port: {{ .ingress.port }}
+    - port: {{ .port }}
     route:
     - destination:
-        host: "{{- $name -}} .{{- $env -}}.svc.cluster.local"
+        host: "{{- $name -}}.{{- $env -}}.svc.cluster.local"
         port:
           number: {{ .port }}
   {{- end -}}
 {{- end }}
 ---
+{{- end }}
+
+---
+
+# configure istio gateways
+{{- if .Values.services }}
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: "ingress-gw-{{- $name }}"
+spec:
+  selector:
+    istio: ingressgateway # uses istio ingress gateway in current namespace
+  servers:
+{{- range .Values.services -}}
+{{- if .external -}}
+    {{- if eq .protocol "http" }}
+    - port:
+        number: {{ .external.hostPort }}
+        name: http2-{{- .external.hostPort }}
+        protocol: HTTP2
+      hosts:
+{{ toYaml .external.hosts | indent 8 }}
+      {{- if eq ( toString .external.hostPort ) "80" }}
+      tls:
+        httpsRedirect: true
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      hosts:
+{{ toYaml .external.hosts | indent 8 }}
+      tls:
+        mode: SIMPLE
+        credentialName: ingress-letsencrypt # must be the same as secret
+      {{- end }}
+    {{- else if eq .protocol "tls-terminated" }}
+    - port:
+        number: {{ .external.hostPort }}
+        name: https-{{- .external.hostPort }}
+        protocol: HTTPS
+      hosts:
+{{ toYaml .external.hosts | indent 8 }}
+      tls:
+        mode: SIMPLE
+        credentialName: ingress-letsencrypt # must be the same as secret
+    {{- else if eq .protocol "tls-passthrough" }}
+    - port:
+        number: {{ .external.hostPort }}
+        name: https-{{- .external.hostPort }}
+        protocol: HTTPS
+      hosts:
+{{ toYaml .external.hosts | indent 8 }}
+      tls:
+        mode: PASSTHROUGH
+    {{- else if eq .protocol "grpc" }}
+    - port:
+        number: {{ .external.hostPort }}
+        name: grpc-{{- .external.hostPort }}
+        protocol: TCP
+      hosts:
+{{ toYaml .external.hosts | indent 8 }}
+    {{- else }}
+    - port:
+        number: {{ .external.hostPort }}
+        name: tcp-{{- .external.hostPort }}
+        protocol: TCP
+      hosts:
+{{ toYaml .external.hosts | indent 8 }}
+    {{- end }}
+{{- end }}
+{{- end }}
 {{- end }}

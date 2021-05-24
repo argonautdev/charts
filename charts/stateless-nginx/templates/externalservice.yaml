@@ -1,15 +1,18 @@
+
 {{- $name := include "argonaut-deployment.uname" . -}}
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
-{{- $env := .Values.argonaut.env -}}
+{{- $hosts := .Values.hosts -}}
+{{- $env := .Values.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
-{{- if .Values.services -}}
-kind: Service
-apiVersion: v1
+
+{{- range $index, $value := .Values.externalServices }}
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
 metadata:
-  name: {{ $name | quote }}
+  name: "{{- .name }}"
   labels:
     helm.sh/chart: {{ $chartName | quote }}
     app.kubernetes.io/name: {{ $name | quote }}
@@ -18,18 +21,36 @@ metadata:
     argonaut.dev/env: {{ $env | quote }}
     app.kubernetes.io/version: {{ $version | quote }}
 spec:
-  type: ClusterIP
-  selector:
+  hosts:
+    {{- range .hosts }}
+    - {{ . }}
+    {{- end }}
+  ports:
+  {{- range .ports }}
+    - name: {{ .name }}
+      protocol: {{ .protocol }}
+      number: {{ .number }}
+  {{- end }}
+  resolution: {{ .resolution }} # DNS
+  location: {{ .location }}
+---
+{{- $svcName := .name -}}
+{{- range .hosts }}
+kind: Service
+apiVersion: v1
+metadata:
+ name: {{ $svcName | quote }}
+ labels:
+    helm.sh/chart: {{ $chartName | quote }}
     app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
     app.kubernetes.io/instance: {{ $releaseName | quote }}
     argonaut.dev/env: {{ $env | quote }}
     app.kubernetes.io/version: {{ $version | quote }}
-  ports:
-    {{- range .Values.services }} 
-    - name: "{{ .protocol | trunc 5 -}}-{{- $name | trunc 4 -}}-{{- randAlphaNum 4 | lower -}}"
-      protocol: TCP # UDP and SCTP are the other options
-      port: {{ .port }}
-    {{- end }}
+spec:
+ type: ExternalName
+ externalName: {{ . }}
 ---
-{{- end -}}
+{{- end }}
+{{- end }}
 

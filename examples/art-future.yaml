@@ -1,22 +1,24 @@
 ---
 version: "v1"
-appName: "nginx-deployment"
-env: "next"
-hosts:
-  - "next.tritonhq.io"
-  - dev.tritonhq.io
+appName: "bs1"
+image: "ghcr.io/argonautdev/battleship"
+imageTag: "latest"
+
+services:
+  - port: "80"
+    protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+    external:
+      hosts:
+        - "next.x.tritonhq.io"
+      hostPort: "9000"
+      path: "/"
 
 argonaut:
-  cloudProvider: aws
-  cloudRegion: us-east-2
-  cloudCluster: next
-  artDirGitURL: "https://github.com/argonautdev/art/" # Git URL that contains a ".art" folder which contains this "art.yaml" file
-  gitBranch: main
+  env: "dev"
+  region: us-east-2
+  cluster: next
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, managed}
-
-image: "nginx"
-imageTag: "latest"
 
 persistentStorage: # Set to [] if no persistent storage is required
   - capacity: "1000M"
@@ -25,36 +27,17 @@ persistentStorage: # Set to [] if no persistent storage is required
 
 replicas: 1
 minReplicas: 1
-maxReplicas: 5
+maxReplicas: 8
 
 resources:
   requests:
     cpu: "100m"
     memory: "200M"
-  # limits:
-  #   cpu: "200m"
-  #   memory: "256M"
 
-# entrypoint: ["echo"] # overrides
-# cmd: ["Hello World"] # overrides
-
-services:
-  - name: "80" # appname will be prefixed, needs to be unique
-    protocol: http # http, tls, tcp
-    port: 80 # number only
-    ingress:
-      enabled: true
-      tls: "" # "terminated" or "" (not applicable) or "passthrough"
-      port: 3000
-      path: "/" # prefix regex match
-  # - name: "443" # appname will be prefixed, needs to be unique
-  #   protocol: tls # http, tls, tcp
-  #   port: 443 # number only
-  #   ingress:
-  #     enabled: true
-  #     tls: "terminated" # "terminated" or "" (not applicable) or "passthrough"
-  #     port: 80
-  #     path: "/" # prefix regex match
+#########################################################################################
+# Everything below this is optional and advanced configuration                          #
+# and irrelevant in most scenarios.                                                     #
+#########################################################################################
 
 # Can only do one of the httpGet and exec handler methods for livenessProbe
 livenessProbe:
@@ -94,11 +77,6 @@ readinessProbe:
   periodSeconds: 10
   timeoutSeconds: 5
 
-#########################################################################################
-# Everything below this is optional and advanced configuration                          #
-# and irrelevant in most scenarios.                                                     #
-#########################################################################################
-
 externalServices:
   []
   # - name: rds-postgres
@@ -128,11 +106,11 @@ envFrom: []
 
 # A list of secrets and their paths to mount inside the pod
 # This is useful for mounting certificates for security
-secretMounts: []
-#  - name: myapp-certificates
-#    secretName: myapp-certificates
-#    path: /usr/share/myapp/config/certs
-#    defaultMode: 0755
+secretMounts:
+  []
+  # - name: beamd-cert
+  #   secretName: beamd-cert
+  #   path: /usr/share/myapp/config/certs
 
 sidecarResources:
   {}
@@ -165,24 +143,6 @@ rbac:
   create: false
   serviceAccountAnnotations: {}
   serviceAccountName: ""
-
-podSecurityPolicy:
-  create: false
-  name: ""
-  spec:
-    privileged: true
-    fsGroup:
-      rule: RunAsAny
-    runAsUser:
-      rule: RunAsAny
-    seLinux:
-      rule: RunAsAny
-    supplementalGroups:
-      rule: RunAsAny
-    volumes:
-      - secret
-      - configMap
-      - persistentVolumeClaim
 
 # This is the PriorityClass settings as defined in
 # https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass
@@ -296,3 +256,4 @@ extraConfig:
 extraEnvs: []
 #  - name: MY_ENVIRONMENT_VAR
 #    value: the_value_goes_here
+

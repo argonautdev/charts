@@ -1,7 +1,9 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
-{{- $releaseService := .Release.Service | quote -}}
-{{- $releaseName := .Release.Name | quote -}}
 {{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
 
 {{- range .Values.extraConfig }}
 ---
@@ -10,10 +12,12 @@ kind: ConfigMap
 metadata:
   name: "{{ $name }}-{{ .name | lower }}"
   labels:
-    heritage: {{ $releaseService }}
-    release: {{ $releaseName }}
-    chart: "{{ $chartName }}"
-    app: {{ $name }}
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
 data:
 {{ toYaml .data | indent 2 }}
 {{- end }}

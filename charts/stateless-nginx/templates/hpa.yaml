@@ -5,11 +5,11 @@
 {{- $env := .Values.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
-{{- if .Values.services -}}
-kind: Service
-apiVersion: v1
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ $name | quote }}
+  name: {{ $name }}-hpa
   labels:
     helm.sh/chart: {{ $chartName | quote }}
     app.kubernetes.io/name: {{ $name | quote }}
@@ -18,17 +18,10 @@ metadata:
     argonaut.dev/env: {{ $env | quote }}
     app.kubernetes.io/version: {{ $version | quote }}
 spec:
-  type: ClusterIP
-  selector:
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
-  ports:
-    {{- range .Values.services }} 
-    - name: "{{ $name | trunc 6 }}-{{- .name | trunc 8 -}}"
-      protocol: TCP # UDP and SCTP are the other options
-      port: {{ .port }}
-    {{- end }}
----
-{{- end -}}
-
+  maxReplicas: {{ int .Values.maxReplicas  }}
+  minReplicas: {{ int .Values.minReplicas  }}
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: "{{ $name }}"
+  targetCPUUtilizationPercentage: 80
