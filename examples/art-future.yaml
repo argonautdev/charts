@@ -14,9 +14,9 @@ services:
       path: "/"
 
 argonaut:
-  env: "next"
+  env: "dev"
   region: us-east-2
-  # cluster: simp
+  cluster: next
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, managed}
 
