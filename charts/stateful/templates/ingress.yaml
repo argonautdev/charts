@@ -99,7 +99,7 @@ spec:
 {{ toYaml .external.hosts | indent 8 }}
       tls:
         mode: SIMPLE
-        credentialName: ingress-letsencrypt # must be the same as secret
+        credentialName: "{{ $env -}}/ingress-letsencrypt" # must be the same as secret
       {{- end }}
     {{- else if eq .protocol "tls-terminated" }}
     - port:
@@ -110,7 +110,7 @@ spec:
 {{ toYaml .external.hosts | indent 8 }}
       tls:
         mode: SIMPLE
-        credentialName: ingress-letsencrypt # must be the same as secret
+        credentialName: "{{ $env -}}/ingress-letsencrypt" # must be the same as secret
     {{- else if eq .protocol "tls-passthrough" }}
     - port:
         number: {{ .external.hostPort }}
