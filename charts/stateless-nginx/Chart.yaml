@@ -4,7 +4,7 @@ home: https://argonaut.dev
 maintainers:
   - email: dev@argonaut.dev
     name: Argonaut
-name: stateless-app
+name: stateless-nginx
 version: v0.2.0
 appVersion: v0.2.0
 sources:
