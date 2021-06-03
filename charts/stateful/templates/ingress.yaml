@@ -33,7 +33,7 @@ spec:
     - match:
         - uri:
             prefix: {{ .external.path }}
-          port: {{ .external.port }}
+          port: {{ .external.hostPort }}
       rewrite:
         uri: "/" 
       route:
