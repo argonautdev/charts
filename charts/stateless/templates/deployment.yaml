@@ -188,18 +188,16 @@ spec:
 {{ toYaml .Values.readinessProbe | indent 10 }}
         lifecycle:
 {{ toYaml .Values.lifecycle | indent 10 }}
-        {{- if .Values.persistentStorage }}
         volumeMounts:
           {{- range $index, $volumeMount := .Values.persistentStorage }}
           - name: "storage-vol-{{ $index }}"
             mountPath: "{{ $volumeMount.mountPath }}"
           {{- end }}
-        {{- end }}
-          {{ if .Values.keystore }}
+          {{- if .Values.keystore }}
           - name: keystore
             mountPath: /usr/share/"{{ template "argonaut-deployment.uname" . }}"/config/"{{ template "argonaut-deployment.uname" . }}".keystore
             subPath: "{{ template "argonaut-deployment.uname" . }}".keystore
-          {{ end }}
+          {{- end }}
           {{- range .Values.secretMounts }}
           - name: {{ .name }}
             mountPath: {{ .path }}
