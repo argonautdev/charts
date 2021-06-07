@@ -27,5 +27,5 @@ done
 # helm package charts/stateless
 # mv stateless-$1.tgz dist/
 
-helm repo index dist --url https://raw.githubusercontent.com/argonautdev/charts/main/dist/
+helm repo index dist --url https://raw.githubusercontent.com/argonautdev/charts/$VERSION/dist/
 echo "Updated chart index"
