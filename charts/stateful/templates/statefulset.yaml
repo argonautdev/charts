@@ -160,7 +160,7 @@ spec:
 {{ toYaml .Values.extraVolumes | indent 8 }}
       {{- end }}
       imagePullSecrets:
-        - name: {{ template "argonaut-deployment.uname" . }}-img-secret
+        - name: {{ .Values.argonaut.imageRegistry }}-imgpullsecret
       {{- if .Values.initContainer.enabled }}
       initContainers:
       - name: init-container

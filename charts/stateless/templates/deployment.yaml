@@ -133,7 +133,7 @@ spec:
       {{- end }}
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
-        - name: {{ template "argonaut-deployment.uname" . }}-img-secret
+        - name: {{ .Values.argonaut.imageRegistry }}-imgpullsecret
       {{- end }}
       {{- if .Values.initContainer.enabled }}
       initContainers:
