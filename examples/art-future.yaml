@@ -14,7 +14,7 @@ services:
       path: "/"
 
 argonaut:
-  env: "dev"
+  env: "tundra"
   region: us-east-2
   cluster: next
   imageRegistry: ghcr.io # corresponding to the image that is to be deployed
