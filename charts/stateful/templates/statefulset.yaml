@@ -148,19 +148,19 @@ spec:
           configMap:
             name: "{{ $name }}-{{ .name | lower }}"
         {{- end }}
-{{- if .Values.keystore }}
+        {{- if .Values.keystore }}
         - name: keystore
           emptyDir: {}
         {{- range .Values.keystore }}
         - name: keystore-{{ .secretName }}
           secret: {{ toYaml . | nindent 12 }}
         {{- end }}
-{{ end }}
-      {{- if .Values.extraVolumes }}
+        {{ end }}
+        {{- if .Values.extraVolumes }}
 {{ toYaml .Values.extraVolumes | indent 8 }}
-      {{- end }}
+        {{- end }}
       imagePullSecrets:
-        - name: {{ template "argonaut-deployment.uname" . }}-img-secret
+        - name: {{ .Values.argonaut.imageRegistry }}-imgpullsecret
       {{- if .Values.initContainer.enabled }}
       initContainers:
       - name: init-container
@@ -203,27 +203,28 @@ spec:
         {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
-        env:
 {{- if .Values.extraEnvs }}
+        env:
 {{ toYaml .Values.extraEnvs | indent 10 }}
 {{- end }}
-{{- if .Values.envFrom }}
         envFrom:
+          - secretRef:
+              name: "art-{{- $name -}}-secret"
+              optional: true
+{{- if .Values.envFrom }}
 {{ toYaml .Values.envFrom | indent 10 }}
 {{- end }}
         # Persistence Enabled - volume mounts
-        {{- if .Values.persistentStorage }}
         volumeMounts:
           {{- range $index, $volumeMount := .Values.persistentStorage }}
           - name: "storage-vol-{{ $index }}"
             mountPath: "{{ $volumeMount.mountPath }}"
           {{- end }}
-        {{- end }}
-{{ if .Values.keystore }}
+          {{- if .Values.keystore }}
           - name: keystore
             mountPath: /usr/share/"{{ template "argonaut-deployment.uname" . }}"/config/"{{ template "argonaut-deployment.uname" . }}".keystore
             subPath: "{{ template "argonaut-deployment.uname" . }}".keystore
-{{ end }}
+          {{- end -}}
           {{- range .Values.secretMounts }}
           - name: {{ .name }}
             mountPath: {{ .path }}

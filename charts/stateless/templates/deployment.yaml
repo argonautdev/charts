@@ -68,17 +68,14 @@ spec:
       hostAliases: {{ toYaml .Values.hostAliases | quote | nindent 6 }}
       {{- end }}
       volumes:
-        {{- if .Values.persistentStorage }}
         {{- range $index, $volumeMount := .Values.persistentStorage }}
         - name: "storage-vol-{{ $index }}"
           emptyDir: {}
-        {{- end -}}
-        {{- end -}}
+        {{- end }}
         {{- range .Values.secretMounts }}
-        # Mount Secrets
-        - name: {{ .name | quote }}
+        - name: {{ .name }}
           secret:
-            secretName: {{ .secretName | quote  }}
+            secretName: {{ .secretName }}
             {{- if .defaultMode }}
             defaultMode: {{ .defaultMode }}
             {{- end }}
@@ -88,6 +85,17 @@ spec:
         - name: {{ .name | lower }}
           configMap:
             name: "{{ $name }}-{{ .name | lower }}"
+        {{- end }}
+        {{- if .Values.keystore }}
+        - name: keystore
+          emptyDir: {}
+        {{- range .Values.keystore }}
+        - name: keystore-{{ .secretName }}
+          secret: {{ toYaml . | nindent 12 }}
+        {{- end }}
+        {{ end }}
+        {{- if .Values.extraVolumes }}
+{{ toYaml .Values.extraVolumes | indent 8 }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -133,7 +141,7 @@ spec:
       {{- end }}
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
-        - name: {{ template "argonaut-deployment.uname" . }}-img-secret
+        - name: {{ .Values.argonaut.imageRegistry }}-imgpullsecret
       {{- end }}
       {{- if .Values.initContainer.enabled }}
       initContainers:
@@ -181,30 +189,31 @@ spec:
         {{- end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
-        env:
 {{- if .Values.extraEnvs }}
+        env:
 {{ toYaml .Values.extraEnvs | indent 10 }}
 {{- end }}
-{{- if .Values.envFrom }}
         envFrom:
+          - secretRef:
+              name: "art-{{- $name -}}-secret"
+              optional: true
+{{- if .Values.envFrom }}
 {{ toYaml .Values.envFrom | indent 10 }}
 {{- end }}
         readinessProbe:
 {{ toYaml .Values.readinessProbe | indent 10 }}
         lifecycle:
 {{ toYaml .Values.lifecycle | indent 10 }}
-        {{- if .Values.persistentStorage }}
         volumeMounts:
           {{- range $index, $volumeMount := .Values.persistentStorage }}
           - name: "storage-vol-{{ $index }}"
             mountPath: "{{ $volumeMount.mountPath }}"
-          {{- end -}}
-        {{- end -}}
+          {{- end }}
           {{- if .Values.keystore }}
           - name: keystore
             mountPath: /usr/share/"{{ template "argonaut-deployment.uname" . }}"/config/"{{ template "argonaut-deployment.uname" . }}".keystore
             subPath: "{{ template "argonaut-deployment.uname" . }}".keystore
-          {{ end }}
+          {{- end -}}
           {{- range .Values.secretMounts }}
           - name: {{ .name }}
             mountPath: {{ .path }}
@@ -217,6 +226,9 @@ spec:
             mountPath: {{ .path }}
             readOnly: {{ .readOnly }}
           {{- end -}}
+        {{- if .Values.extraVolumeMounts }}
+{{ toYaml .Values.extraVolumeMounts | indent 10 }}
+        {{- end }}
           {{ if .Values.extraContainers }}
 {{ toYaml .Values.extraContainers  | quote | indent 6 }}
           {{- end -}}
