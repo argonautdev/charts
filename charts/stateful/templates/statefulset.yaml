@@ -139,17 +139,17 @@ spec:
           configMap:
             name: "{{ $name }}-{{ .name | lower }}"
         {{- end }}
-{{- if .Values.keystore }}
+        {{- if .Values.keystore }}
         - name: keystore
           emptyDir: {}
         {{- range .Values.keystore }}
         - name: keystore-{{ .secretName }}
           secret: {{ toYaml . | nindent 12 }}
         {{- end }}
-{{ end }}
-      {{- if .Values.extraVolumes }}
+        {{ end }}
+        {{- if .Values.extraVolumes }}
 {{ toYaml .Values.extraVolumes | indent 8 }}
-      {{- end }}
+        {{- end }}
       imagePullSecrets:
         - name: {{ template "argonaut-deployment.uname" . }}-img-secret
       {{- if .Values.initContainer.enabled }}
@@ -209,11 +209,11 @@ spec:
           - name: "storage-vol-{{ $index }}"
             mountPath: "{{ $volumeMount.mountPath }}"
           {{- end }}
-{{- if .Values.keystore }}
+          {{- if .Values.keystore }}
           - name: keystore
             mountPath: /usr/share/"{{ template "argonaut-deployment.uname" . }}"/config/"{{ template "argonaut-deployment.uname" . }}".keystore
             subPath: "{{ template "argonaut-deployment.uname" . }}".keystore
-{{- end -}}
+          {{- end -}}
           {{- range .Values.secretMounts }}
           - name: {{ .name }}
             mountPath: {{ .path }}
