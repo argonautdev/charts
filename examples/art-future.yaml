@@ -9,21 +9,22 @@ services:
     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
-        - "next.x.tritonhq.io"
+        - "test.x.tritonhq.io"
       hostPort: "9000"
       path: "/"
 
 argonaut:
-  env: "tundra"
-  region: us-east-2
-  cluster: next
-  imageRegistry: ghcr.io # corresponding to the image that is to be deployed
+  env: tropical
+  region: us-east-1
+  cluster: tropical
+  imageRegistry: test-cr-name # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, managed}
 
-persistentStorage: # Set to [] if no persistent storage is required
-  - capacity: "1000M"
-    mountPath: "/usr/share/appdata"
-    accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
+persistentStorage:
+  [] # Set to [] if no persistent storage is required
+  # - capacity: "1000M"
+  #   mountPath: "/usr/share/appdata"
+  #   accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
 
 replicas: 1
 minReplicas: 1

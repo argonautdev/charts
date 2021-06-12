@@ -45,7 +45,7 @@ spec:
           argonaut.dev/env: {{ $env | quote }}
           app.kubernetes.io/version: {{ $version | quote }}
       spec:
-        storageClassName: "ebs-gp2-resizable"
+        # storageClassName: "ebs-gp2-resizable"
         accessModes:
           - {{ $volumeMount.accessMode | quote }}
         resources:
