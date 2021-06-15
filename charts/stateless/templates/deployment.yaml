@@ -108,7 +108,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: app
+              - key: app.kubernetes.io/name
                 operator: In
                 values:
                 - "{{ template "argonaut-deployment.uname" .}}"
@@ -121,20 +121,20 @@ spec:
               topologyKey: {{ .Values.antiAffinityTopologyKey }}
               labelSelector:
                 matchExpressions:
-                - key: app
+                - key: app.kubernetes.io/name
                   operator: In
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
         {{- end }}
       {{- end }}
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: argonaut.dev/environment
-                operator: In
-                values:
-                  - {{ $env }}
+        # nodeAffinity:
+        #   requiredDuringSchedulingIgnoredDuringExecution:
+        #     nodeSelectorTerms:
+        #     - matchExpressions:
+        #       - key: argonaut.dev/environment
+        #         operator: In
+        #         values:
+        #           - {{ $env }}
       {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}

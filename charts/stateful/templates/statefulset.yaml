@@ -105,7 +105,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: app
+              - key: app.kubernetes.io/name
                 operator: In
                 values:
                 - "{{ template "argonaut-deployment.uname" .}}"
@@ -118,19 +118,19 @@ spec:
               topologyKey: {{ .Values.antiAffinityTopologyKey }}
               labelSelector:
                 matchExpressions:
-                - key: app
+                - key: app.kubernetes.io/name
                   operator: In
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
       {{- end }}
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: argonaut.dev/environment
-                operator: In
-                values:
-                  - {{ $env }}
+        # nodeAffinity:
+        #   requiredDuringSchedulingIgnoredDuringExecution:
+        #     nodeSelectorTerms:
+        #     - matchExpressions:
+        #       - key: argonaut.dev/environment
+        #         operator: In
+        #         values:
+        #           - {{ $env }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       # Mount Secrets
       volumes:
