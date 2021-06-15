@@ -123,14 +123,14 @@ spec:
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
       {{- end }}
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: argonaut.dev/environment
-                operator: In
-                values:
-                  - {{ $env }}
+        # nodeAffinity:
+        #   requiredDuringSchedulingIgnoredDuringExecution:
+        #     nodeSelectorTerms:
+        #     - matchExpressions:
+        #       - key: argonaut.dev/environment
+        #         operator: In
+        #         values:
+        #           - {{ $env }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       # Mount Secrets
       volumes:
