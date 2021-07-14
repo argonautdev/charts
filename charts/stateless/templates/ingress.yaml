@@ -20,11 +20,10 @@ metadata:
     argonaut.dev/env: {{ $env | quote }}
     app.kubernetes.io/version: {{ $version | quote }}
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    # nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx
-    nginx.org/ssl-services: "{{ $name }}-{{- .port -}}"
+    kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-
 spec:
   {{- $servicePort := .port }}
   # ingressClassName: nginx
@@ -49,7 +48,7 @@ spec:
       {{- range $external.hosts }}
         - {{ . | quote }}
       {{- end }}
-      secretName: "{{ $name }}-tls-secret"
+      secretName: "{{ $name }}-tls-cert"
   rules:
     {{- range $external.hosts }}
     - host: {{ . | quote}}

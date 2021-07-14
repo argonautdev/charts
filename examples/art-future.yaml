@@ -26,7 +26,7 @@ argonaut:
   env: tropical
   region: us-east-1
   cluster: tropical
-  imageRegistry: test-cr-name # corresponding to the image that is to be deployed
+  imageRegistry: ghcr # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, managed}
 
 persistentStorage:
