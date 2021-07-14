@@ -1,0 +1,48 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ $name }}-art-lb-cm"
+  labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+data:
+  loadbalancerYaml: |
+    spec:
+      ports:
+        {{- range .Values.services }}
+        {{- $protocol := .protocol -}}
+        {{- with .external }}
+        - name: "{{ $protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}"
+          protocol: TCP
+          port: {{ .hostPort }}
+        {{- end }}
+        {{- end }}
+  loadbalancerJson: |
+    [
+      {{- range .Values.services }}
+      {{- $protocol := .protocol -}}
+      {{- with .external }}
+      {    
+        "op": "add",
+        "path": "/spec/ports/-",
+        "value":{
+          "name": "{{ $protocol | trunc 8 -}}-{{- randAlphaNum 6 | lower -}}",
+          "protocol": "TCP",
+          "port": {{ .hostPort }}
+        }
+      },
+      {{- end }}
+      {{- end }}
+    ]
+---

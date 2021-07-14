@@ -1,6 +1,6 @@
 ---
 version: "v1"
-appName: "bs1"
+appName: "bs2"
 image: "ghcr.io/argonautdev/battleship"
 imageTag: "latest"
 
@@ -9,9 +9,18 @@ services:
     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
-        - "test.x.tritonhq.io"
-      hostPort: "9000"
-      path: "/"
+        - "bs2.n.tritonhq.io"
+      # hostPort: "9000"
+      paths: ["/"]
+
+# services:
+#   - port: "80"
+#     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+#     external:
+#       hosts:
+#         - "test.x.tritonhq.io"
+#       hostPort: "9000"
+#       path: "/"
 
 argonaut:
   env: tropical

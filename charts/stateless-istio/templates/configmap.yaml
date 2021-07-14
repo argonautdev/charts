@@ -5,11 +5,12 @@
 {{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
-{{- if .Values.services -}}
-kind: Service
+{{- range .Values.extraConfig }}
+---
 apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: {{ $name | quote }}
+  name: "{{ $name }}-{{ .name | lower }}"
   labels:
     helm.sh/chart: {{ $chartName | quote }}
     app.kubernetes.io/name: {{ $name | quote }}
@@ -17,18 +18,6 @@ metadata:
     app.kubernetes.io/instance: {{ $releaseName | quote }}
     argonaut.dev/env: {{ $env | quote }}
     app.kubernetes.io/version: {{ $version | quote }}
-spec:
-  type: ClusterIP
-  selector:
-    release: {{ $releaseName | quote }}
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
-  ports:
-    {{- range .Values.services }} 
-    - name: "{{ $name | trunc 6 }}-{{- .name | trunc 8 -}}"
-      protocol: TCP # UDP and SCTP are the other options
-      port: {{ .port }}
-    {{- end }}
----
-{{- end -}}
-
+data:
+{{ toYaml .data | indent 2 }}
+{{- end }}
