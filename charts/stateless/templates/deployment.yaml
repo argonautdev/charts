@@ -139,7 +139,7 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
       {{- end }}
-      {{- if .Values.imagePullSecrets }}
+      {{- if .Values.argonaut.imageRegistry }}
       imagePullSecrets:
         - name: {{ .Values.argonaut.imageRegistry }}-imgpullsecret
       {{- end }}
