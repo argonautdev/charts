@@ -66,4 +66,13 @@ spec:
     {{- end }}
   {{ end }}
 ---
+  {{- if or (eq .protocol "tcp") (eq .protocol "udp")}}
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
+      namespace: {{ .Release.Namespace }}
+    data:
+      {{ .port }}: "{{ .Release.Namespace }}/{{ $name }}: {{ .external.hostPort }}"
+  {{- end}}    
 {{- end }}
