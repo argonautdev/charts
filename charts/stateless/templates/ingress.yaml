@@ -2,6 +2,7 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
+{{- $releaseNamespace := .Release.Namespace -}}
 {{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
@@ -13,10 +14,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
-  # namespace: { { .Release.Namespace } }
+  namespace: {{ $releaseNamespace }}
 data:
-  {{ .port }}: "{{ $name }}: {{ .external.hostPort }}"
-  # {{ .port }}: "{ { .Release.Namespace } }/{{ $name }}: {{ .external.hostPort }}"
+  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{ .external.hostPort }}"
 ---
 {{- else }}
 apiVersion: networking.k8s.io/v1

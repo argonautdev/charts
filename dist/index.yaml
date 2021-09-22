@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   base:
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.008221-07:00"
+    created: "2021-09-22T16:43:21.610455-07:00"
     description: Helm chart for deploying Istio cluster resources and CRDs
-    digest: 3a4842e1c12de1ceb39bf99179edf159ff70608ffa64139191a540bf142447d6
+    digest: 141e3aabd21669089699e90c6d61ea836f00c2a20b2fdc28216ea1ccd3f95afd
     icon: https://istio.io/latest/favicons/android-192x192.png
     keywords:
     - istio
@@ -15,7 +15,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/base-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.004947-07:00"
+    created: "2021-09-22T16:43:21.608018-07:00"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: 7a271f5b36229c345c6673de779e231b2ddbb4e1a740c0d061ff40b8bd9ad04f
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -28,7 +28,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/base-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.001332-07:00"
+    created: "2021-09-22T16:43:21.604221-07:00"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: a9365e7de0d84ebfbb97e46edc80cc27b1a3cd9a0c465606536ae86709d504f0
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -41,7 +41,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/base-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
-    created: "2021-09-22T16:16:13.998607-07:00"
+    created: "2021-09-22T16:43:21.601318-07:00"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: fe1db53a873ddc84e442a2bfe811076bb00dc48d44bbc725e720a98e59554146
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -56,9 +56,9 @@ entries:
   external:
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2021-09-22T16:16:14.014143-07:00"
+    created: "2021-09-22T16:43:21.615947-07:00"
     description: Argonaut Resource Template - ART
-    digest: bd82e99314dd9592e4a29437315892676334ed4198f29daeac839f9c223e4631
+    digest: 80d736adbb8b1ef807365b5f02b3b1c9e0cac6a2ebb615f941e6ea84cdf26762
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -72,7 +72,7 @@ entries:
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2021-09-22T16:16:14.013832-07:00"
+    created: "2021-09-22T16:43:21.615628-07:00"
     description: Argonaut Resource Template - ART
     digest: daca5e6ec01ac723dc2708e3bb14c46051a8519cb4477f879dce494a816d23cf
     home: https://argonaut.dev
@@ -88,7 +88,7 @@ entries:
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2021-09-22T16:16:14.013135-07:00"
+    created: "2021-09-22T16:43:21.615248-07:00"
     description: Argonaut Resource Template - ART
     digest: 57783b8577fb39df4afd4314bc7fd2ee304cd77c20bbed9487fe2367f977afe9
     home: https://argonaut.dev
@@ -104,7 +104,7 @@ entries:
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2021-09-22T16:16:14.012723-07:00"
+    created: "2021-09-22T16:43:21.614936-07:00"
     description: Argonaut Resource Template - ART
     digest: a3193fbd11576db155529d130d93725c318bfefbc983966c3af932be4befbc6e
     home: https://argonaut.dev
@@ -120,7 +120,7 @@ entries:
     version: v0.2.0
   - apiVersion: v1
     appVersion: v0.1.4
-    created: "2021-09-22T16:16:14.012326-07:00"
+    created: "2021-09-22T16:43:21.614397-07:00"
     description: Argonaut Resource Template - ART
     digest: 4014f0eb7d9208917590ffb60780a1ea495dfe19030559b26e51e49f9debeb51
     home: https://argonaut.dev
@@ -136,7 +136,7 @@ entries:
     version: v0.1.4
   - apiVersion: v1
     appVersion: v0.1.3
-    created: "2021-09-22T16:16:14.011937-07:00"
+    created: "2021-09-22T16:43:21.613729-07:00"
     description: Argonaut Resource Template - ART
     digest: e8fd49b011c629390d85c03a5e969d356dc5855fe26d4b137beae7c049daac76
     home: https://argonaut.dev
@@ -152,7 +152,7 @@ entries:
     version: v0.1.3
   - apiVersion: v1
     appVersion: v0.1.2
-    created: "2021-09-22T16:16:14.011306-07:00"
+    created: "2021-09-22T16:43:21.613264-07:00"
     description: Argonaut Resource Template - ART
     digest: b3c7bf54c0ff9451f3eb77ea239578e8bef96d9e5cd37d12a96771e7435d243d
     home: https://argonaut.dev
@@ -168,7 +168,7 @@ entries:
     version: v0.1.2
   - apiVersion: v1
     appVersion: v0.1.1
-    created: "2021-09-22T16:16:14.010696-07:00"
+    created: "2021-09-22T16:43:21.612199-07:00"
     description: Argonaut Resource Template - ART
     digest: f00b2393472e8739dbc3e263be5e56f3b5429f092b464fb0b7302ccaf2e03953
     home: https://argonaut.dev
@@ -184,7 +184,7 @@ entries:
     version: v0.1.1
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-09-22T16:16:14.009599-07:00"
+    created: "2021-09-22T16:43:21.61117-07:00"
     description: Argonaut Resource Template - ART
     digest: 7dea50187abf8dc1f0b3cc7b436d148db9c48f1a0e60be673c410ddff51c89e0
     home: https://argonaut.dev
@@ -200,9 +200,9 @@ entries:
     version: v0.1.0
   istio-discovery:
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.024935-07:00"
+    created: "2021-09-22T16:43:21.625859-07:00"
     description: Helm chart for istio control plane
-    digest: 6a3c5c7fc667bbf54b5b52213a938f90e12dd0110991c48d9914689cc9771afb
+    digest: 18f71a3cbfde6d777b940a58c25f2c6dd5444646647e9fb39a00708c0f8fa2ef
     icon: https://istio.io/latest/favicons/android-192x192.png
     keywords:
     - istio
@@ -215,7 +215,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/istio-discovery-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.023139-07:00"
+    created: "2021-09-22T16:43:21.624168-07:00"
     description: Helm chart for istio control plane
     digest: 8ffc421ccfe0491cea86bb924709c310b2e1592dcecfe787afb40bcf50ae74a0
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -230,7 +230,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/istio-discovery-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.019762-07:00"
+    created: "2021-09-22T16:43:21.621122-07:00"
     description: Helm chart for istio control plane
     digest: 7d55e19dd846dd041be839b1296884ef41573735ae12d084aa8f0a582ccdec71
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -245,7 +245,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/istio-discovery-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.016763-07:00"
+    created: "2021-09-22T16:43:21.618687-07:00"
     description: Helm chart for istio control plane
     digest: c3ffd9ec31a0bb8bbbb2720ee0f16ed95332f3ba6c272535d9cedd8eb82baf71
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -261,9 +261,9 @@ entries:
     version: v0.2.0
   istio-ingress:
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.030053-07:00"
+    created: "2021-09-22T16:43:21.632508-07:00"
     description: Helm chart for deploying Istio gateways
-    digest: 6a597d33d87cbb7e72b8aec53ca3a58439338b2302f761c32f97e0da0c0e89d3
+    digest: 43e4f099a86e71e1a1847000905c11ec1f3a86c790558fac0379a1ac397150ac
     icon: https://istio.io/latest/favicons/android-192x192.png
     keywords:
     - istio
@@ -276,7 +276,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/istio-ingress-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.028893-07:00"
+    created: "2021-09-22T16:43:21.631584-07:00"
     description: Helm chart for deploying Istio gateways
     digest: d5bc0ec0851fbef4b18cd7180197385307ead89d367d4d39451e72b4942e011f
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -291,7 +291,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/istio-ingress-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.027484-07:00"
+    created: "2021-09-22T16:43:21.630077-07:00"
     description: Helm chart for deploying Istio gateways
     digest: 6e419d0fe99b8cc8924a32b77a50a7756e1339878a7b575a2a19e12f7af60bff
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -306,7 +306,7 @@ entries:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/istio-ingress-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
-    created: "2021-09-22T16:16:14.026224-07:00"
+    created: "2021-09-22T16:43:21.62821-07:00"
     description: Helm chart for deploying Istio gateways
     digest: 3b1acd828a2535e3f9632d8210014e9100ecbd6e800d4f76113bcd9a086397aa
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -323,9 +323,9 @@ entries:
   stateful:
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2021-09-22T16:16:14.040023-07:00"
+    created: "2021-09-22T16:43:21.643861-07:00"
     description: Argonaut Resource Template - ART
-    digest: 9096a5709e2678d5ab7c2075e687853182f6389678e1155da16f324ad394e05d
+    digest: c24e234b6610a4654f3a2a79083c3ec88659b9c0fea0d11f76f0fd98ab59e0ea
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -339,7 +339,7 @@ entries:
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2021-09-22T16:16:14.039668-07:00"
+    created: "2021-09-22T16:43:21.643521-07:00"
     description: Argonaut Resource Template - ART
     digest: be8b70e134fd767b3ed8beb448e5d75ad63c2d82b574fdb6b6d19bf901679459
     home: https://argonaut.dev
@@ -355,7 +355,7 @@ entries:
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2021-09-22T16:16:14.038803-07:00"
+    created: "2021-09-22T16:43:21.642154-07:00"
     description: Argonaut Resource Template - ART
     digest: 7d21349247a7f3e83ac879fecd59586e6465c201ee7a6c25b996da7d4acdd4bf
     home: https://argonaut.dev
@@ -371,7 +371,7 @@ entries:
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2021-09-22T16:16:14.038154-07:00"
+    created: "2021-09-22T16:43:21.641158-07:00"
     description: Argonaut Resource Template - ART
     digest: c125eba53925227dba81d77231677e997c583f3c3a56e6e3eadae2f0a40e8a53
     home: https://argonaut.dev
@@ -387,7 +387,7 @@ entries:
     version: v0.2.0
   - apiVersion: v1
     appVersion: v0.1.4
-    created: "2021-09-22T16:16:14.03754-07:00"
+    created: "2021-09-22T16:43:21.640441-07:00"
     description: Argonaut Resource Template - ART
     digest: 47ef260aa89ed05a5f4b8186da2d89c15b83f9b878ebaa132850ae81398c1952
     home: https://argonaut.dev
@@ -403,7 +403,7 @@ entries:
     version: v0.1.4
   - apiVersion: v1
     appVersion: v0.1.3
-    created: "2021-09-22T16:16:14.036967-07:00"
+    created: "2021-09-22T16:43:21.639645-07:00"
     description: Argonaut Resource Template - ART
     digest: 11c477a282508c2e5516036b48ac617cbec4c986d55936d4559238cc94dc6394
     home: https://argonaut.dev
@@ -419,7 +419,7 @@ entries:
     version: v0.1.3
   - apiVersion: v1
     appVersion: v0.1.2
-    created: "2021-09-22T16:16:14.03637-07:00"
+    created: "2021-09-22T16:43:21.638652-07:00"
     description: Argonaut Resource Template - ART
     digest: ed5540eee10458d6037c9fb436c50ff84e9453457a677b3eff3967977143ee63
     home: https://argonaut.dev
@@ -435,7 +435,7 @@ entries:
     version: v0.1.2
   - apiVersion: v1
     appVersion: v0.1.1
-    created: "2021-09-22T16:16:14.034777-07:00"
+    created: "2021-09-22T16:43:21.637993-07:00"
     description: Argonaut Resource Template - ART
     digest: f9ea4fca9de0a160e8cfd0fbc5a084b10a310753b69828e4723cc40b1a09025d
     home: https://argonaut.dev
@@ -451,7 +451,7 @@ entries:
     version: v0.1.1
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-09-22T16:16:14.033385-07:00"
+    created: "2021-09-22T16:43:21.636891-07:00"
     description: Argonaut Resource Template - ART
     digest: 3661ac46a7b840184ba8d47bc45276059a0cd8817ee14a808ee24387e6dd0d2c
     home: https://argonaut.dev
@@ -468,9 +468,9 @@ entries:
   stateful-istio:
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2021-09-22T16:16:14.031839-07:00"
+    created: "2021-09-22T16:43:21.635487-07:00"
     description: Argonaut Resource Template - ART
-    digest: b8f58a0456f72447bfea4977ee43b6ed3b9c3ac448c51d9a8b9a8a7b0fbf977e
+    digest: 0d87654e6ef1711d043fd8161e92ebaef32431c8f6e80bfd868095af11e53dc6
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -484,7 +484,7 @@ entries:
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2021-09-22T16:16:14.031518-07:00"
+    created: "2021-09-22T16:43:21.634544-07:00"
     description: Argonaut Resource Template - ART
     digest: 875cb206b329d9556b15f84e4cd32d24929200b6c95e7ba96d38cc4a1b1617fb
     home: https://argonaut.dev
@@ -500,7 +500,7 @@ entries:
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2021-09-22T16:16:14.030714-07:00"
+    created: "2021-09-22T16:43:21.633526-07:00"
     description: Argonaut Resource Template - ART
     digest: aa5fac5510ecbad9b82772f8e7daf57aa7d61ae4fc13df06f07719d3700f57dc
     home: https://argonaut.dev
@@ -517,9 +517,9 @@ entries:
   stateless:
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2021-09-22T16:16:14.050938-07:00"
+    created: "2021-09-22T16:43:21.654793-07:00"
     description: Argonaut Resource Template - ART
-    digest: 72196ea22c45c6189f26b9fa6e9a5a0bd8895dde4a882bec334a9911fa01e7f7
+    digest: d0eb1d5db8450c87caac5f55dba3bb70b36aa23813da9e60b568df2ef4ce4426
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -533,7 +533,7 @@ entries:
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2021-09-22T16:16:14.050601-07:00"
+    created: "2021-09-22T16:43:21.654461-07:00"
     description: Argonaut Resource Template - ART
     digest: dd5f90d9c2a52dda5b7ca37fb991b69a967cef2cbfcdf097d78cd0fda751de41
     home: https://argonaut.dev
@@ -549,7 +549,7 @@ entries:
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2021-09-22T16:16:14.04963-07:00"
+    created: "2021-09-22T16:43:21.653574-07:00"
     description: Argonaut Resource Template - ART
     digest: 17ba2954e2711bbcb91f4b1012065ded7760c28e5416d1797bbaeecbe34fbca8
     home: https://argonaut.dev
@@ -565,7 +565,7 @@ entries:
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2021-09-22T16:16:14.048652-07:00"
+    created: "2021-09-22T16:43:21.652946-07:00"
     description: Argonaut Resource Template - ART
     digest: 5bba0983ed825ccc28a23d6370347d1fa4c180c1524e0c615a3bc39d8e22669d
     home: https://argonaut.dev
@@ -581,7 +581,7 @@ entries:
     version: v0.2.0
   - apiVersion: v1
     appVersion: v0.1.4
-    created: "2021-09-22T16:16:14.047699-07:00"
+    created: "2021-09-22T16:43:21.651662-07:00"
     description: Argonaut Resource Template - ART
     digest: 8b48fe777d9a72d3dd9e61795ac8d40302b5c40e925b714ff1d35eff8df53aad
     home: https://argonaut.dev
@@ -597,7 +597,7 @@ entries:
     version: v0.1.4
   - apiVersion: v1
     appVersion: v0.1.3
-    created: "2021-09-22T16:16:14.046828-07:00"
+    created: "2021-09-22T16:43:21.65087-07:00"
     description: Argonaut Resource Template - ART
     digest: 4c8558829ef5b1e22d960f35512a107cf50fa18f0f3275070da46b34f43825f9
     home: https://argonaut.dev
@@ -613,7 +613,7 @@ entries:
     version: v0.1.3
   - apiVersion: v1
     appVersion: v0.1.2
-    created: "2021-09-22T16:16:14.045979-07:00"
+    created: "2021-09-22T16:43:21.649944-07:00"
     description: Argonaut Resource Template - ART
     digest: 590ecd3a913595a5527e9a8080f4dfa58154a252a70a708e1bca417a49005a23
     home: https://argonaut.dev
@@ -629,7 +629,7 @@ entries:
     version: v0.1.2
   - apiVersion: v1
     appVersion: v0.1.1
-    created: "2021-09-22T16:16:14.044698-07:00"
+    created: "2021-09-22T16:43:21.649127-07:00"
     description: Argonaut Resource Template - ART
     digest: 17c4e20d5adb9573f1925989c38b10b209fbed66f7a66c88f8c5724f606f0e2a
     home: https://argonaut.dev
@@ -645,7 +645,7 @@ entries:
     version: v0.1.1
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2021-09-22T16:16:14.043459-07:00"
+    created: "2021-09-22T16:43:21.648241-07:00"
     description: Argonaut Resource Template - ART
     digest: e40e27cf665c1966a82a0ac4e71bce59de28f830a09d89fefe65a782bc68b8c8
     home: https://argonaut.dev
@@ -662,9 +662,9 @@ entries:
   stateless-istio:
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2021-09-22T16:16:14.041556-07:00"
+    created: "2021-09-22T16:43:21.645888-07:00"
     description: Argonaut Resource Template - ART
-    digest: bccd8c80146f540a6e8238abde179e519215704fe4419d0b5dd1b347817884bb
+    digest: 8834f6acbaaef0bfeec11bd90bef76bc4f5ae88502154d2bb440f19b4c15f747
     home: https://argonaut.dev
     icon: https://argonaut.dev/images/logo-dark.png
     maintainers:
@@ -678,7 +678,7 @@ entries:
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2021-09-22T16:16:14.041223-07:00"
+    created: "2021-09-22T16:43:21.645546-07:00"
     description: Argonaut Resource Template - ART
     digest: a62a0f73d05e1b980bf82cf98c1f40021049d3056462947039d1e90811039d87
     home: https://argonaut.dev
@@ -694,7 +694,7 @@ entries:
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2021-09-22T16:16:14.040621-07:00"
+    created: "2021-09-22T16:43:21.644567-07:00"
     description: Argonaut Resource Template - ART
     digest: 98a2b125cebc448f6c178ce90671875bc43255d82121be563a8c3a87c83308d3
     home: https://argonaut.dev
@@ -711,7 +711,7 @@ entries:
   stateless-nginx:
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2021-09-22T16:16:14.042587-07:00"
+    created: "2021-09-22T16:43:21.647411-07:00"
     description: Argonaut Resource Template - ART
     digest: 406b0813dc53f9697db8217792cc8be4bca61764afb4b507d59acc80c24cf643
     home: https://argonaut.dev
@@ -727,7 +727,7 @@ entries:
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2021-09-22T16:16:14.042009-07:00"
+    created: "2021-09-22T16:43:21.646506-07:00"
     description: Argonaut Resource Template - ART
     digest: a17cc2f854a3bb486c56725ab6e589e74b4022adcb5dde1373b44ca4ad99502e
     home: https://argonaut.dev
@@ -741,4 +741,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/argonautdev/charts/v0.3.2/dist/stateless-nginx-v0.2.0.tgz
     version: v0.2.0
-generated: "2021-09-22T16:16:13.993944-07:00"
+generated: "2021-09-22T16:43:21.597608-07:00"
