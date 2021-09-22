@@ -26,7 +26,6 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   {{- $servicePort := .port }}
-  # ingressClassName: nginx
   {{- if eq .protocol "http" }}
   rules:
     - host: {{ .external.host | quote }}
@@ -66,13 +65,14 @@ spec:
     {{- end }}
   {{ end }}
 ---
-  {{- if or (eq .protocol "tcp") (eq .protocol "udp")}}
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
-      namespace: {{ .Release.Namespace }}
-    data:
-      {{ .port }}: "{{ .Release.Namespace }}/{{ $name }}: {{ .external.hostPort }}"
-  {{- end}}    
+{{- if or (eq .protocol "tcp") (eq .protocol "udp")}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
+  # namespace: { { .Release.Namespace } }
+data:
+  {{ .port }}: "{{ $name }}: {{ .external.hostPort }}"
+  # {{ .port }}: "{ { .Release.Namespace } }/{{ $name }}: {{ .external.hostPort }}"
+{{- end}}    
 {{- end }}
