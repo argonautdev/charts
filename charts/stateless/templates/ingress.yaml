@@ -8,6 +8,17 @@
 ---
 # Configure Service Ingress
 {{- range .Values.services }}
+{{- if or (eq .protocol "tcp") (eq .protocol "udp")}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
+  # namespace: { { .Release.Namespace } }
+data:
+  {{ .port }}: "{{ $name }}: {{ .external.hostPort }}"
+  # {{ .port }}: "{ { .Release.Namespace } }/{{ $name }}: {{ .external.hostPort }}"
+---
+{{- else }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -22,8 +33,10 @@ metadata:
   annotations:
     # nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx
+  {{- if eq .protocol "tls-terminated" }}
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  {{- end }}
 spec:
   {{- $servicePort := .port }}
   {{- if eq .protocol "http" }}
@@ -64,15 +77,6 @@ spec:
         {{- end }}
     {{- end }}
   {{ end }}
----
-{{- if or (eq .protocol "tcp") (eq .protocol "udp")}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
-  # namespace: { { .Release.Namespace } }
-data:
-  {{ .port }}: "{{ $name }}: {{ .external.hostPort }}"
-  # {{ .port }}: "{ { .Release.Namespace } }/{{ $name }}: {{ .external.hostPort }}"
-{{- end}}    
+---    
+{{- end }}
 {{- end }}
