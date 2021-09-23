@@ -9,14 +9,14 @@
 ---
 # Configure Service Ingress
 {{- range .Values.services }}
-{{- if or (eq .protocol "tcp") (eq .protocol "udp")}}
+{{- if and ( .external.hostPort ) ( ne (.external.hostPort | int) 443 ) ( ne (.external.hostPort | int) 80 ) }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
   namespace: {{ $releaseNamespace }}
 data:
-  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{ .external.hostPort }}"
+  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
 ---
 {{- end }}
 apiVersion: networking.k8s.io/v1
@@ -39,7 +39,7 @@ metadata:
   {{- end }}
 spec:
   {{- $servicePort := .port }}
-  {{- if or (eq .protocol "http") (eq .protocol "tcp" ) }}
+  {{- if or (eq .protocol "http") (eq .protocol "tcp" ) (eq .protocol "https") (eq .protocol "tls-passthrough" ) }}
   rules:
     - host: {{ .external.host | quote }}
       http:
@@ -53,7 +53,7 @@ spec:
                 port:
                   number: {{ $servicePort }}
         {{- end }}
-  {{ else if eq .protocol "tls-terminated" }}
+  {{ else if or (eq .protocol "tls-terminated") (eq .protocol "grpcs") }}
   {{- $external := .external }}
   tls:
     - hosts:
