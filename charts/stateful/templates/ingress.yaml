@@ -8,21 +8,31 @@
 
 ---
 # Configure Service Ingress
-{{- range .Values.services }}
-{{- if and ( .external.hostPort ) ( ne (.external.hostPort | int) 443 ) ( ne (.external.hostPort | int) 80 ) }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  {{- if eq .protocol "udp" }}
-  name: "{{ $name }}-udp-{{ .port }}-services"
-  {{- else }}
-  name: "{{ $name }}-tcp-{{ .port }}-services"
-  {{- end }}
+  name: "{{ $name }}-tcp-services"
   namespace: {{ $releaseNamespace }}
 data:
+  {{- range .Values.services }}
+  {{- if and (ne .protocol "udp") ( .external.hostPort ) ( ne (.external.hostPort | int) 443 ) ( ne (.external.hostPort | int) 80 ) }}
   {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
+  {{- end }}
+  {{- end }}
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ $name }}-udp-services"
+  namespace: {{ $releaseNamespace }}
+data:
+  {{- range .Values.services }}
+  {{- if and (eq .protocol "udp") ( .external.hostPort ) ( ne (.external.hostPort | int) 443 ) ( ne (.external.hostPort | int) 80 ) }}
+  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
 {{- end }}
+{{- end }}
+---
+{{- range .Values.services }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -37,7 +47,7 @@ metadata:
   annotations:
     # nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx
-  {{- if eq .protocol "tls-terminated" }}
+  {{- if or (eq .protocol "tls-terminated") (eq .protocol "https") (eq .protocol "grpcs") }}
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   {{- end }}
