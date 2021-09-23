@@ -2,12 +2,23 @@
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
 {{- $releaseService := .Release.Service -}}
+{{- $releaseNamespace := .Release.Namespace -}}
 {{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 ---
 # Configure Service Ingress
 {{- range .Values.services }}
+{{- if or (eq .protocol "tcp") (eq .protocol "udp")}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $name }}-{{ .protocol }}-{{ .port }}-services
+  namespace: {{ $releaseNamespace }}
+data:
+  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{ .external.hostPort }}"
+---
+{{- end }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -22,12 +33,13 @@ metadata:
   annotations:
     # nginx.ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx
+  {{- if eq .protocol "tls-terminated" }}
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  {{- end }}
 spec:
   {{- $servicePort := .port }}
-  # ingressClassName: nginx
-  {{- if eq .protocol "http" }}
+  {{- if or (eq .protocol "http") (eq .protocol "tcp" ) }}
   rules:
     - host: {{ .external.host | quote }}
       http:
@@ -65,5 +77,5 @@ spec:
         {{- end }}
     {{- end }}
   {{ end }}
----
+---    
 {{- end }}
