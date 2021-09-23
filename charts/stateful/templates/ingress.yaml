@@ -15,7 +15,7 @@ metadata:
   namespace: {{ $releaseNamespace }}
 data:
   {{- range .Values.services }}
-  {{- if and (ne .protocol "udp") ( .external.hostPort ) ( ne (.external.hostPort | int) 443 ) ( ne (.external.hostPort | int) 80 ) }}
+  {{- if (eq .protocol "tcp") }}
   {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
   {{- end }}
   {{- end }}
@@ -27,7 +27,7 @@ metadata:
   namespace: {{ $releaseNamespace }}
 data:
   {{- range .Values.services }}
-  {{- if and (eq .protocol "udp") ( .external.hostPort ) ( ne (.external.hostPort | int) 443 ) ( ne (.external.hostPort | int) 80 ) }}
+  {{- if (eq .protocol "udp") }}
   {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
 {{- end }}
 {{- end }}
