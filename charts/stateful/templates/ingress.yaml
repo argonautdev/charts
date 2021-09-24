@@ -11,6 +11,19 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  name: "{{ $name }}-http-services"
+  namespace: {{ $releaseNamespace }}
+data:
+  {{- range .Values.services }}
+  {{- if or (eq .protocol "http") (eq .protocol "tls-terminated") (eq .protocol "https") (eq .protocol "grpc") (eq .protocol "grpcs") }}
+  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
+  {{- end }}
+  {{- end }}
+---
+# Configure Service Ingress
+apiVersion: v1
+kind: ConfigMap
+metadata:
   name: "{{ $name }}-tcp-services"
   namespace: {{ $releaseNamespace }}
 data:
