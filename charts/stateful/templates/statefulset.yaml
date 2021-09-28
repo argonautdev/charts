@@ -170,11 +170,7 @@ spec:
           # runAsUser: 0
           # privileged: true
         image: "{{ .Values.initContainer.image }}"
-        {{- if eq .Values.initContainer.image "latest" }}
         imagePullPolicy: "Always"
-        {{- else }}
-        imagePullPolicy: "IfNotPresent"
-        {{- end }}
         command: {{ .Values.initContainer.command }}
         resources:
 {{ toYaml .Values.initResources | indent 10 }}
@@ -187,11 +183,7 @@ spec:
         securityContext:
 {{ toYaml .Values.securityContext | indent 10 }}
         image: "{{ template "argonaut-deployment.imageName" . }}"
-        {{- if eq .Values.imageTag "latest" }}
         imagePullPolicy: "Always"
-        {{- else }}
-        imagePullPolicy: "IfNotPresent"
-        {{- end }}
         ports:
         {{- range .Values.services }}
         - name: "{{- .protocol | trunc 5 -}}-{{- $name | trunc 4 -}}-{{- randAlphaNum 4 | lower -}}"
