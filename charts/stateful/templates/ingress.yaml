@@ -97,7 +97,7 @@ spec:
       {{- range $external.hosts }}
         - {{ . | quote }}
       {{- end }}
-      secretName: "{{ $name }}-tls-cert"
+      secretName: "{{ $name }}-{{- .port -}}-{{- .external.hostPort -}}-ingress-tls-cert"
   rules:
     {{- range $external.hosts }}
     - host: {{ . | quote}}
