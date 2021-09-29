@@ -5,6 +5,7 @@
 {{- $hosts := .Values.hosts -}}
 {{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
+{{- $ports := dict -}}
 
 ---
 apiVersion: apps/v1
@@ -186,8 +187,12 @@ spec:
         imagePullPolicy: "Always"
         ports:
         {{- range .Values.services }}
-        - name: "{{- .protocol | trunc 5 -}}-{{- $name | trunc 4 -}}-{{- randAlphaNum 4 | lower -}}"
+        {{- $p := .port | toString }}
+        {{- if not ( hasKey $ports $p ) -}}
+        {{- $_ := set $ports $p $p }}
+        - name: "{{- $name | trunc 4 -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}}"
           containerPort: {{ .port }}
+        {{- end }}
         {{- end }}
         {{- if .Values.entrypoint }}
         command: {{ .Values.entrypoint }}

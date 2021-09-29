@@ -12,11 +12,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: "{{ $name }}-http-services"
-  namespace: {{ $releaseNamespace }}
 data:
   {{- range .Values.services }}
   {{- if or (eq .protocol "http") (eq .protocol "tls-terminated") (eq .protocol "https") (eq .protocol "grpc") (eq .protocol "grpcs") }}
-  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
+  {{ .external.hostPort }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
   {{- end }}
   {{- end }}
 ---
@@ -25,11 +24,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: "{{ $name }}-tcp-services"
-  namespace: {{ $releaseNamespace }}
 data:
   {{- range .Values.services }}
   {{- if (eq .protocol "tcp") }}
-  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
+  {{ .external.hostPort }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
   {{- end }}
   {{- end }}
 ---
@@ -37,20 +35,19 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: "{{ $name }}-udp-services"
-  namespace: {{ $releaseNamespace }}
 data:
   {{- range .Values.services }}
   {{- if (eq .protocol "udp") }}
-  {{ .port }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .external.hostPort }}"
-{{- end }}
-{{- end }}
+  {{ .external.hostPort }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
+  {{- end }}
+  {{- end }}
 ---
 {{- range .Values.services }}
-{{ if or (ne .protocol "tcp") (eq .protocol "udp")}}
+{{ if and (ne .protocol "tcp") (ne .protocol "udp")}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: "{{ $name }}-{{- .port -}}-ingress"
+  name: "{{ $name }}-{{- .port -}}-{{- .external.hostPort -}}-ingress"
   labels:
     helm.sh/chart: {{ $chartName | quote }}
     app.kubernetes.io/name: {{ $name | quote }}
@@ -67,12 +64,14 @@ metadata:
   {{- end }}
 spec:
   {{- $servicePort := .port }}
-  {{- if or (eq .protocol "http") (eq .protocol "tcp" ) (eq .protocol "https") (eq .protocol "tls-passthrough" ) }}
+  {{- $external := .external }}
+  {{- if or (eq .protocol "http") (eq .protocol "grpc") }}
   rules:
-    - host: {{ .external.host | quote }}
+    {{- range $external.hosts }}
+    - host: {{ . | quote}}
       http:
         paths:
-        {{- range .external.paths }}
+        {{- range $external.paths }}
           - path: {{ . }}
             pathType: Prefix
             backend:
@@ -81,8 +80,8 @@ spec:
                 port:
                   number: {{ $servicePort }}
         {{- end }}
-  {{ else if or (eq .protocol "tls-terminated") (eq .protocol "grpcs") }}
-  {{- $external := .external }}
+    {{- end }}
+  {{ else if or (eq .protocol "tls-terminated") (eq .protocol "grpcs") (eq .protocol "https") }}
   tls:
     - hosts:
       {{- range $external.hosts }}
