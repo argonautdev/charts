@@ -67,11 +67,15 @@ metadata:
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     {{- end }}
+    {{- if eq .protocol "ssl-passthrough" }}
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "https"
+    {{- end }}
     {{- end }}
 spec:
   {{- $servicePort := .port }}
   {{- $external := .external }}
-  {{- if or (eq .protocol "http") (eq .protocol "grpc") }}
+  {{- if or (eq .protocol "http") (eq .protocol "grpc") (eq .protocol "ssl-passthrough") }}
   rules:
     {{- range $external.hosts }}
     - host: {{ . | quote}}
