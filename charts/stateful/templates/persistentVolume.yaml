@@ -1,0 +1,52 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $hosts := .Values.hosts -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+
+
+{{- range $index, $volumeMount := .Values.persistentStorage }}
+# ---
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: "storage-vol-{{ $name }}-{{ $index }}"
+#   labels:
+#     helm.sh/chart: {{ $chartName | quote }}
+#     app.kubernetes.io/name: {{ $name | quote }}
+#     app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+#     app.kubernetes.io/instance: {{ $releaseName | quote }}
+#     argonaut.dev/env: {{ $env | quote }}
+#     app.kubernetes.io/version: {{ $version | quote }}
+# spec:
+#     capacity:
+#         storage: {{ $volumeMount.capacity | quote }}
+#     accessModes:
+#         - {{ $volumeMount.accessMode | quote }}
+#     persistentVolumeReclaimPolicy: Retain
+#     storageClassName: gp2
+
+---
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: "storage-vol-{{ $name }}-{{ $index }}-pvc"
+  labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+spec:
+    accessModes:
+        - {{ $volumeMount.accessMode | quote }}
+    resources:
+        requests:
+            storage: {{ $volumeMount.capacity | quote }}
+    storageClassName: gp2
+---
+{{- end }}

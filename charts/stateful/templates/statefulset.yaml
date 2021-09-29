@@ -33,27 +33,27 @@ spec:
   podManagementPolicy: {{ .Values.podManagementPolicy }}
   updateStrategy:
     type: {{ .Values.updateStrategy }}
-  {{- if .Values.persistentStorage }}
-  volumeClaimTemplates:
-  {{- range $index, $volumeMount := .Values.persistentStorage }}
-    - metadata:
-        name: "storage-vol-{{ $index }}"
-        labels:
-          helm.sh/chart: {{ $chartName | quote }}
-          app.kubernetes.io/name: {{ $name | quote }}
-          app.kubernetes.io/managed-by: {{ $releaseService | quote }}
-          app.kubernetes.io/instance: {{ $releaseName | quote }}
-          argonaut.dev/env: {{ $env | quote }}
-          app.kubernetes.io/version: {{ $version | quote }}
-      spec:
-        # storageClassName: "ebs-gp2-resizable"
-        accessModes:
-          - {{ $volumeMount.accessMode | quote }}
-        resources:
-          requests:
-            storage: {{ $volumeMount.capacity | quote }}
-  {{- end }}
-  {{- end }}
+  # {{- if .Values.persistentStorage }}
+  # volumeClaimTemplates:
+  # {{- range $index, $volumeMount := .Values.persistentStorage }}
+  #   - metadata:
+  #       name: "storage-vol-{{ $index }}"
+  #       labels:
+  #         helm.sh/chart: {{ $chartName | quote }}
+  #         app.kubernetes.io/name: {{ $name | quote }}
+  #         app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+  #         app.kubernetes.io/instance: {{ $releaseName | quote }}
+  #         argonaut.dev/env: {{ $env | quote }}
+  #         app.kubernetes.io/version: {{ $version | quote }}
+  #     spec:
+  #       # storageClassName: "ebs-gp2-resizable"
+  #       accessModes:
+  #         - {{ $volumeMount.accessMode | quote }}
+  #       resources:
+  #         requests:
+  #           storage: {{ $volumeMount.capacity | quote }}
+  # {{- end }}
+  # {{- end }}
   template:
     metadata:
       name: "{{ template "argonaut-deployment.uname" . }}"
@@ -135,6 +135,11 @@ spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       # Mount Secrets
       volumes:
+      {{- range $index, $volumeMount := .Values.persistentStorage }}
+        - name: "storage-vol-{{ $name }}-{{ $index }}"
+          persistentVolumeClaim:
+            claimName: "storage-vol-{{ $name }}-{{ $index }}-pvc"
+      {{- end }}
         {{- range .Values.secretMounts }}
         - name: {{ .name }}
           secret:
@@ -216,7 +221,7 @@ spec:
         # Persistence Enabled - volume mounts
         volumeMounts:
           {{- range $index, $volumeMount := .Values.persistentStorage }}
-          - name: "storage-vol-{{ $index }}"
+          - name: "storage-vol-{{ $name }}-{{ $index }}"
             mountPath: "{{ $volumeMount.mountPath }}"
           {{- end }}
           {{- if .Values.keystore }}
