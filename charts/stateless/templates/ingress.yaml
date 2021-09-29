@@ -15,7 +15,7 @@ metadata:
 data:
   {{- range .Values.services }}
   {{- if or (eq .protocol "http") (eq .protocol "tls-terminated") (eq .protocol "https") (eq .protocol "grpc") (eq .protocol "grpcs") }}
-  {{ .external.hostPort }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
+  {{ .external.hostPort | default 443 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
   {{- end }}
   {{- end }}
 ---
@@ -27,7 +27,7 @@ metadata:
 data:
   {{- range .Values.services }}
   {{- if (eq .protocol "tcp") }}
-  {{ .external.hostPort }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
+  {{ .external.hostPort | default 443 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
   {{- end }}
   {{- end }}
 ---
@@ -38,7 +38,7 @@ metadata:
 data:
   {{- range .Values.services }}
   {{- if (eq .protocol "udp") }}
-  {{ .external.hostPort }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
+  {{ .external.hostPort | default 443 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
   {{- end }}
   {{- end }}
 ---
@@ -47,7 +47,7 @@ data:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: "{{ $name }}-{{- .port -}}-{{- .external.hostPort -}}-ingress"
+  name: "{{ $name }}-{{- .port -}}-{{- .external.hostPort | default 443 -}}-ingress"
   labels:
     helm.sh/chart: {{ $chartName | quote }}
     app.kubernetes.io/name: {{ $name | quote }}
@@ -97,7 +97,7 @@ spec:
       {{- range $external.hosts }}
         - {{ . | quote }}
       {{- end }}
-      secretName: "{{ $name }}-{{- .port -}}-{{- .external.hostPort -}}-ingress-tls-cert"
+      secretName: "{{ $name }}-{{- .port -}}-{{- .external.hostPort | default 443 -}}-ingress-tls-cert"
   rules:
     {{- range $external.hosts }}
     - host: {{ . | quote}}
