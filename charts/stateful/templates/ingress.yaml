@@ -57,10 +57,10 @@ metadata:
     app.kubernetes.io/version: {{ $version | quote }}
   annotations:
     {{- if .external.overrideAnnotations }}
-    {{ toYaml .external.overrideAnnotations | indent 4 }}
+    {{ toYaml .external.overrideAnnotations | nindent 4 }}
     {{- else }}
     {{- if .external.extraAnnotations }}
-    {{ toYaml .external.extraAnnotations | indent 4 }}
+    {{ toYaml .external.extraAnnotations | nindent 4 }}
     {{- end }}
     kubernetes.io/ingress.class: nginx
     {{- if or (eq .protocol "tls-terminated") (eq .protocol "https") (eq .protocol "grpcs") }}
