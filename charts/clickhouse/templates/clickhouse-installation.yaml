@@ -1,0 +1,73 @@
+{{- $name := include "clickhouse.name" . -}}
+---
+apiVersion: clickhouse.altinity.com/v1
+kind: ClickHouseInstallation
+metadata:
+  name: "{{ $name }}"
+spec:
+  defaults:
+    templates:
+      dataVolumeClaimTemplate: "{{ $name }}-gp2"
+      serviceTemplate: "{{ $name }}-chi-svc-tmpl"
+      podTemplate: "{{ $name }}-chi-pod-tmpl"
+  configuration:
+    users:
+      admin/password: "{{ .Values.clickhouse.password }}"
+      admin/networks/ip: "0.0.0.0/0"
+      admin/profile: default
+      admin/quota: default
+    profiles:
+      default/allow_experimental_window_functions: "1"
+    zookeeper:
+      nodes:
+        - host: "{{ $name }}-zk"
+          port: 2181
+    clusters:
+      - name: "{{ $name | trunc 11 }}"
+        layout:
+          shardsCount: {{ .Values.clickhouse.shardsCount }}
+          replicasCount: {{ .Values.clickhouse.replicasCount }}
+
+  templates:
+    volumeClaimTemplates:
+      - name: "{{ $name }}-gp2"
+        reclaimPolicy: Retain
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: "{{ .Values.clickhouse.storage }}"
+    podTemplates:
+      - name: "{{ $name }}-chi-pod-tmpl"
+        spec:
+          containers:
+            - name: clickhouse-pod
+              image: yandex/clickhouse-server:21.6.5
+    serviceTemplates:
+      - name: "{{ $name }}-chi-svc-tmpl"
+        generateName: "{{ $name }}"
+        # type ObjectMeta struct from k8s.io/meta/v1
+        metadata:
+          labels:
+            managed: "argonaut"
+          annotations:
+            cloud.google.com/load-balancer-type: "Internal"
+            service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+            service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+            service.beta.kubernetes.io/openstack-internal-load-balancer: "true"
+            service.beta.kubernetes.io/cce-load-balancer-internal-vpc: "true"
+
+            # NLB Load Balancer
+            service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+
+        # type ServiceSpec struct from k8s.io/core/v1
+        spec:
+          ports:
+            - name: http
+              port: 8123
+            - name: tcp
+              port: 9000
+          type: ClusterIP # Input
+---
+
