@@ -11,36 +11,16 @@ clickhouse:
   password: "weakpassthatneedstobereplaced!"
   storage: "50Gi"
 # nameOverride: "ch1"
-ingress:
+externalLoadbalancer:
   enabled: false
-  className: ""
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: hostname1
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-    - host: hostname2
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls:
-    - secretName: chart-example-tls
-      hosts:
-        - hostname1
-        - hostname2
-
-resources:
-  {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+  httpPort:
+    number: 8123
+    enabled: true
+  tcpPort: 
+    number: 9000
+    enabled: true
+  hostnames:
+    - "ch1.example.com"
+    - "ch2.example.com"
+    - "ch3.example.com"
+  
