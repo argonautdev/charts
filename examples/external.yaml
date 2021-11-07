@@ -1,12 +1,9 @@
 version: "v1"
 appName: "postgresql"
-externalServices:
-  - name: postgresql
-    hosts:
-      - database-1.cigjhgrklzzz.ap-south-1.rds.amazonaws.com
+externalName: database-1.cigjhgrklzzz.ap-south-1.rds.amazonaws.com
 argonaut:
   env: violet
   region: us-east-1
   cluster: violet
-  imageRegistry: ghcr
-  serviceType: "external" # One of {stateful, stateless, managed}
+  serviceType: "external"
+

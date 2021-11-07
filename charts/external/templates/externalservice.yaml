@@ -5,13 +5,10 @@
 {{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
-{{- range $index, $value := .Values.externalServices }}
-{{- $svcName := .name -}}
-{{- range .hosts }}
 kind: Service
 apiVersion: v1
 metadata:
- name: "{{ $name }}-{{ $svcName }}-{{ $index }}"
+ name: "{{ $name }}"
  labels:
     helm.sh/chart: {{ $chartName | quote }}
     app.kubernetes.io/name: {{ $name | quote }}
@@ -21,8 +18,4 @@ metadata:
     app.kubernetes.io/version: {{ $version | quote }}
 spec:
  type: ExternalName
- externalName: {{ . }}
----
-{{- end }}
-{{- end }}
-
+ externalName: {{ .Values.externalName }}
