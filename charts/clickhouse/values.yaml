@@ -1,7 +1,7 @@
 # Default values for clickhouse.
 # This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
+name: "ch1"
 zookeeper:
   # Number of nodes in ZooKeeper cluster. Set to either 1 or 3 or 5.
   nodes: 1  
@@ -10,7 +10,6 @@ clickhouse:
   replicasCount: 1
   password: "weakpassthatneedstobereplaced!"
   storage: "50Gi"
-# nameOverride: "ch1"
 externalLoadbalancer:
   enabled: false
   httpPort:
