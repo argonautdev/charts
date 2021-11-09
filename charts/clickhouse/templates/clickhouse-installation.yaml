@@ -27,9 +27,11 @@ spec:
         layout:
           shardsCount: {{ .Values.clickhouse.shardsCount }}
           replicasCount: {{ .Values.clickhouse.replicasCount }}
+    {{- if .Values.clickhouse.configuration }}
     {{- with .Values.clickhouse.configuration.files }}
     files:
     {{ toYaml . | nindent 6 }}
+    {{- end }}
     {{- end }}
 
   templates:
