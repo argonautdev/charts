@@ -2,7 +2,7 @@
 Expand the name of the chart.
 */}}
 {{- define "clickhouse.name" -}}
-{{- default .Release.Name .Values.name | trunc 63 | trimSuffix "-" }}
+{{- .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*

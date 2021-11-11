@@ -3,36 +3,11 @@ zookeeper:
   # Number of nodes in ZooKeeper cluster. Set to either 1 or 3 or 5.
   nodes: 1  
 clickhouse:
-  shardsCount: 2
-  replicasCount: 3
+  shardsCount: 1
+  replicasCount: 1
   password: "weakpassthatneedstobereplaced!"
-  storage: "50Gi"
+  storage: "5Gi"
   configuration:
-    podTemplates:
-      - name: "{{ $name }}-chi-pod-tmpl"
-        spec:
-          containers:
-            - name: clickhouse-pod
-              image: yandex/clickhouse-server:21.6.5
-    serviceTemplates:
-      - name: "{{ $name }}-chi-svc-tmpl"
-        generateName: "{{ $name }}"
-        # type ObjectMeta struct from k8s.io/meta/v1
-        metadata:
-          labels:
-            managed: "argonaut"
-          annotations:
-            service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-            # NLB Load Balancer
-            service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-        # type ServiceSpec struct from k8s.io/core/v1
-        spec:
-          ports:
-            - name: http
-              port: 8123
-            - name: tcp
-              port: 9000
-          type: ClusterIP # Input
     files:
       your_schema.proto: |
           syntax = "proto3";
