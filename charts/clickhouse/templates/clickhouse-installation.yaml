@@ -7,7 +7,7 @@ metadata:
   finalizers: []
     # - finalizer.clickhouseinstallation.altinity.com
   annotations:
-    checksum/config: "{{- randAlphaNum 20 -}}"
+    checksum/config: "{{- print .Values.clickhouse.configuration | sha256sum -}}"
 spec:
   restart: "RollingUpdate"
   reconciling:

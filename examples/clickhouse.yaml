@@ -3,8 +3,8 @@ zookeeper:
   # Number of nodes in ZooKeeper cluster. Set to either 1 or 3 or 5.
   nodes: 1  
 clickhouse:
-  shardsCount: 1
-  replicasCount: 1
+  shardsCount: 2
+  replicasCount: 3
   password: "weakpassthatneedstobereplaced!"
   storage: "50Gi"
   configuration:
@@ -74,17 +74,11 @@ clickhouse:
           ]]></ssl_certificate_pem>
         </kafka>
         </yandex>
-externalLoadbalancer:
-  enabled: false
-  httpPort:
-    number: 8123
-    enabled: true
-  tcpPort: 
-    number: 9000
-    enabled: true
-  hostnames:
-    - "ch1.example.com"
-    - "ch2.example.com"
-    - "ch3.example.com"
+ingress:
+  enabled: true
+  hosts:
+    - "ch1.violet.argonaut.live"
+    - "ch2.violet.argonaut.live"
+
 
 

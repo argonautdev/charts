@@ -10,46 +10,8 @@ clickhouse:
   replicasCount: 1
   password: "weakpassthatneedstobereplaced!"
   storage: "50Gi"
-externalLoadbalancer:
-  enabled: false
-  httpPort:
-    number: 8123
-    enabled: true
-  tcpPort: 
-    number: 9000
-    enabled: true
-  hostnames:
+ingress:
+  enabled: true
+  hosts:
     - "ch1.example.com"
     - "ch2.example.com"
-    - "ch3.example.com"
-# configuration:
-#   files:
-#     config.d/cert.xml: |
-#       <kafka>
-#         <max_poll_interval_ms>60000</max_poll_interval_ms>
-#         <session_timeout_ms>60000</session_timeout_ms>
-#         <heartbeat_interval_ms>10000</heartbeat_interval_ms>
-#         <reconnect_backoff_ms>5000</reconnect_backoff_ms>
-#         <reconnect_backoff_max_ms>60000</reconnect_backoff_max_ms>
-#         <security_protocol>SSL</security_protocol>
-#         <ssl_ca_location>/home/ubuntu/heroku-kafka/ca.cert</ssl_ca_location>
-#         <ssl_certificate_location>/home/ubuntu/heroku-kafka/certificate.cert</ssl_certificate_location>
-#         <ssl_key_location>/home/ubuntu/heroku-kafka/key.pem</ssl_key_location>
-#         <ssl_key_password>kafkapass</ssl_key_password>
-#       </kafka>
-#     config.d/cert-inline.xml: |
-#       <kafka>
-#         <ssl_key_pem><![CDATA[
-#           RSA Private-Key: (3072 bit, 2 primes)
-#             ....
-#         -----BEGIN RSA PRIVATE KEY-----
-#         ...
-#         -----END RSA PRIVATE KEY-----
-#         ]]></ssl_key_pem>
-#         <ssl_certificate_pem><![CDATA[
-#         -----BEGIN CERTIFICATE-----
-#         ...
-#         -----END CERTIFICATE-----
-#         ]]></ssl_certificate_pem>
-#       </kafka>
-

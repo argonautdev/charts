@@ -1,0 +1,54 @@
+{{- $name := include "clickhouse.name" . -}}
+
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $releaseNamespace := .Release.Namespace -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+
+---
+{{- if eq .Values.ingress.enabled true -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "{{ $name }}-clickhouse-ingress"
+  labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+  annotations:
+    {{- if .Values.ingress.overrideAnnotations }}
+    {{ toYaml .Values.ingress.overrideAnnotations | nindent 4 }}
+    {{- else }}
+    {{- if .Values.ingress.extraAnnotations }}
+    {{ toYaml .Values.ingress.extraAnnotations | nindent 4 }}
+    {{- end }}
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    {{- end }}
+spec:
+  tls:
+    - hosts:
+      {{- range .Values.ingress.hosts }}
+        - {{ . | quote }}
+      {{- end }}
+      secretName: "{{ $name }}-clickhouse-ingress-tls-cert"
+  rules:
+    {{- range .Values.ingress.hosts }}
+    - host: {{ . | quote}}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $name | quote }}
+                port:
+                  number: 8123
+    {{- end }}
+{{- end }}
+---    
