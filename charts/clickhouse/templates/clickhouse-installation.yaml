@@ -4,12 +4,31 @@ apiVersion: clickhouse.altinity.com/v1
 kind: ClickHouseInstallation
 metadata:
   name: "{{ $name }}"
+  finalizers: []
+    # - finalizer.clickhouseinstallation.altinity.com
+  annotations:
+    checksum/config: "{{- randAlphaNum 20 -}}"
 spec:
+  restart: "RollingUpdate"
+  reconciling:
+    policy: "nowait"
+    configMapPropagationTimeout: 90
+    cleanup:
+      unknownObjects:
+        statefulSet: Delete
+        pvc: Retain
+        configMap: Delete
+        service: Delete
+      reconcileFailedObjects:
+        statefulSet: Retain
+        pvc: Retain
+        configMap: Retain
+        service: Retain
   defaults:
     templates:
-      dataVolumeClaimTemplate: "{{ $name }}-gp2"
-      serviceTemplate: "{{ $name }}-chi-svc-tmpl"
-      podTemplate: "{{ $name }}-chi-pod-tmpl"
+      dataVolumeClaimTemplate: "{{ $name }}-default-volume-claim-tmpl"
+      serviceTemplate: "{{ $name }}-default-svc-tmpl"
+      podTemplate: "{{ $name }}-default-pod-tmpl"
   configuration:
     users:
       admin/password: "{{ .Values.clickhouse.password }}"
@@ -30,13 +49,19 @@ spec:
     {{- if .Values.clickhouse.configuration }}
     {{- with .Values.clickhouse.configuration.files }}
     files:
-    {{ toYaml . | nindent 6 }}
+    {{- toYaml . | nindent 6 }}
     {{- end }}
     {{- end }}
-
   templates:
     volumeClaimTemplates:
-      - name: "{{ $name }}-gp2"
+      {{- if .Values.clickhouse.configuration }}
+      {{- if .Values.clickhouse.configuration.volumeClaimTemplates }}
+      {{- with .Values.clickhouse.configuration.volumeClaimTemplates }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
+      - name: "{{ $name }}-default-volume-claim-tmpl"
         reclaimPolicy: Retain
         spec:
           accessModes:
@@ -45,13 +70,27 @@ spec:
             requests:
               storage: "{{ .Values.clickhouse.storage }}"
     podTemplates:
-      - name: "{{ $name }}-chi-pod-tmpl"
+      {{- if .Values.clickhouse.configuration }}
+      {{- if .Values.clickhouse.configuration.podTemplates }}
+      {{- with .Values.clickhouse.configuration.podTemplates }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
+      - name: "{{ $name }}-default-pod-tmpl"
         spec:
           containers:
             - name: clickhouse-pod
               image: yandex/clickhouse-server:21.6.5
     serviceTemplates:
-      - name: "{{ $name }}-chi-svc-tmpl"
+      {{- if .Values.clickhouse.configuration }}
+      {{- if .Values.clickhouse.configuration.serviceTemplates }}
+      {{- with .Values.clickhouse.configuration.serviceTemplates }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
+      - name: "{{ $name }}-default-svc-tmpl"
         generateName: "{{ $name }}"
         # type ObjectMeta struct from k8s.io/meta/v1
         metadata:
@@ -63,10 +102,8 @@ spec:
             service.beta.kubernetes.io/azure-load-balancer-internal: "true"
             service.beta.kubernetes.io/openstack-internal-load-balancer: "true"
             service.beta.kubernetes.io/cce-load-balancer-internal-vpc: "true"
-
             # NLB Load Balancer
             service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-
         # type ServiceSpec struct from k8s.io/core/v1
         spec:
           ports:

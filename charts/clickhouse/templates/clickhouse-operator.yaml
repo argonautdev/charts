@@ -1,3 +1,4 @@
+{{- $name := include "clickhouse.name" . -}}
 ---
 # Template Parameters:
 #
@@ -24,7 +25,7 @@ metadata:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: clickhouse-operator-"{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
+  name: "clickhouse-operator-{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
   #namespace: "{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
 rules:
   - apiGroups:
@@ -172,12 +173,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: clickhouse-operator-"{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
+  name: "clickhouse-operator-{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
   #namespace: "{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: clickhouse-operator-"{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
+  name: "clickhouse-operator-{{ .Release.Namespace }}" # ${OPERATOR_NAMESPACE}
 subjects:
   - kind: ServiceAccount
     name: clickhouse-operator
@@ -482,7 +483,7 @@ data:
                 "containers" : [
                   {
                     "name": "clickhouse",
-                    "image": "yandex/clickhouse-server:19.3.7",
+                    "image": "yandex/clickhouse-server:21.6.5",
                     "ports": [
                       {
                         "name": "http",

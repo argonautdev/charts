@@ -1,7 +1,4 @@
-# Default values for clickhouse.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
+# nameOverride: "ch1"
 zookeeper:
   # Number of nodes in ZooKeeper cluster. Set to either 1 or 3 or 5.
   nodes: 1  
@@ -10,8 +7,32 @@ clickhouse:
   replicasCount: 1
   password: "weakpassthatneedstobereplaced!"
   storage: "50Gi"
-# nameOverride: "ch1"
   configuration:
+    podTemplates:
+      - name: "{{ $name }}-chi-pod-tmpl"
+        spec:
+          containers:
+            - name: clickhouse-pod
+              image: yandex/clickhouse-server:21.6.5
+    serviceTemplates:
+      - name: "{{ $name }}-chi-svc-tmpl"
+        generateName: "{{ $name }}"
+        # type ObjectMeta struct from k8s.io/meta/v1
+        metadata:
+          labels:
+            managed: "argonaut"
+          annotations:
+            service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+            # NLB Load Balancer
+            service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+        # type ServiceSpec struct from k8s.io/core/v1
+        spec:
+          ports:
+            - name: http
+              port: 8123
+            - name: tcp
+              port: 9000
+          type: ClusterIP # Input
     files:
       your_schema.proto: |
           syntax = "proto3";
@@ -21,14 +42,38 @@ clickhouse:
             uint32 birthDate = 3;
             repeated string phoneNumbers = 4;
           };
-      your_schema1.proto: |
-          syntax = "proto3";
-          message MessageType {
-            string name = 1;
-            string surname = 2;
-            uint32 birthDate = 3;
-            repeated string phoneNumbers = 4;
-          };
+      config.d/cert.xml: |
+        <yandex>
+        <kafka>
+          <max_poll_interval_ms>60000</max_poll_interval_ms>
+          <session_timeout_ms>60000</session_timeout_ms>
+          <heartbeat_interval_ms>10000</heartbeat_interval_ms>
+          <reconnect_backoff_ms>5000</reconnect_backoff_ms>
+          <reconnect_backoff_max_ms>60000</reconnect_backoff_max_ms>
+          <security_protocol>SSL</security_protocol>
+          <ssl_ca_location>/home/ubuntu/heroku-kafka/ca.cert</ssl_ca_location>
+          <ssl_certificate_location>/home/ubuntu/heroku-kafka/certificate.cert</ssl_certificate_location>
+          <ssl_key_location>/home/ubuntu/heroku-kafka/key.pem</ssl_key_location>
+          <ssl_key_password>kafkapass</ssl_key_password>
+        </kafka>
+        </yandex>
+      config.d/cert-inline.xml: |
+        <yandex>
+        <kafka>
+          <ssl_key_pem><![CDATA[
+            RSA Private-Key: (3072 bit, 2 primes)
+              ....
+          -----BEGIN RSA PRIVATE KEY-----
+          ...
+          -----END RSA PRIVATE KEY-----
+          ]]></ssl_key_pem>
+          <ssl_certificate_pem><![CDATA[
+          -----BEGIN CERTIFICATE-----
+          ...
+          -----END CERTIFICATE-----
+          ]]></ssl_certificate_pem>
+        </kafka>
+        </yandex>
 externalLoadbalancer:
   enabled: false
   httpPort:
