@@ -72,7 +72,7 @@ spec:
         {{- end -}}
         {{/* This forces a restart if the configmap has changed */}}
         {{- if .Values.extraConfig }}
-        configchecksum: {{ include (print .Template.BasePath "/configmap.yaml") . | sha256sum | trunc 63 }}
+        configchecksum: {{ include (print .Template.BasePath "/configmap.yaml") . | sha256sum | trunc 63 | trimSuffix "-" }}
         {{- end }}
     spec:
       {{- if .Values.schedulerName }}
@@ -189,7 +189,7 @@ spec:
         {{- $p := .port | toString }}
         {{- if not ( hasKey $ports $p ) -}}
         {{- $_ := set $ports $p $p }}
-        - name: "{{- $name | trunc 4 -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}}"
+        - name: "{{- $name | trunc 4 | trimSuffix "-" -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}}"
           containerPort: {{ .port }}
         {{- end }}
         {{- end }}

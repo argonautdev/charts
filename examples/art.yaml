@@ -1,6 +1,6 @@
 ---
 version: "v1"
-appName: "nginx-deployment"
+appName: "ngx-deployment"
 env: "next"
 hosts:
   - "next.tritonhq.io"

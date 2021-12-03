@@ -42,7 +42,7 @@ spec:
         - host: "{{ $name }}-zk"
           port: 2181
     clusters:
-      - name: "{{ $name | trunc 11 }}"
+      - name: "{{ $name | trunc 11 | trimSuffix "-" }}"
         layout:
           shardsCount: {{ .Values.clickhouse.shardsCount }}
           replicasCount: {{ .Values.clickhouse.replicasCount }}
