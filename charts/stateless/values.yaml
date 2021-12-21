@@ -27,9 +27,9 @@ resources:
 # Argonaut metadata, used to identify the application and to determine the environment 
 #########################################################################################
 argonaut:
-  env: dev
-  region: us-east-1
-  cluster: dev
+  env: staging
+  region: ap-south-1
+  cluster: staging
   imageRegistry: ecr # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, cronjob, job, managed}
 
@@ -121,10 +121,11 @@ extraConfig:
 # Extra environment variables to append to this nodeGroup
 # This will be appended to the current 'env:' key. You can use any of the kubernetes env
 # syntax here
-extraEnvs: []
-#  - name: MY_ENVIRONMENT_VAR
-#    value: the_value_goes_here
-
+extraEnvs:
+ - name: MY_ENVIRONMENT_NAME
+   value: staging
+ - name: MY_ENVIRONMENT_NAME
+   value: staging
 
 #########################################################################################
 # Advanced configuration
