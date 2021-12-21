@@ -1,0 +1,225 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "argonaut-deployment.uname" . }}
+  labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+    {{- range $key, $value := .Values.labels }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+    version: {{ .Values.version | default .Release.Revision | quote }}
+  annotations:
+    {{- range $key, $value := .Values.podAnnotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+spec:
+  activeDeadlineSeconds: {{ .Values.cronjob.activeDeadlineSeconds | default 3600 }}
+  backoffLimit: {{ .Values.cronjob.backoffLimit | default 5 }}
+  ttlSecondsAfterFinished: {{ .Values.cronjob.ttlSecondsAfterFinished | default 86400 }}
+  parallelism: {{ .Values.cronjob.parallelism | default 1 }}
+  completions: {{ .Values.cronjob.completions | default 1 }}
+  template:
+    metadata:
+      name: {{ $name | quote}}
+      labels:
+        helm.sh/chart: {{ $chartName | quote }}
+        app.kubernetes.io/name: {{ $name | quote }}
+        app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+        app.kubernetes.io/instance: {{ $releaseName | quote }}
+        argonaut.dev/env: {{ $env | quote }}
+        app.kubernetes.io/version: {{ $version | quote }}
+        {{- range $key, $value := .Values.labels }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
+      annotations:
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
+    spec:
+      restartPolicy: {{ .Values.cronjob.restartPolicy | default "Never" | quote }}
+      {{- if .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName | quote }}
+      {{- end }}
+      {{- if .Values.podSecurityContext }}
+      securityContext:
+      {{ toYaml .Values.podSecurityContext | quote | nindent 8 }}
+      {{- end }}
+      {{- if .Values.rbac.create }}
+      serviceAccount: "{{ template "argonaut-deployment.uname" . }}"
+      {{- end }}
+      {{- if .Values.hostAliases }}
+      hostAliases: {{ toYaml .Values.hostAliases | quote | nindent 8 }}
+      {{- end }}
+      volumes:
+        {{- range $index, $volumeMount := .Values.persistentStorage }}
+        # TODO: Fix this
+        - name: "storage-vol-{{ $index }}"
+          emptyDir: {}
+        {{- end }}
+        {{- range .Values.secretMounts }}
+        - name: {{ .name }}
+          secret:
+            secretName: {{ .secretName }}
+            {{- if .defaultMode }}
+            defaultMode: {{ .defaultMode }}
+            {{- end }}
+        {{- end }}
+        {{- range .Values.extraConfig }}
+        # extraConfig
+        - name: {{ .name | lower }}
+          configMap:
+            name: "{{ $name }}-{{ .name | lower }}"
+        {{- end }}
+        {{- if .Values.keystore }}
+        - name: keystore
+          emptyDir: {}
+        {{- range .Values.keystore }}
+        - name: keystore-{{ .secretName }}
+          secret: {{ toYaml . | nindent 12 }}
+        {{- end }}
+        {{ end }}
+        {{- if .Values.extraVolumes }}
+        {{ toYaml .Values.extraVolumes | nindent 10 }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+      {{ toYaml . | nindent 10 }}
+      {{- end }}
+      {{- if or (eq .Values.antiAffinity "hard") (eq .Values.antiAffinity "soft") .Values.nodeAffinity | quote }}
+      affinity:
+        {{- if eq .Values.antiAffinity "hard" }}
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - "{{ template "argonaut-deployment.uname" .}}"
+            topologyKey: {{ .Values.antiAffinityTopologyKey }}
+        {{- else if eq .Values.antiAffinity "soft" }}
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            podAffinityTerm:
+              topologyKey: {{ .Values.antiAffinityTopologyKey }}
+              labelSelector:
+                matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                  - "{{ template "argonaut-deployment.uname" . }}"
+        {{- end }}
+      {{- end }}
+        # nodeAffinity:
+        #   requiredDuringSchedulingIgnoredDuringExecution:
+        #     nodeSelectorTerms:
+        #     - matchExpressions:
+        #       - key: argonaut.dev/environment
+        #         operator: In
+        #         values:
+        #           - {{ $env }}
+      {{- with .Values.tolerations }}
+      tolerations:
+      {{ toYaml . | nindent 10 }}
+      {{- end }}
+      {{- if .Values.argonaut.imageRegistry }}
+      imagePullSecrets:
+        - name: {{ .Values.argonaut.imageRegistry }}-imgpullsecret
+      {{- end }}
+      {{- if .Values.initContainer.enabled }}
+      initContainers:
+      - name: init-container
+        securityContext:
+          # runAsUser: 0
+          # privileged: true
+        image: "{{ .Values.initContainer.image }}"
+        imagePullPolicy: "Always"
+        command: {{ .Values.initContainer.command }}
+        {{- if .Values.initResources }}
+        resources:
+          {{ toYaml .Values.initResources | nindent 12 }}
+        {{- end }}
+        {{- if .Values.extraInitContainers }}
+        {{ toYaml .Values.extraInitContainers | nindent 10 }}
+        {{- end }}
+      {{- end }}
+      containers:
+      - name: "{{ template "argonaut-deployment.uname" . }}"
+        {{- if .Values.securityContext }}
+        securityContext:
+          {{ toYaml .Values.securityContext | nindent 12 }}
+        {{- end }}
+        image: "{{ template "argonaut-deployment.imageName" . }}"
+        imagePullPolicy: "Always"
+        {{- if .Values.command }}
+        command: {{ .Values.command }}
+        {{- else if .Values.entrypoint }}
+        command: {{ .Values.entrypoint }}
+        {{- end }}
+        {{- if .Values.args }}
+        args: {{ .Values.args }}
+        {{- else if .Values.cmd }}
+        args: {{ .Values.cmd }}
+        {{- end }}
+        resources:
+          {{ toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.extraEnvs }}
+        env:
+          {{ toYaml .Values.extraEnvs | nindent 12 }}
+        {{- end }}
+        envFrom:
+          - secretRef:
+              name: "art-{{- $name -}}-secret"
+              optional: true
+        {{- if .Values.envFrom }}
+          {{ toYaml .Values.envFrom | nindent 12 }}
+        {{- end }}
+        readinessProbe:
+          {{ toYaml .Values.readinessProbe | nindent 12 }}
+        lifecycle:
+          {{ toYaml .Values.lifecycle | nindent 12 }}
+        volumeMounts:
+          {{- range $index, $volumeMount := .Values.persistentStorage }}
+          - name: "storage-vol-{{ $index }}"
+            mountPath: "{{ $volumeMount.mountPath }}"
+          {{- end }}
+          {{- if .Values.keystore }}
+          - name: keystore
+            mountPath: /usr/share/"{{ template "argonaut-deployment.uname" . }}"/config/"{{ template "argonaut-deployment.uname" . }}".keystore
+            subPath: "{{ template "argonaut-deployment.uname" . }}".keystore
+          {{- end -}}
+          {{- range .Values.secretMounts }}
+          - name: {{ .name }}
+            mountPath: {{ .path }}
+            {{- if .subPath }}
+            subPath: {{ .subPath }}
+            {{- end }}
+          {{- end }}
+          {{- range .Values.extraConfig }}
+          - name: {{ .name | lower }}
+            mountPath: {{ .path }}
+            readOnly: {{ .readOnly }}
+          {{- end -}}
+        {{- if .Values.extraVolumeMounts }}
+          {{ toYaml .Values.extraVolumeMounts | nindent 12 }}
+        {{- end }}
+          {{ if .Values.extraContainers }}
+            {{ toYaml .Values.extraContainers  | quote | nindent 8 }}
+          {{- end -}}
+### end cron file
+---

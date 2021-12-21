@@ -33,11 +33,11 @@ spec:
   concurrencyPolicy: {{ .Values.cronjob.concurrencyPolicy | default "Forbid" | quote }}
   jobTemplate:
     spec:
-      activeDeadlineSeconds: 3600
-      backoffLimit: 5
-      ttlSecondsAfterFinished: 86400
-      parallelism: 1
-      completions: 1
+      activeDeadlineSeconds: {{ .Values.cronjob.activeDeadlineSeconds | default 3600 }}
+      backoffLimit: {{ .Values.cronjob.backoffLimit | default 5 }}
+      ttlSecondsAfterFinished: {{ .Values.cronjob.ttlSecondsAfterFinished | default 86400 }}
+      parallelism: {{ .Values.cronjob.parallelism | default 1 }}
+      completions: {{ .Values.cronjob.completions | default 1 }}
       template:
         metadata:
           name: {{ $name | quote}}

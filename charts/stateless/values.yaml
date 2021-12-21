@@ -4,12 +4,12 @@ appName: "nginx-demoapp"
 image: "nginx"
 imageTag: "latest"
 services:
-  # - port: 80
-  #   protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
-  #   external:
-  #     hosts:
-  #       - "battleship.dev.example.com"
-  #     paths: ["/"]
+  - port: 80
+    protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+    external:
+      hosts:
+        - "nginx.dev.example.com"
+      paths: ["/"]
 persistentStorage:
   [] # Set to [] if no persistent storage is required
   # - capacity: "1000M"
@@ -22,15 +22,19 @@ resources:
   requests:
     cpu: "100m"
     memory: "200M"
+
+#########################################################################################
+# Argonaut metadata, used to identify the application and to determine the environment 
+#########################################################################################
 argonaut:
   env: dev
   region: us-east-1
   cluster: dev
   imageRegistry: ecr # corresponding to the image that is to be deployed
-  serviceType: "stateless" # One of {stateful, stateless, managed}
+  serviceType: "stateless" # One of {stateful, stateless, cronjob, job, managed}
+
 #########################################################################################
-# Everything below this is optional and advanced configuration                          #
-# and irrelevant in most scenarios.                                                     #
+# Liveness and readiness probes
 #########################################################################################
 # Can only do one of the httpGet and exec handler methods for livenessProbe
 livenessProbe:
@@ -66,13 +70,20 @@ readinessProbe:
   successThreshold: 3
   periodSeconds: 10
   timeoutSeconds: 5
-externalServices: []
+
+#########################################################################################
+# Annotations and labels
+#########################################################################################
 podAnnotations:
   {}
   # iam.amazonaws.com/role: myapp-cluster
 # additionals labels
 labels: {}
 # Allows you to load environment variables from kubernetes secret or config map
+
+#########################################################################################
+# Environment variables and secrets
+#########################################################################################
 envFrom: []
 # - secretRef:
 #     name: env-secret
@@ -85,18 +96,39 @@ secretMounts:
   # - name: beamd-cert
   #   secretName: beamd-cert
   #   path: /usr/share/myapp/config/certs
-sidecarResources:
-  {}
-  # limits:
-  #   cpu: "25m"
-  #   # memory: "128Mi"
-  # requests:
-  #   cpu: "25m"
-  #   memory: "128Mi"
-# networkHost: "0.0.0.0"
-# The default value of 1 will make sure that kubernetes won't allow more than 1
-# of your pods to be unavailable during maintenance
-# maxUnavailable: 25%
+extraConfig:
+  []
+  # - name: configName
+  #   path: "/path/to/config/folder/"
+  #   readOnly: true
+  #   data:
+  #     pokedex.yaml: |
+  #       pokemonName: Pikachu
+  #       pokemonType: Lightning
+  #     battle.yaml: |
+  #       pokemon1: Pikachu
+  #       pokemon2: MewTwo
+  # - name: configName2
+  #   path: "/path/to/config/anotherfolder/"
+  #   readOnly: true
+  #   data:
+  #     pokedex.yaml: |
+  #       pokemonName: Pikachu
+  #       pokemonType: Lightning
+  #     battle.yaml: |
+  #       pokemon1: Pikachu
+  #       pokemon2: MewTwo
+# Extra environment variables to append to this nodeGroup
+# This will be appended to the current 'env:' key. You can use any of the kubernetes env
+# syntax here
+extraEnvs: []
+#  - name: MY_ENVIRONMENT_VAR
+#    value: the_value_goes_here
+
+
+#########################################################################################
+# Advanced configuration
+#########################################################################################
 updateStrategy: RollingUpdate
 # How long to wait for myapp to stop gracefully
 terminationGracePeriod: 30
@@ -146,6 +178,22 @@ securityContext:
 schedulerName: ""
 nodeSelector: {}
 tolerations: []
+
+#########################################################################################
+# Additional containers, volumes, and associated configuration
+#########################################################################################
+sidecarResources:
+  {}
+  # limits:
+  #   cpu: "25m"
+  #   # memory: "128Mi"
+  # requests:
+  #   cpu: "25m"
+  #   memory: "128Mi"
+# networkHost: "0.0.0.0"
+# The default value of 1 will make sure that kubernetes won't allow more than 1
+# of your pods to be unavailable during maintenance
+# maxUnavailable: 25%
 initContainer:
   enabled: false
   # command: ["echo", "I am an initContainer"]
@@ -179,31 +227,3 @@ extraContainers:
   #   command: ['do', 'something']
 # Allows you to add any config files in /usr/share/myapp/config/
 # as a ConfigMap
-extraConfig:
-  []
-  # - name: configName
-  #   path: "/path/to/config/folder/"
-  #   readOnly: true
-  #   data:
-  #     pokedex.yaml: |
-  #       pokemonName: Pikachu
-  #       pokemonType: Lightning
-  #     battle.yaml: |
-  #       pokemon1: Pikachu
-  #       pokemon2: MewTwo
-  # - name: configName2
-  #   path: "/path/to/config/anotherfolder/"
-  #   readOnly: true
-  #   data:
-  #     pokedex.yaml: |
-  #       pokemonName: Pikachu
-  #       pokemonType: Lightning
-  #     battle.yaml: |
-  #       pokemon1: Pikachu
-  #       pokemon2: MewTwo
-# Extra environment variables to append to this nodeGroup
-# This will be appended to the current 'env:' key. You can use any of the kubernetes env
-# syntax here
-extraEnvs: []
-#  - name: MY_ENVIRONMENT_VAR
-#    value: the_value_goes_here
