@@ -1,3 +1,9 @@
 version: "v1"
-appName: "database-1"
-externalName: database-1.abcde.us-east-1.rds.amazonaws.com
+appName: "postgresql"
+externalName: database-1.cigjhgrklzzz.ap-south-1.rds.amazonaws.com
+argonaut:
+  env: violet
+  region: us-east-1
+  cluster: violet
+  serviceType: "external"
+

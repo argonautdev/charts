@@ -1,0 +1,55 @@
+
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+
+
+{{- range $index, $value := .Values.externalServices }}
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: "{{- .name }}"
+  labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+spec:
+  hosts:
+    {{- range .hosts }}
+    - {{ . }}
+    {{- end }}
+  ports:
+  {{- range .ports }}
+    - name: {{ .name }}
+      protocol: {{ .protocol }}
+      number: {{ .number }}
+  {{- end }}
+  resolution: {{ .resolution }} # DNS
+  location: {{ .location }}
+---
+{{- $svcName := .name -}}
+{{- range .hosts }}
+kind: Service
+apiVersion: v1
+metadata:
+ name: {{ $svcName | quote }}
+ labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+spec:
+ type: ExternalName
+ externalName: {{ . }}
+---
+{{- end }}
+{{- end }}
+
