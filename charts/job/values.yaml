@@ -32,7 +32,7 @@ argonaut:
   region: us-east-1
   cluster: dev
   imageRegistry: ecr # corresponding to the image that is to be deployed
-  serviceType: "job" # One of {stateful, stateless, managed, cronjob, job}
+  serviceType: "stateless" # One of {stateful, stateless, managed}
 
 #########################################################################################
 # Liveness and readiness probes
