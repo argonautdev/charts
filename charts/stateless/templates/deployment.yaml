@@ -24,9 +24,7 @@ metadata:
     {{- end }}
     version: {{ .Values.version | default .Release.Revision | quote }}
   annotations:
-    {{- range $key, $value := .Values.podAnnotations }}
-    {{ $key }}: {{ $value | quote }}
-    {{- end }}
+    {}
 spec:
   replicas: {{ .Values.replicas }}
   strategy:
@@ -180,14 +178,10 @@ spec:
           containerPort: {{ .port }}
         {{- end }}
         {{- end }}
-        {{- if .Values.command }}
-        command: {{ .Values.command }}
-        {{- else if .Values.entrypoint }}
+        {{- if .Values.entrypoint }}
         command: {{ .Values.entrypoint }}
         {{- end }}
-        {{- if .Values.args }}
-        args: {{ .Values.args }}
-        {{- else if .Values.cmd }}
+        {{- if .Values.cmd }}
         args: {{ .Values.cmd }}
         {{- end }}
         resources:
