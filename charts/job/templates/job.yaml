@@ -27,11 +27,11 @@ metadata:
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
-  activeDeadlineSeconds: {{ .Values.cronjob.activeDeadlineSeconds | default 3600 }}
-  backoffLimit: {{ .Values.cronjob.backoffLimit | default 5 }}
-  ttlSecondsAfterFinished: {{ .Values.cronjob.ttlSecondsAfterFinished | default 86400 }}
-  parallelism: {{ .Values.cronjob.parallelism | default 1 }}
-  completions: {{ .Values.cronjob.completions | default 1 }}
+  activeDeadlineSeconds: {{ .Values.job.activeDeadlineSeconds | default 3600 }}
+  backoffLimit: {{ .Values.job.backoffLimit | default 5 }}
+  ttlSecondsAfterFinished: {{ .Values.job.ttlSecondsAfterFinished | default 86400 }}
+  parallelism: {{ .Values.job.parallelism | default 1 }}
+  completions: {{ .Values.job.completions | default 1 }}
   template:
     metadata:
       name: {{ $name | quote}}
@@ -50,7 +50,7 @@ spec:
         {{ $key }}: {{ $value | quote }}
         {{- end }}
     spec:
-      restartPolicy: {{ .Values.cronjob.restartPolicy | default "Never" | quote }}
+      restartPolicy: {{ .Values.job.restartPolicy | default "Never" | quote }}
       {{- if .Values.priorityClassName }}
       priorityClassName: {{ .Values.priorityClassName | quote }}
       {{- end }}
@@ -221,5 +221,5 @@ spec:
           {{ if .Values.extraContainers }}
             {{ toYaml .Values.extraContainers  | quote | nindent 8 }}
           {{- end -}}
-### end cron file
+### end job file
 ---
