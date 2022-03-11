@@ -30,7 +30,7 @@ spec:
     {{- $p := .port | toString }}
     {{- if not ( hasKey $ports $p ) -}}
     {{- $_ := set $ports $p $p }}
-    - name: "{{- $name | trunc 4 | trimSuffix "-" -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}}"
+    - name: "{{- if .name }} {{- .name -}} {{ else }} {{- $name | trunc 4 | trimSuffix "-" -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}} {{ end -}}"
       protocol: TCP # UDP and SCTP are the other options
       port: {{ .port }}
     {{- end }}
