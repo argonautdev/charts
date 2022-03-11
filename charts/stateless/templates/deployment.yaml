@@ -176,7 +176,7 @@ spec:
         {{- $p := .port | toString }}
         {{- if not ( hasKey $ports $p ) -}}
         {{- $_ := set $ports $p $p }}
-        - name: "{{- $name | trunc 4 | trimSuffix "-" -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}}"
+        - name: "{{- if .name }} {{- .name -}} {{ else }} {{- $name | trunc 4 | trimSuffix "-" -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}} {{- end }}"
           containerPort: {{ .port }}
         {{- end }}
         {{- end }}
