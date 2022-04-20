@@ -3,18 +3,17 @@ version: "v1"
 appName: "nginx-demoapp"
 image: "nginx"
 imageTag: "latest"
-services:
-  - port: 80
-    protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
-    external:
-      hosts:
-        - "nginx.dev.example.com"
-      paths: ["/"]
-persistentStorage:
-  # Set to [] if no persistent storage is required
-  - capacity: "1000M"
-    mountPath: "/usr/share/appdata"
-    accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
+services: []
+  # - port: 80
+  #   protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+  #   external:
+  #     hosts:
+  #       - "nginx.dev.example.com"
+  #     paths: ["/"]
+persistentStorage: [] # Set to [] if no persistent storage is required
+  # - capacity: "1000M"
+  #   mountPath: "/usr/share/appdata"
+  #   accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
 replicas: 1
 minReplicas: 1
 maxReplicas: 8
@@ -41,12 +40,12 @@ livenessProbe:
   # httpGet:
   #   path: /
   #   port: http
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       echo "success"
+  exec:
+    command:
+      - sh
+      - -c
+      - |
+        echo "success"
   failureThreshold: 5
   initialDelaySeconds: 10
   periodSeconds: 10
@@ -58,12 +57,12 @@ readinessProbe:
   #   path: /
   #   port: 80
   # # Handler 2
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       echo "success"
+  exec:
+    command:
+      - sh
+      - -c
+      - |
+        echo "success"
   # Common fields
   failureThreshold: 5
   initialDelaySeconds: 10
