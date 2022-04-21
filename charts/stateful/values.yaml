@@ -40,12 +40,12 @@ livenessProbe:
   # httpGet:
   #   path: /
   #   port: http
-  exec:
-    command:
-      - sh
-      - -c
-      - |
-        echo "success"
+  # exec:
+  #   command:
+  #     - sh
+  #     - -c
+  #     - |
+  #       echo "success"
   failureThreshold: 5
   initialDelaySeconds: 10
   periodSeconds: 10
@@ -57,12 +57,12 @@ readinessProbe:
   #   path: /
   #   port: 80
   # # Handler 2
-  exec:
-    command:
-      - sh
-      - -c
-      - |
-        echo "success"
+  # exec:
+  #   command:
+  #     - sh
+  #     - -c
+  #     - |
+  #       echo "success"
   # Common fields
   failureThreshold: 5
   initialDelaySeconds: 10
