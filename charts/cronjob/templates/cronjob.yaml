@@ -186,7 +186,10 @@ spec:
               {{ toYaml .Values.resources | nindent 16 }}
             {{- if .Values.extraEnvs }}
             env:
-              {{ toYaml .Values.extraEnvs | nindent 16 }}
+            {{- range .Values.extraEnvs }}
+              - name: {{ .name | quote }}
+                value: {{ .value | quote }}
+            {{- end }}
             {{- end }}
             envFrom:
               - secretRef:
