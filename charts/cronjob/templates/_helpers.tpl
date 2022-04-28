@@ -40,6 +40,14 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 {{- end -}}
 
+{{- define "argonaut-deployment.sa" -}}
+{{- if empty .Values.rbac.serviceAccountName -}}
+{{include "argonaut-deployment.uname" .}}
+{{- else -}}
+{{- .Values.rbac.serviceAccountName -}}
+{{- end -}}
+{{- end -}}
+
 {{- define "argonaut-deployment.endpoints" -}}
 {{- $replicas := int (toString (.Values.replicas)) }}
 {{- $uname := (include "argonaut-deployment.uname" .) }}
