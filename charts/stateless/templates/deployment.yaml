@@ -194,7 +194,10 @@ spec:
 {{ toYaml .Values.resources | indent 10 }}
 {{- if .Values.extraEnvs }}
         env:
-{{ toYaml .Values.extraEnvs | indent 10 }}
+{{- range .Values.extraEnvs }}
+          - name: {{ .name | quote }}
+            value: {{ .value | quote }}
+{{- end }}
 {{- end }}
         envFrom:
           - secretRef:
