@@ -149,10 +149,13 @@ spec:
           # privileged: true
         image: "{{ .Values.initContainer.image }}"
         imagePullPolicy: "Always"
-        command: {{ .Values.initContainer.command }}
+        {{- if .Values.initContainer.command }}
+        command:
+        {{- toYaml .Values.initContainer.command | nindent 10 }}
+        {{- end }}
         {{- if .Values.initResources }}
         resources:
-          {{ toYaml .Values.initResources | nindent 12 }}
+          {{- toYaml .Values.initResources | nindent 12 }}
         {{- end }}
         {{- if .Values.extraInitContainers }}
         {{ toYaml .Values.extraInitContainers | nindent 10 }}
@@ -177,13 +180,18 @@ spec:
         args: {{ .Values.cmd }}
         {{- end }}
         resources:
-          {{ toYaml .Values.resources | nindent 12 }}
+        {{- toYaml .Values.resources | nindent 10 }}
         {{- if .Values.extraEnvs }}
         env:
-          {{- range .Values.extraEnvs }}
+        {{- range .Values.extraEnvs }}
           - name: {{ .name | quote }}
+          {{- if .value }}
             value: {{ .value | quote }}
+          {{- else if .valueFrom }}
+            valueFrom:
+            {{- toYaml .valueFrom | nindent 14 }}
           {{- end }}
+        {{- end }}
         {{- end }}
         envFrom:
           - secretRef:
@@ -193,9 +201,9 @@ spec:
           {{ toYaml .Values.envFrom | nindent 12 }}
         {{- end }}
         readinessProbe:
-          {{ toYaml .Values.readinessProbe | nindent 12 }}
+          {{- toYaml .Values.readinessProbe | nindent 12 }}
         lifecycle:
-          {{ toYaml .Values.lifecycle | nindent 12 }}
+          {{- toYaml .Values.lifecycle | nindent 12 }}
         volumeMounts:
           {{- range $index, $volumeMount := .Values.persistentStorage }}
           - name: "storage-vol-{{ $index }}"
