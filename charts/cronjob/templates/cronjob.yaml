@@ -62,7 +62,7 @@ spec:
           {{- end }}
           {{- if .Values.podSecurityContext }}
           securityContext:
-          {{ toYaml .Values.podSecurityContext | quote | nindent 12 }}
+          {{- toYaml .Values.podSecurityContext | quote | nindent 12 }}
           {{- end }}
           {{- if .Values.rbac.create }}
           serviceAccountName: "{{ template "argonaut-deployment.sa" . }}"
@@ -155,20 +155,23 @@ spec:
               # privileged: true
             image: "{{ .Values.initContainer.image }}"
             imagePullPolicy: "Always"
-            command: {{ .Values.initContainer.command }}
+            {{- if .Values.initContainer.command }}
+            command:
+            {{- toYaml .Values.initContainer.command | nindent 14 }}
+            {{- end }}
             {{- if .Values.initResources }}
             resources:
-              {{ toYaml .Values.initResources | nindent 16 }}
+              {{- toYaml .Values.initResources | nindent 16 }}
             {{- end }}
             {{- if .Values.extraInitContainers }}
-            {{ toYaml .Values.extraInitContainers | nindent 14 }}
+            {{- toYaml .Values.extraInitContainers | nindent 14 }}
             {{- end }}
           {{- end }}
           containers:
           - name: "{{ template "argonaut-deployment.uname" . }}"
             {{- if .Values.securityContext }}
             securityContext:
-              {{ toYaml .Values.securityContext | nindent 16 }}
+              {{- toYaml .Values.securityContext | nindent 16 }}
             {{- end }}
             image: "{{ template "argonaut-deployment.imageName" . }}"
             imagePullPolicy: "Always"
@@ -183,12 +186,17 @@ spec:
             args: {{ .Values.cmd }}
             {{- end }}
             resources:
-              {{ toYaml .Values.resources | nindent 16 }}
+            {{- toYaml .Values.resources | nindent 14 }}
             {{- if .Values.extraEnvs }}
             env:
             {{- range .Values.extraEnvs }}
               - name: {{ .name | quote }}
+              {{- if .value }}
                 value: {{ .value | quote }}
+              {{- else if .valueFrom }}
+                valueFrom:
+                {{- toYaml .valueFrom | nindent 20 }}
+              {{- end }}
             {{- end }}
             {{- end }}
             envFrom:
@@ -196,12 +204,12 @@ spec:
                   name: "art-{{- $name -}}-secret"
                   optional: true
             {{- if .Values.envFrom }}
-              {{ toYaml .Values.envFrom | nindent 16 }}
+              {{- toYaml .Values.envFrom | nindent 16 }}
             {{- end }}
             readinessProbe:
-              {{ toYaml .Values.readinessProbe | nindent 16 }}
+              {{- toYaml .Values.readinessProbe | nindent 16 }}
             lifecycle:
-              {{ toYaml .Values.lifecycle | nindent 16 }}
+              {{- toYaml .Values.lifecycle | nindent 16 }}
             volumeMounts:
               {{- range $index, $volumeMount := .Values.persistentStorage }}
               - name: "storage-vol-{{ $index }}"
