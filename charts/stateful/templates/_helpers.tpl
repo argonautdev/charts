@@ -12,7 +12,9 @@ Falling back to imageTag, and defaulting to "latest"
 */}}
 {{- define "argonaut-deployment.imageName" -}}
 {{- if empty .Values.imageDigest -}}
-{{- if empty .Values.imageTag -}}
+{{- if .Values.isImageTagged -}}
+{{- .Values.image -}}
+{{- else if empty .Values.imageTag -}}
 {{- .Values.image -}}:latest
 {{- else -}}
 {{- .Values.image -}}:{{- .Values.imageTag -}}
