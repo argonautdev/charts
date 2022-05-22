@@ -1,8 +1,8 @@
 {{- $name := include "argonaut-deployment.sa" . -}}
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
-{{- $releaseService := .Release.Service -}}
 {{- $env := .Values.argonaut.env -}}
+{{- $cluster := .Values.argonaut.cluster -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 {{- if .Values.rbac.create }}
@@ -11,16 +11,12 @@ kind: Role
 metadata:
   name: {{ $name | quote }}
   labels:
+    chart: {{ $chartName | quote }}
     app: {{ $name | quote }}
-    chart: "{{ .Chart.Name }}"
-    heritage: {{ .Release.Service | quote }}
-    release: {{ .Release.Name | quote }}
-    helm.sh/chart: {{ $chartName | quote }}
-    app.kubernetes.io/name: {{ $name | quote }}
-    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
-    app.kubernetes.io/instance: {{ $releaseName | quote }}
-    argonaut.dev/env: {{ $env | quote }}
-    app.kubernetes.io/version: {{ $version | quote }}
+    release: {{ $releaseName | quote }}
+    env: {{ $env | quote }}
+    cluster: {{ $cluster | quote }}
+    version: {{ $version | quote }}
 {{- if .Values.rbac.pspEnabled }}
 rules:
 - apiGroups:      ['extensions']

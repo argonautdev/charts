@@ -1,8 +1,8 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
-{{- $releaseService := .Release.Service -}}
 {{- $env := .Values.argonaut.env -}}
+{{- $cluster := .Values.argonaut.cluster -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 ---
@@ -11,12 +11,12 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: {{ $name }}-hpa
   labels:
-    helm.sh/chart: {{ $chartName | quote }}
-    app.kubernetes.io/name: {{ $name | quote }}
-    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
-    app.kubernetes.io/instance: {{ $releaseName | quote }}
-    argonaut.dev/env: {{ $env | quote }}
-    app.kubernetes.io/version: {{ $version | quote }}
+    chart: {{ $chartName | quote }}
+    app: {{ $name | quote }}
+    release: {{ $releaseName | quote }}
+    env: {{ $env | quote }}
+    cluster: {{ $cluster | quote }}
+    version: {{ $version | quote }}
 spec:
   maxReplicas: {{ int .Values.maxReplicas  }}
   minReplicas: {{ int .Values.minReplicas  }}
