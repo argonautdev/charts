@@ -9,7 +9,7 @@ clickhouse:
   shardsCount: 1
   replicasCount: 1
   password: "weakpassthatneedstobereplaced!"
-  storage: "5Gi"
+  storage: "50Gi"
 ingress:
   enabled: true
   hosts:

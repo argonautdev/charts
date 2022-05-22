@@ -1,9 +1,9 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
 {{- $releaseNamespace := .Release.Namespace -}}
 {{- $env := .Values.argonaut.env -}}
-{{- $cluster := .Values.argonaut.cluster -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
 ---
@@ -49,12 +49,12 @@ kind: Ingress
 metadata:
   name: "{{ $name }}-{{- .port -}}-{{- .external.hostPort | default 443 -}}-ingress"
   labels:
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
-    release: {{ $releaseName | quote }}
-    env: {{ $env | quote }}
-    cluster: {{ $cluster | quote }}
-    version: {{ $version | quote }}
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
   annotations:
     {{- if .external.overrideAnnotations }}
     {{ toYaml .external.overrideAnnotations | nindent 4 }}

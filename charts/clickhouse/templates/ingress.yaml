@@ -13,10 +13,11 @@ kind: Ingress
 metadata:
   name: "{{ $name }}-clickhouse-ingress"
   labels:
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
-    release: {{ $releaseName | quote }}
-    version: {{ $version | quote }}
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
   annotations:
     {{- if .Values.ingress.overrideAnnotations }}
     {{ toYaml .Values.ingress.overrideAnnotations | nindent 4 }}

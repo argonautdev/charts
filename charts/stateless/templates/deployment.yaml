@@ -2,8 +2,8 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
 {{- $chartName := .Chart.Name -}}
 {{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
 {{- $env := .Values.argonaut.env -}}
-{{- $cluster := .Values.argonaut.cluster -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 {{- $ports := dict -}}
 
@@ -13,12 +13,12 @@ kind: Deployment
 metadata:
   name: {{ template "argonaut-deployment.uname" . }}
   labels:
-    chart: {{ $chartName | quote }}
-    app: {{ $name | quote }}
-    release: {{ $releaseName | quote }}
-    env: {{ $env | quote }}
-    cluster: {{ $cluster | quote }}
-    version: {{ $version | quote }}
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
     {{- range $key, $value := .Values.labels }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
@@ -33,17 +33,18 @@ spec:
     type: {{ .Values.updateStrategy }}
   selector:
     matchLabels:
-      app: "{{ template "argonaut-deployment.uname" . }}"
+      app.kubernetes.io/name: "{{ template "argonaut-deployment.uname" . }}"
+      # app.kubernetes.io/instance: {{ .Release.Name | quote }}
   template:
     metadata:
       name: "{{ template "argonaut-deployment.uname" . }}"
       labels:
-        chart: {{ $chartName | quote }}
-        app: {{ $name | quote }}
-        release: {{ $releaseName | quote }}
-        env: {{ $env | quote }}
-        cluster: {{ $cluster | quote }}
-        version: {{ $version | quote }}
+        helm.sh/chart: {{ $chartName | quote }}
+        app.kubernetes.io/name: {{ $name | quote }}
+        app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+        app.kubernetes.io/instance: {{ $releaseName | quote }}
+        argonaut.dev/env: {{ $env | quote }}
+        app.kubernetes.io/version: {{ $version | quote }}
         {{- range $key, $value := .Values.labels }}
         {{ $key }}: {{ $value | quote }}
         {{- end }}
@@ -110,7 +111,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: app
+              - key: app.kubernetes.io/name
                 operator: In
                 values:
                 - "{{ template "argonaut-deployment.uname" .}}"
@@ -123,7 +124,7 @@ spec:
               topologyKey: {{ .Values.antiAffinityTopologyKey }}
               labelSelector:
                 matchExpressions:
-                - key: app
+                - key: app.kubernetes.io/name
                   operator: In
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
