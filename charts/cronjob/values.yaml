@@ -43,39 +43,39 @@ argonaut:
 # Liveness and readiness probes
 #########################################################################################
 # Can only do one of the httpGet and exec handler methods for livenessProbe
-livenessProbe:
-  # httpGet:
-  #   path: /
-  #   port: http
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       echo "success"
-  failureThreshold: 5
-  initialDelaySeconds: 10
-  periodSeconds: 10
-  timeoutSeconds: 5
-# Can only do one of the httpGet and exec handler methods for readinessProbe
-readinessProbe:
-  # Handler 1
-  # httpGet:
-  #   path: /
-  #   port: 80
-  # # Handler 2
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       echo "success"
-  # Common fields
-  failureThreshold: 5
-  initialDelaySeconds: 10
-  successThreshold: 3
-  periodSeconds: 10
-  timeoutSeconds: 5
+# livenessProbe:
+#   # httpGet:
+#   #   path: /
+#   #   port: http
+#   # exec:
+#   #   command:
+#   #     - sh
+#   #     - -c
+#   #     - |
+#   #       echo "success"
+#   failureThreshold: 5
+#   initialDelaySeconds: 10
+#   periodSeconds: 10
+#   timeoutSeconds: 5
+# # Can only do one of the httpGet and exec handler methods for readinessProbe
+# readinessProbe:
+#   # Handler 1
+#   # httpGet:
+#   #   path: /
+#   #   port: 80
+#   # # Handler 2
+#   # exec:
+#   #   command:
+#   #     - sh
+#   #     - -c
+#   #     - |
+#   #       echo "success"
+#   # Common fields
+#   failureThreshold: 5
+#   initialDelaySeconds: 10
+#   successThreshold: 3
+#   periodSeconds: 10
+#   timeoutSeconds: 5
 
 #########################################################################################
 # Annotations and labels
