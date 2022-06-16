@@ -167,6 +167,10 @@ spec:
       {{- if .Values.initContainer.enabled }}
       initContainers:
       - name: init-container
+        envFrom:
+          - secretRef:
+              name: "art-{{- $name -}}-secret"
+              optional: true
         securityContext:
           # runAsUser: 0
           # privileged: true
