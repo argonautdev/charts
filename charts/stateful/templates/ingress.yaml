@@ -15,7 +15,9 @@ metadata:
 data:
   {{- range .Values.services }}
   {{- if or (eq .protocol "http") (eq .protocol "tls-terminated") (eq .protocol "https") (eq .protocol "grpc") (eq .protocol "grpcs") }}
+  {{- if (.external) }}
   {{ .external.hostPort | default 443 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
+  {{- end }}
   {{- end }}
   {{- end }}
 ---
@@ -26,8 +28,8 @@ metadata:
   name: "{{ $name }}-tcp-services"
 data:
   {{- range .Values.services }}
-  {{- if (eq .protocol "tcp") }}
-  {{ .external.hostPort | default 443 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
+  {{- if and (eq .protocol "tcp") (.external) }}
+  {{ .external.hostPort | default 9000 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
   {{- end }}
   {{- end }}
 ---
@@ -37,8 +39,8 @@ metadata:
   name: "{{ $name }}-udp-services"
 data:
   {{- range .Values.services }}
-  {{- if (eq .protocol "udp") }}
-  {{ .external.hostPort | default 443 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
+  {{- if and (eq .protocol "udp") (.external) }}
+  {{ .external.hostPort | default 9001 }}: "{{ $releaseNamespace }}/{{ $name }}: {{- .port }}"
   {{- end }}
   {{- end }}
 ---
