@@ -2,16 +2,29 @@
 # This is a YAML-formatted file.
 
 name: "ch1"
+labels: {}
 zookeeper:
   # Number of nodes in ZooKeeper cluster. Set to either 1 or 3 or 5.
-  nodes: 1  
+  nodes: 1
 clickhouse:
-  shardsCount: 1
-  replicasCount: 1
+  shardsCount: 2
+  replicasCount: 3
   password: "weakpassthatneedstobereplaced!"
   storage: "50Gi"
+  logStorage: "5Gi"
+  cpu: "1500m"
+  memory: "3Gi"
+  # configuration:
+  #   hostTemplate: host-template-custom-ports
+  #   podTemplate: clickhouse-v22.2
+  #   dataVolumeClaimTemplate: default-volume-claim
+  #   logVolumeClaimTemplate: default-volume-claim
+  #   serviceTemplate: chi-service-template
+  #   clusterServiceTemplate: cluster-service-template
+  #   shardServiceTemplate: shard-service-template
+  #   replicaServiceTemplate: replica-service-template
 ingress:
-  enabled: true
+  enabled: false
   hosts:
     - "ch1.example.com"
     - "ch2.example.com"
