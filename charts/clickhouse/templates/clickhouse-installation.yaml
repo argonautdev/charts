@@ -58,11 +58,11 @@ spec:
       profile: default
     templates:
       {{- with .Values.clickhouse.configuration }}
-      {{- if .hostTemplates }}
-      hostTemplate: {{ .hostTemplate | quote }}
-      {{- else }}
-      hostTemplate: "{{ $name }}-host-template-custom-ports"
-      {{- end }}
+      # {{- if .hostTemplates }}
+      # hostTemplate: {{ .hostTemplate | quote }}
+      # {{- else }}
+      # hostTemplate: "{{ $name }}-host-template-custom-ports"
+      # {{- end }}
       {{- if .dataVolumeClaimTemplate }}
       dataVolumeClaimTemplate: {{ .dataVolumeClaimTemplate | quote }}
       {{- else }}
@@ -136,10 +136,8 @@ spec:
       # default/max_memory_usage: "3000000000"
     zookeeper:
       nodes:
-        {{range until (.Values.zookeeper.nodes | int) }}
-        - host: "{{ $name }}-{{ . }}-zk"
+        - host: "{{ $name }}-zk"
           port: 2181
-        {{end}}
       session_timeout_ms: 30000
       operation_timeout_ms: 10000
       root: "/path/to/zookeeper/root/node"
@@ -174,12 +172,12 @@ spec:
           shardsCount: {{ .Values.clickhouse.shardsCount }}
           replicasCount: {{ .Values.clickhouse.replicasCount }}
   templates:
-    hostTemplates:
-      - name: "{{ $name }}-host-template-custom-ports"
-        spec:
-          tcpPort: 7000
-          httpPort: 7001
-          interserverHTTPPort: 7002
+    # hostTemplates:
+    #   - name: "{{ $name }}-host-template-custom-ports"
+    #     spec:
+    #       tcpPort: 7000
+    #       httpPort: 7001
+    #       interserverHTTPPort: 7002
     serviceTemplates:
       {{- if .Values.clickhouse.configuration }}
       {{- if .Values.clickhouse.configuration.serviceTemplates }}
