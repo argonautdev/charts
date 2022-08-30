@@ -163,6 +163,14 @@ spec:
         {{- toYaml .Values.initContainer.command | nindent 10 }}
         {{- end }}
         {{- if .Values.initResources }}
+        volumeMounts:
+          {{- range .Values.secretMounts }}
+          - name: {{ .name }}
+            mountPath: {{ .path }}
+            {{- if .subPath }}
+            subPath: {{ .subPath }}
+            {{- end }}
+          {{- end }}
         resources:
 {{- toYaml .Values.initResources | indent 10 }}
         {{- end }}
