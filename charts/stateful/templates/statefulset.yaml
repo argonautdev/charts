@@ -180,6 +180,14 @@ spec:
         command:
         {{- toYaml .Values.initContainer.command | nindent 10 }}
         {{- end }}
+        volumeMounts:
+          {{- range .Values.secretMounts }}
+          - name: {{ .name }}
+            mountPath: {{ .path }}
+            {{- if .subPath }}
+            subPath: {{ .subPath }}
+            {{- end }}
+          {{- end }}
         resources:
         {{- toYaml .Values.initResources | nindent 10 }}
       {{- end }}
