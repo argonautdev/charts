@@ -1,25 +1,7 @@
 manifests: |-
-  apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: demo1
-  data:
-    key1: value1
-
-  ---
-
-  apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: demo2
-  data:
-    key2: value2
-
-  ---
-
-  apiVersion: v1
-  kind: ConfigMap
-  metadata:
-    name: demo2
-  data:
-    key2: value2
+  # apiVersion: v1
+  # kind: ConfigMap
+  # metadata:
+  #   name: sample1
+  # data:
+  #   key1: value1
