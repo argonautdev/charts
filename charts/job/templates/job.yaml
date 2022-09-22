@@ -165,6 +165,10 @@ spec:
         resources:
           {{- toYaml .Values.initResources | nindent 12 }}
         {{- end }}
+        envFrom:
+        {{- if .Values.envFrom }}
+          {{- toYaml .Values.envFrom | nindent 12 }}
+        {{- end }}
         {{- if .Values.extraInitContainers }}
         {{ toYaml .Values.extraInitContainers | nindent 10 }}
         {{- end }}
