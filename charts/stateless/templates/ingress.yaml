@@ -67,7 +67,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     {{- if or (eq .protocol "tls-terminated") (eq .protocol "https") (eq .protocol "grpcs") }}
     kubernetes.io/tls-acme: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: {{ .clusterIssuer | default "letsencrypt-prod" | quote }}
     {{- end }}
     {{- if eq .protocol "ssl-passthrough" }}
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
