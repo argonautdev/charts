@@ -1,7 +1,7 @@
 ---
 version: "v1"
-appName: "nginx-demoapp"
-image: "nginx"
+# appName: "nginx-demoapp"
+# image: "nginx"
 imageTag: "latest"
 services: []
   # - port: 80
@@ -10,6 +10,8 @@ services: []
   #     hosts:
   #       - "nginx.dev.example.com"
   #     paths: ["/"]
+  #   clusterIssuer: letsencrypt-prod
+  #   extraAnnotations: {}
 persistentStorage:
   [] # Set to [] if no persistent storage is required
   # - capacity: "1000M"
@@ -17,7 +19,7 @@ persistentStorage:
   #   accessMode: "ReadWriteOnce" # ReadWriteOnce and ReadOnlyMany are supported
 replicas: 1
 minReplicas: 1
-maxReplicas: 8
+maxReplicas: 10
 resources:
   requests:
     cpu: "100m"
@@ -27,9 +29,9 @@ resources:
 # Argonaut metadata, used to identify the application and to determine the environment 
 #########################################################################################
 argonaut:
-  env: staging
-  region: ap-south-1
-  cluster: staging
+  env: dev
+  region: us-east-1
+  cluster: dev
   imageRegistry: ecr # corresponding to the image that is to be deployed
   serviceType: "stateless" # One of {stateful, stateless, cronjob, job, managed}
 
@@ -77,7 +79,7 @@ argonaut:
 podAnnotations:
   {}
   # iam.amazonaws.com/role: myapp-cluster
-# additionals labels
+# additional labels
 labels: {}
 # Allows you to load environment variables from kubernetes secret or config map
 

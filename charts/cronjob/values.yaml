@@ -1,7 +1,7 @@
 ---
 version: "v1"
-appName: "nginx-demoapp"
-image: "nginx"
+# appName: "nginx-demoapp"
+# image: "nginx"
 imageTag: "latest"
 command: ["echo"]
 args: ["Hello World"]
