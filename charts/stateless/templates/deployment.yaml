@@ -149,11 +149,8 @@ spec:
       {{- if .Values.initContainer.enabled }}
       initContainers:
       - name: init-container
-        envFrom:
-          - secretRef:
-              name: "art-{{- $name -}}-secret"
-              optional: true
         {{- if .Values.envFrom }}
+        envFrom:
         {{- toYaml .Values.envFrom | nindent 10 }}
         {{- end }}
         securityContext:
@@ -222,11 +219,8 @@ spec:
           {{- end }}
         {{- end }}
         {{- end }}
-        envFrom:
-          - secretRef:
-              name: "art-{{- $name -}}-secret"
-              optional: true
         {{- if .Values.envFrom }}
+        envFrom:
         {{- toYaml .Values.envFrom | nindent 10 }}
         {{- end }}
         readinessProbe:
