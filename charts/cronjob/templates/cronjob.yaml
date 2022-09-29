@@ -171,8 +171,8 @@ spec:
             resources:
               {{- toYaml .Values.initResources | nindent 16 }}
             {{- end }}
-            envFrom:
             {{- if .Values.envFrom }}
+            envFrom:
               {{- toYaml .Values.envFrom | nindent 16 }}
             {{- end }}
             {{- if .Values.extraInitContainers }}
@@ -211,11 +211,8 @@ spec:
               {{- end }}
             {{- end }}
             {{- end }}
-            envFrom:
-              - secretRef:
-                  name: "art-{{- $name -}}-secret"
-                  optional: true
             {{- if .Values.envFrom }}
+            envFrom:
               {{- toYaml .Values.envFrom | nindent 16 }}
             {{- end }}
             readinessProbe:
