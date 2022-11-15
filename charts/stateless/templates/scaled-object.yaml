@@ -1,0 +1,24 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $triggers := .Values.triggers -}}
+
+{{- if .Values.triggers -}}
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ $name }}-scaled-object
+  labels:
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
+    chart: "{{ .Chart.Name }}"
+    app: "{{ $name }}"
+spec:
+  pollingInterval: {{ int .Values.pollingInterval  }} # Optional. Default: 30 seconds 
+  cooldownPeriod: {{ int .Values.cooldownPeriod  }} # Optional. Default: 300 seconds 
+  maxReplicaCount: {{ int .Values.maxReplicaCount  }} # Optional. Default: 100
+  scaleTargetRef:
+    name: "{{ $name }}"
+  triggers:
+  {{ toYaml $triggers | indent 4 }}
+---
+{{- end -}}

@@ -1,0 +1,31 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+{{- $triggers := .Values.triggers -}}
+
+{{- if .Values.triggers -}}
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ $name }}-scaled-object
+  labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+spec:
+  pollingInterval: {{ int .Values.pollingInterval  }} # Optional. Default: 30 seconds 
+  cooldownPeriod: {{ int .Values.cooldownPeriod  }} # Optional. Default: 300 seconds 
+  maxReplicaCount: {{ int .Values.maxReplicaCount  }} # Optional. Default: 100
+  scaleTargetRef:
+    name: "{{ $name }}"
+  triggers:
+  {{ toYaml $triggers | indent 4 }}
+---
+{{- end -}}
