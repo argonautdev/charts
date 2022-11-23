@@ -231,8 +231,7 @@ extraContainers:
 # Allows you to add any config files in /usr/share/myapp/config/
 # as a ConfigMap
 
-triggers:
-  []
+keda:
   # - type: "cron"
   #   metadata:
   #     key: value
