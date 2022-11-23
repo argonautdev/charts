@@ -98,7 +98,7 @@ spec:
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
-      {{ toYaml . | nindent 10 }}
+        {{ toYaml . | nindent 10 }}
       {{- end }}
       {{- if or (eq .Values.antiAffinity "hard") (eq .Values.antiAffinity "soft") .Values.nodeAffinity | quote }}
       affinity:
@@ -124,16 +124,12 @@ spec:
                   operator: In
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
+        {{- end -}}
+        {{- with .Values.nodeAffinity }}
+        nodeAffinity:
+          {{- toYaml . | nindent 10 -}}
         {{- end }}
       {{- end }}
-        # nodeAffinity:
-        #   requiredDuringSchedulingIgnoredDuringExecution:
-        #     nodeSelectorTerms:
-        #     - matchExpressions:
-        #       - key: argonaut.dev/environment
-        #         operator: In
-        #         values:
-        #           - {{ $env }}
       {{- with .Values.tolerations }}
       tolerations:
       {{ toYaml . | nindent 10 }}
