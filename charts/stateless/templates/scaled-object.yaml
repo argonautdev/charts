@@ -1,3 +1,7 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
 
-{{ .Values.Keda }}
+{{ - if .Values.scaledObjectAuth -}}
+{{ .Values.scaledObjectAuth }}
+---
+{{- end }}
+{{ .Values.scaledObject }}
