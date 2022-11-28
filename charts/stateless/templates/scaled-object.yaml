@@ -1,7 +1,7 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
 
 {{ - if .Values.scaledObjectAuth -}}
-{{- include .Values.scaledObjectAuth . }}
+{{ .Values.scaledObjectAuth }}
 ---
 {{- end }}
-{{- include .Values.scaledObject . }}
+{{ .Values.scaledObject }}

@@ -6,7 +6,7 @@
 {{- $version := .Values.version | default .Release.Revision -}}
 
 {{ - if .Values.scaledObjectAuth -}}
-{{- include .Values.scaledObjectAuth . }}
+{{ .Values.scaledObjectAuth }}
 ---
 {{- end }}
-{{- include .Values.scaledObject . }}
+{{ .Values.scaledObject }}
