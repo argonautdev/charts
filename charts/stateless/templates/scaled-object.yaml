@@ -4,4 +4,4 @@
 {{ .Values.scaledObjectAuth }}
 ---
 {{- end }}
-{{ .Values.scaledObject }}
+{{- include .Values.scaledObject . }}
