@@ -5,8 +5,8 @@
 {{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 
-{{ - if .Values.scaledObjectAuth -}}
-{{ .Values.scaledObjectAuth }}
+{{- if .Values.scaledObjectAuth -}}
+{{ toYaml .Values.scaledObjectAuth }}
 ---
 {{- end }}
-{{ .Values.scaledObject }}
+{{ toYaml .Values.scaledObject }}
