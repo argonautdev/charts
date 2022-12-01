@@ -9,4 +9,6 @@
 {{ toYaml .Values.scaledObjectAuth }}
 ---
 {{- end }}
+{{- if .Values.scaledObject -}}
 {{ toYaml .Values.scaledObject }}
+{{- end }}
