@@ -1,0 +1,9 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+
+{{- if .Values.scaledObjectAuth -}}
+{{ toYaml .Values.scaledObjectAuth }}
+{{- end }}
+---
+{{- if .Values.scaledObject -}}
+{{ toYaml .Values.scaledObject }}
+{{- end }}

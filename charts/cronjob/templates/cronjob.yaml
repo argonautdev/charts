@@ -130,15 +130,19 @@ spec:
                       operator: In
                       values:
                       - "{{ template "argonaut-deployment.uname" . }}"
-            {{- end -}}
-            {{- with .Values.nodeAffinity }}
-            nodeAffinity:
-              {{- toYaml . | nindent 14 -}}
             {{- end }}
           {{- end }}
+            # nodeAffinity:
+            #   requiredDuringSchedulingIgnoredDuringExecution:
+            #     nodeSelectorTerms:
+            #     - matchExpressions:
+            #       - key: argonaut.dev/environment
+            #         operator: In
+            #         values:
+            #           - {{ $env }}
           {{- with .Values.tolerations }}
           tolerations:
-            {{ toYaml . | nindent 14 }}
+          {{ toYaml . | nindent 14 }}
           {{- end }}
           {{- if .Values.argonaut.imageRegistry }}
           imagePullSecrets:

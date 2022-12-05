@@ -96,14 +96,13 @@ spec:
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
-        {{ toYaml . | nindent 8 }}
+{{ toYaml . | indent 8 }}
       {{- end }}
       {{- if .Values.priorityClassName }}
       priorityClassName: {{ .Values.priorityClassName }}
       {{- end }}
-      {{- if or (eq .Values.antiAffinity "hard") (eq .Values.antiAffinity "soft") .Values.nodeAffinity | quote }}
       affinity:
-        {{- if eq .Values.antiAffinity "hard" }}
+      {{- if eq .Values.antiAffinity "hard" }}
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
@@ -113,7 +112,7 @@ spec:
                 values:
                 - "{{ template "argonaut-deployment.uname" .}}"
             topologyKey: {{ .Values.antiAffinityTopologyKey }}
-        {{- else if eq .Values.antiAffinity "soft" }}
+      {{- else if eq .Values.antiAffinity "soft" }}
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
@@ -125,12 +124,15 @@ spec:
                   operator: In
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
-        {{- end }}
-        {{- with .Values.nodeAffinity }}
-        nodeAffinity:
-          {{- toYaml . | nindent 10 -}}
-        {{- end }}
       {{- end }}
+        # nodeAffinity:
+        #   requiredDuringSchedulingIgnoredDuringExecution:
+        #     nodeSelectorTerms:
+        #     - matchExpressions:
+        #       - key: argonaut.dev/environment
+        #         operator: In
+        #         values:
+        #           - {{ $env }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       # Mount Secrets
       volumes:
