@@ -130,15 +130,22 @@ spec:
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
         {{- end }}
+        {{- if .Values.nodeAffinity }}
+        # https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/node_affinity.html
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            {{- range .Values.nodeAffinity}}
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: "{{ .key }}"
+                operator: "{{ .operator }}"
+                values:
+                  {{- range .values }}
+                  - "{{ . }}"
+                  {{- end }}
+              {{- end}}
+        {{- end }}
       {{- end }}
-        # nodeAffinity:
-        #   requiredDuringSchedulingIgnoredDuringExecution:
-        #     nodeSelectorTerms:
-        #     - matchExpressions:
-        #       - key: argonaut.dev/environment
-        #         operator: In
-        #         values:
-        #           - {{ $env }}
       {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}
