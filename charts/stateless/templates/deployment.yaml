@@ -133,7 +133,7 @@ spec:
         {{- if .Values.nodeAffinity }}
         # https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/node_affinity.html
         nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
+          preferredDuringSchedulingIgnoredDuringExecution:
             {{- range .Values.nodeAffinity}}
             nodeSelectorTerms:
             - matchExpressions:
