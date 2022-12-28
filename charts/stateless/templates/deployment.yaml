@@ -134,8 +134,8 @@ spec:
         # https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/node_affinity.html
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-            {{- range .Values.nodeAffinity}}
             nodeSelectorTerms:
+            {{- range .Values.nodeAffinity}}
             - matchExpressions:
               - key: "{{ .key }}"
                 operator: "{{ .operator }}"
