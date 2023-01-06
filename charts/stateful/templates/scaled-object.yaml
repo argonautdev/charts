@@ -5,8 +5,8 @@
 {{- $env := .Values.argonaut.env -}}
 {{- $version := .Values.version | default .Release.Revision -}}
 {{- $releaseNamespace := .Release.Namespace -}}
-{{- $minReplicas := .Values.minReplicas -}}
-{{- $maxReplicas := .Values.maxReplicas -}}
+{{- $minReplicas := .Values.minReplicas | default 1 -}}
+{{- $maxReplicas := .Values.maxReplicas | default 1 -}}
 
 {{- if .Values.scaledObjectAuth -}}
 {{ toYaml .Values.scaledObjectAuth }}
