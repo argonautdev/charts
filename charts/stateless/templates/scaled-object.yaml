@@ -1,4 +1,7 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
+{{- $releaseNamespace := .Release.Namespace -}}
+{{- $minReplicas := .Values.minReplicas | default 1 -}}
+{{- $maxReplicas := .Values.maxReplicas | default 1 -}}
 
 {{- if .Values.scaledObjectAuth -}}
 {{ toYaml .Values.scaledObjectAuth }}
@@ -6,4 +9,22 @@
 ---
 {{- if .Values.scaledObject -}}
 {{ toYaml .Values.scaledObject }}
+{{- else }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: "cpu-{{ $name }}-scaledobject"
+  namespace: {{ $releaseNamespace }}
+spec:
+  pollingInterval: 30
+  cooldownPeriod: 300
+  minReplicaCount: {{ $minReplicas }}
+  maxReplicaCount: {{ $maxReplicas }}
+  scaleTargetRef:
+    name: {{ $name }}
+  triggers:
+    - type: cpu
+      metricType: Utilization
+      metadata:
+        value: "70"
 {{- end }}
