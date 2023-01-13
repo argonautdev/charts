@@ -83,7 +83,7 @@ spec:
       schedulerName: "{{ .Values.schedulerName }}"
       {{- end }}
       securityContext:
-{{ toYaml .Values.podSecurityContext | indent 8 }}
+        {{ toYaml .Values.podSecurityContext | nindent 8 }}
         {{- if .Values.fsGroup }}
         fsGroup: {{ .Values.podSecurityContext.fsGroup }}
         {{- end }}
@@ -92,12 +92,12 @@ spec:
       {{- end }}
       {{- with .Values.tolerations }}
       tolerations:
-{{ toYaml . | indent 6 }}
+      {{ toYaml . | nindent 6 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
-{{ toYaml . | indent 8 }}
-      {{- end }}
+        {{ toYaml . | nindent 8 }}
+        {{- end }}
       {{- if .Values.priorityClassName }}
       priorityClassName: {{ .Values.priorityClassName }}
       {{- end }}
@@ -159,7 +159,7 @@ spec:
         {{- end }}
         {{ end }}
         {{- if .Values.extraVolumes }}
-{{ toYaml .Values.extraVolumes | indent 8 }}
+        {{ toYaml .Values.extraVolumes | nindent 8 }}
         {{- end }}
       {{- if .Values.argonaut.imageRegistry }}
       imagePullSecrets:
@@ -198,7 +198,7 @@ spec:
       containers:
       - name: "{{ template "argonaut-deployment.uname" . }}"
         securityContext:
-{{ toYaml .Values.securityContext | indent 10 }}
+          {{ toYaml .Values.securityContext | nindent 10 }}
         image: "{{ template "argonaut-deployment.imageName" . }}"
         imagePullPolicy: "Always"
         ports:
