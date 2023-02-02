@@ -1,7 +1,8 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
 {{- $releaseNamespace := .Release.Namespace -}}
-{{- $minReplicas := .Values.minReplicas | default 1 -}}
-{{- $maxReplicas := .Values.maxReplicas | default 1 -}}
+{{- $replicas := .Values.replicas | default 1 -}}
+{{- $minReplicas := .Values.minReplicas | default $replicas -}}
+{{- $maxReplicas := .Values.maxReplicas | default $replicas -}}
 
 {{- if .Values.scaledObjectAuth -}}
 {{ toYaml .Values.scaledObjectAuth }}
