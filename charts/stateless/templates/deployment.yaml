@@ -28,7 +28,7 @@ metadata:
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
-  replicas: {{ .Values.replicas }}
+  # replicas: {{ .Values.replicas }}
   strategy:
     type: {{ .Values.updateStrategy }}
   selector:

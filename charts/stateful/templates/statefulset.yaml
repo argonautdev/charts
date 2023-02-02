@@ -32,7 +32,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: "{{ template "argonaut-deployment.uname" . }}"
-  replicas: {{ .Values.replicas }}
+  # replicas: {{ .Values.replicas }}
   podManagementPolicy: {{ .Values.podManagementPolicy }}
   updateStrategy:
     type: {{ .Values.updateStrategy }}
