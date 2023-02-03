@@ -5,8 +5,8 @@ maintainers:
   - email: dev@argonaut.dev
     name: Argonaut
 name: kubectl
-version: v0.6.1
-appVersion: v0.6.1
+version: v0.6.2
+appVersion: v0.6.2
 sources:
   - https://argonaut.dev
 icon: https://argonaut.dev/images/logo-dark.png
