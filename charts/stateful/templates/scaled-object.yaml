@@ -1,8 +1,5 @@
 {{- $name := include "argonaut-deployment.uname" . -}}
 {{- $releaseNamespace := .Release.Namespace -}}
-{{- $replicas := .Values.replicas | default 1 -}}
-{{- $minReplicas := .Values.minReplicas | default $replicas -}}
-{{- $maxReplicas := .Values.maxReplicas | default $replicas -}}
 
 {{- if .Values.scaledObjectAuth -}}
 {{ toYaml .Values.scaledObjectAuth }}
@@ -19,10 +16,11 @@ metadata:
 spec:
   pollingInterval: 30
   cooldownPeriod: 300
-  minReplicaCount: {{ $minReplicas }}
-  maxReplicaCount: {{ $maxReplicas }}
+  minReplicaCount: 1
+  maxReplicaCount: 1
   scaleTargetRef:
     name: {{ $name }}
+    kind: StatefulSet
   triggers:
     - type: cpu
       metricType: Utilization
