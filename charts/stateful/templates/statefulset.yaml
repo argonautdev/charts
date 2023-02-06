@@ -125,6 +125,16 @@ spec:
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
       {{- end }}
+      {{- if eq .Values.nodeAffinity "zone" }}
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: topology.kubernetes.io/zone
+                operator: In
+                values:
+                - {{ .Values.nodeAffinity.zone }}
+      {{- end }}
         # nodeAffinity:
         #   requiredDuringSchedulingIgnoredDuringExecution:
         #     nodeSelectorTerms:
