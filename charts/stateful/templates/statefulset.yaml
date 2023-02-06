@@ -125,7 +125,7 @@ spec:
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
       {{- end }}
-      {{- if eq .Values.nodeAffinity "zone" }}
+      {{- if index .Values.nodeAffinity "zone" }}
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
