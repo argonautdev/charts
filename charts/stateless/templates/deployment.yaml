@@ -105,7 +105,7 @@ spec:
       nodeSelector:
 {{ toYaml . | indent 8 }}
       {{- end }}
-      {{- if or (eq .Values.antiAffinity "hard") (eq .Values.antiAffinity "soft") .Values.nodeAffinity | quote }}
+      {{- if or (eq .Values.antiAffinity "hard") (eq .Values.antiAffinity "soft") (eq .Values.nodeAffinity "zone") | quote }}
       affinity:
         {{- if eq .Values.antiAffinity "hard" }}
         podAntiAffinity:
@@ -130,6 +130,16 @@ spec:
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
         {{- end }}
+        {{- if eq .Values.nodeAffinity "zone" }}
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: topology.kubernetes.io/zone
+                operator: In
+                values:
+                - {{ .Values.nodeAffinity.zone }}
+        {{- end }}      
       {{- end }}
         # nodeAffinity:
         #   requiredDuringSchedulingIgnoredDuringExecution:
