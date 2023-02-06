@@ -130,15 +130,11 @@ spec:
                   values:
                   - "{{ template "argonaut-deployment.uname" . }}"
         {{- end }}
+        {{- if .Values.nodeAffinity }}
+        nodeAffinity:
+          {{ toYaml .Values.nodeAffinity | nindent 10 }}
+        {{- end }}
       {{- end }}
-        # nodeAffinity:
-        #   requiredDuringSchedulingIgnoredDuringExecution:
-        #     nodeSelectorTerms:
-        #     - matchExpressions:
-        #       - key: argonaut.dev/environment
-        #         operator: In
-        #         values:
-        #           - {{ $env }}
       {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}
