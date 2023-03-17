@@ -52,7 +52,6 @@ spec:
             {{ $key }}: {{ $value | quote }}
             {{- end }}
           annotations:
-            rollme: {{ randAlphaNum 5 | quote }}
             {{- range $key, $value := .Values.podAnnotations }}
             {{ $key }}: {{ $value | quote }}
             {{- end }}
