@@ -185,7 +185,8 @@ spec:
             image: "{{ template "argonaut-deployment.imageName" . }}"
             imagePullPolicy: "Always"
             {{- if .Values.command }}
-            command: {{ .Values.command }}
+            command:
+              {{ toYaml .Values.command | nindent 16 }}
             {{- else if .Values.entrypoint }}
             command: {{ .Values.entrypoint }}
             {{- end }}
