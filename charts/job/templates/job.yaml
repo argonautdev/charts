@@ -185,7 +185,8 @@ spec:
         command: {{ .Values.entrypoint }}
         {{- end }}
         {{- if .Values.args }}
-        args: {{ .Values.args }}
+        args:
+          {{ toYaml .Values.args | nindent 12 }}
         {{- else if .Values.cmd }}
         args: {{ .Values.cmd }}
         {{- end }}
