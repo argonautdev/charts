@@ -26,13 +26,13 @@ spec:
     argonaut.dev/env: {{ $env | quote }}
     app.kubernetes.io/version: {{ $version | quote }}
   ports:
-    {{- range .Values.services -}}
-    {{- $p := .port | toString }}
+    {{- range $index, $service := .Values.services -}}
+    {{- $p := $service.port | toString }}
     {{- if not ( hasKey $ports $p ) -}}
     {{- $_ := set $ports $p $p }}
-    - name: "{{- if .name }} {{- .name -}} {{ else }} {{- $name | trunc 4 | trimSuffix "-" -}}-{{- .port -}}-{{- randAlphaNum 4 | lower -}} {{ end -}}"
+    - name: "{{- if $service.name }} {{- $service.name -}} {{ else }} {{- $name | trunc 4 | trimSuffix "-" -}}-{{- $service.port -}}-{{- $index -}} {{ end -}}"
       protocol: TCP # UDP and SCTP are the other options
-      port: {{ .port }}
+      port: {{ $service.port }}
     {{- end }}
     {{- end }}
 ---
