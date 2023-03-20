@@ -177,7 +177,7 @@ spec:
           {{ toYaml .Values.securityContext | nindent 12 }}
         {{- end }}
         image: "{{ template "argonaut-deployment.imageName" . }}"
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         {{- if .Values.command }}
         command:
           {{ toYaml .Values.command | nindent 12 }}
