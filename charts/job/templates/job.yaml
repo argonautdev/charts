@@ -177,14 +177,16 @@ spec:
           {{ toYaml .Values.securityContext | nindent 12 }}
         {{- end }}
         image: "{{ template "argonaut-deployment.imageName" . }}"
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         {{- if .Values.command }}
-        command: {{ .Values.command }}
+        command:
+          {{ toYaml .Values.command | nindent 12 }}
         {{- else if .Values.entrypoint }}
         command: {{ .Values.entrypoint }}
         {{- end }}
         {{- if .Values.args }}
-        args: {{ .Values.args }}
+        args:
+          {{ toYaml .Values.args | nindent 12 }}
         {{- else if .Values.cmd }}
         args: {{ .Values.cmd }}
         {{- end }}
