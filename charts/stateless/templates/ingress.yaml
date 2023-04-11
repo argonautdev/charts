@@ -45,7 +45,7 @@ data:
   {{- end }}
 ---
 {{- range .Values.services }}
-{{ if and (ne .protocol "tcp") (ne .protocol "udp") (.external) }}
+{{ if and (ne .protocol "tcp") (ne .protocol "udp") (.external) (.external.hosts)}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
