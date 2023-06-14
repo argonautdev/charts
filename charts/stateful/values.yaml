@@ -3,6 +3,7 @@ version: "v1"
 # appName: "nginx-demoapp"
 # image: "nginx"
 imageTag: "latest"
+ingressClassName: nginx
 services: []
   # - port: 80
   #   protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
