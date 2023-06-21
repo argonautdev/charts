@@ -240,8 +240,8 @@ spec:
             {{- if .Values.extraVolumeMounts }}
               {{ toYaml .Values.extraVolumeMounts | nindent 16 }}
             {{- end }}
-              {{ if .Values.extraContainers }}
-                {{ toYaml .Values.extraContainers  | quote | nindent 12 }}
-              {{- end -}}
+{{ if .Values.extraContainers }}
+{{- toYaml .Values.extraContainers | indent 10 }}
+{{- end -}}
 ### end cron file
 ---
