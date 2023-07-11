@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   base:
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.920267+05:30"
+    created: "2023-07-11T11:26:15.81197+05:30"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: 80c44c931f4e74ca8e510c106bc5edabf11d51446276952167412fbacf57d132
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -12,10 +12,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/base-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/base-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.918771+05:30"
+    created: "2023-07-11T11:26:15.810914+05:30"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: 141e3aabd21669089699e90c6d61ea836f00c2a20b2fdc28216ea1ccd3f95afd
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -25,10 +25,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/base-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/base-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.917387+05:30"
+    created: "2023-07-11T11:26:15.809448+05:30"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: 7a271f5b36229c345c6673de779e231b2ddbb4e1a740c0d061ff40b8bd9ad04f
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -38,10 +38,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/base-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/base-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.916097+05:30"
+    created: "2023-07-11T11:26:15.808299+05:30"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: a9365e7de0d84ebfbb97e46edc80cc27b1a3cd9a0c465606536ae86709d504f0
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -51,10 +51,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/base-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/base-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.91366+05:30"
+    created: "2023-07-11T11:26:15.806753+05:30"
     description: Helm chart for deploying Istio cluster resources and CRDs
     digest: fe1db53a873ddc84e442a2bfe811076bb00dc48d44bbc725e720a98e59554146
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -64,12 +64,29 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/base-v0.2.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/base-v0.2.0.tgz
     version: v0.2.0
   clickhouse:
   - apiVersion: v2
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.819472+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 5dcf7113b7d41c6120ffc7161d235c616c87b18a49e0dbc62f5c6ee604f8601c
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: clickhouse
+    sources:
+    - https://argonaut.dev
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v2
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.927833+05:30"
+    created: "2023-07-11T11:26:15.818503+05:30"
     description: A Helm chart for Kubernetes
     digest: 27ebbc363d31bc5318bec9e2403ae2332fadf3a3069380b261bf9a1e6f16bd3b
     home: https://argonaut.dev
@@ -82,11 +99,11 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v2
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.92716+05:30"
+    created: "2023-07-11T11:26:15.817754+05:30"
     description: A Helm chart for Kubernetes
     digest: 0fd9c6b7f7b11d879899d94957f77601254fc5f87e6d21f47591523cdb6340bb
     home: https://argonaut.dev
@@ -99,11 +116,11 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v2
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.925852+05:30"
+    created: "2023-07-11T11:26:15.816848+05:30"
     description: A Helm chart for Kubernetes
     digest: 3aa5ec36b753bd0ae4104930a8233fa0293e4962c6918269558b9bf954eda18b
     home: https://argonaut.dev
@@ -116,11 +133,11 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v2
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.924608+05:30"
+    created: "2023-07-11T11:26:15.816128+05:30"
     description: A Helm chart for Kubernetes
     digest: 469d3c087e4af532b1ae04e6ad453a102bd82602b601cd39e4b5c989e884f641
     home: https://argonaut.dev
@@ -133,11 +150,11 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v2
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.923602+05:30"
+    created: "2023-07-11T11:26:15.815367+05:30"
     description: A Helm chart for Kubernetes
     digest: 8acfe557474e5904a721f2b00148c8c352d659c0ff9b5c57c377fe320715be43
     home: https://argonaut.dev
@@ -150,11 +167,11 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v2
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.922847+05:30"
+    created: "2023-07-11T11:26:15.814649+05:30"
     description: A Helm chart for Kubernetes
     digest: 07ef232fa3b3965735783f9e6530225d6ef9aa6ccd271ed84cabb54aabcf404e
     home: https://argonaut.dev
@@ -167,11 +184,11 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v2
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.922095+05:30"
+    created: "2023-07-11T11:26:15.813512+05:30"
     description: A Helm chart for Kubernetes
     digest: bc6b65c5ccaabe9d8c758858270a987b1b49db3ab9ea1d2b147f6a483c67a75d
     home: https://argonaut.dev
@@ -184,11 +201,11 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.6.0.tgz
     version: v0.6.0
   - apiVersion: v2
     appVersion: v0.5.0
-    created: "2023-06-22T15:31:23.921327+05:30"
+    created: "2023-07-11T11:26:15.812741+05:30"
     description: A Helm chart for Kubernetes
     digest: e7615ee70356f9834be6f1110da00841c16e03cc7be2aa1101f5bb9faf014b84
     home: https://argonaut.dev
@@ -201,12 +218,28 @@ entries:
     - https://argonaut.dev
     type: application
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/clickhouse-v0.5.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/clickhouse-v0.5.0.tgz
     version: v0.5.0
   cronjob:
   - apiVersion: v1
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.822891+05:30"
+    description: Argonaut Resource Template - ART
+    digest: 87b49e29fe88628514a1568bbc35edcfd8051152c81254c6024cdda8b9db80d9
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: cronjob
+    sources:
+    - https://argonaut.dev
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v1
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.931132+05:30"
+    created: "2023-07-11T11:26:15.822593+05:30"
     description: Argonaut Resource Template - ART
     digest: 4b41aaadac912e9469a39cdc2a868cf6058f57eca41da2e03f6a12c1cf9334a8
     home: https://argonaut.dev
@@ -218,11 +251,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v1
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.930802+05:30"
+    created: "2023-07-11T11:26:15.822237+05:30"
     description: Argonaut Resource Template - ART
     digest: 8f3b5b1df1f0bc161d76e56aca197f4b5a0cf8e1361dd3910a9a6cb51c57374a
     home: https://argonaut.dev
@@ -234,11 +267,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v1
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.930315+05:30"
+    created: "2023-07-11T11:26:15.821882+05:30"
     description: Argonaut Resource Template - ART
     digest: ff5586bcd70b0b96e14a228533b669dd4108003749ae3abdf48c0581dca08dc9
     home: https://argonaut.dev
@@ -250,11 +283,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v1
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.929878+05:30"
+    created: "2023-07-11T11:26:15.821523+05:30"
     description: Argonaut Resource Template - ART
     digest: d1896a60e5b20c30fed251df7d7c41567d575889544c8effb8b4aa257ceaf763
     home: https://argonaut.dev
@@ -266,11 +299,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v1
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.929363+05:30"
+    created: "2023-07-11T11:26:15.821164+05:30"
     description: Argonaut Resource Template - ART
     digest: d3e96d4387be468f1b1178a2da040c4cd55a50b9dce3ce92189dcb9b5a13d26e
     home: https://argonaut.dev
@@ -282,11 +315,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v1
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.928987+05:30"
+    created: "2023-07-11T11:26:15.820691+05:30"
     description: Argonaut Resource Template - ART
     digest: e942ce4bec901a9927264de28998a119ba45a8ba01a32116767f5ec61d48308c
     home: https://argonaut.dev
@@ -298,11 +331,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v1
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.928612+05:30"
+    created: "2023-07-11T11:26:15.820213+05:30"
     description: Argonaut Resource Template - ART
     digest: 8a9d54c4b290720f05b9b5bf4ad90c4eb455ebff04f52d86f3216ba31b3e5bf3
     home: https://argonaut.dev
@@ -314,11 +347,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.6.0.tgz
     version: v0.6.0
   - apiVersion: v1
     appVersion: v0.5.0
-    created: "2023-06-22T15:31:23.928228+05:30"
+    created: "2023-07-11T11:26:15.819838+05:30"
     description: Argonaut Resource Template - ART
     digest: d569cc0f9df54f679f2aca419eaa1e27d35d47932ea4a14df077971015d0024a
     home: https://argonaut.dev
@@ -330,12 +363,28 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/cronjob-v0.5.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/cronjob-v0.5.0.tgz
     version: v0.5.0
   external:
   - apiVersion: v1
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.826071+05:30"
+    description: Argonaut Resource Template - ART
+    digest: 728b9504ecc2d74abde5a51c2937cd9bc1f25a93caafcded5b4a755b05916a23
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: external
+    sources:
+    - https://argonaut.dev
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v1
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.934644+05:30"
+    created: "2023-07-11T11:26:15.825968+05:30"
     description: Argonaut Resource Template - ART
     digest: c299f089f77534d562d1d498f97f4efde142641728cfab51fb18688e8e26cdd3
     home: https://argonaut.dev
@@ -347,11 +396,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v1
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.934538+05:30"
+    created: "2023-07-11T11:26:15.825844+05:30"
     description: Argonaut Resource Template - ART
     digest: f5389a784d5f2426fdc86cf31e769ae013ee79da2332089e5486da209ba1270c
     home: https://argonaut.dev
@@ -363,11 +412,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v1
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.934396+05:30"
+    created: "2023-07-11T11:26:15.825721+05:30"
     description: Argonaut Resource Template - ART
     digest: 24db434d396e89aa45411960eda24b7de46e4a9c9904e16337fe72a117e2481b
     home: https://argonaut.dev
@@ -379,11 +428,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v1
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.934134+05:30"
+    created: "2023-07-11T11:26:15.825596+05:30"
     description: Argonaut Resource Template - ART
     digest: 17eda5d166177a47e5463159d808aeaed1f54630f0f4d824ab4ff7fbae14d1e5
     home: https://argonaut.dev
@@ -395,11 +444,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v1
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.933985+05:30"
+    created: "2023-07-11T11:26:15.825466+05:30"
     description: Argonaut Resource Template - ART
     digest: 10d588094209b51fef966e12e9d03f829c3a4809aa806c8f87e930e518673ca0
     home: https://argonaut.dev
@@ -411,11 +460,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v1
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.933842+05:30"
+    created: "2023-07-11T11:26:15.825338+05:30"
     description: Argonaut Resource Template - ART
     digest: 51efdcfa96ddc538320c9a362c995919ce3bd7c34cc8d7c0f96a6cd43e3de409
     home: https://argonaut.dev
@@ -427,11 +476,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v1
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.933698+05:30"
+    created: "2023-07-11T11:26:15.825207+05:30"
     description: Argonaut Resource Template - ART
     digest: cc1d96fabd8e76e7fc7cb7a824545d0f0f06ab1ad2603012566f5eb5c49d4db9
     home: https://argonaut.dev
@@ -443,11 +492,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.6.0.tgz
     version: v0.6.0
   - apiVersion: v1
     appVersion: v0.5.0
-    created: "2023-06-22T15:31:23.933551+05:30"
+    created: "2023-07-11T11:26:15.825063+05:30"
     description: Argonaut Resource Template - ART
     digest: 4a8c0e63b307192100f3dfba568ccc64e23f6ad9aba20aa790045c01857a62c6
     home: https://argonaut.dev
@@ -459,11 +508,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.5.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.5.0.tgz
     version: v0.5.0
   - apiVersion: v1
     appVersion: v0.3.4
-    created: "2023-06-22T15:31:23.93332+05:30"
+    created: "2023-07-11T11:26:15.82486+05:30"
     description: Argonaut Resource Template - ART
     digest: 935ec52551dad09a43712e990784dbd81a84b130987554e9330157a18c568633
     home: https://argonaut.dev
@@ -475,11 +524,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.3.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.3.4.tgz
     version: v0.3.4
   - apiVersion: v1
     appVersion: v0.3.3
-    created: "2023-06-22T15:31:23.933066+05:30"
+    created: "2023-07-11T11:26:15.824643+05:30"
     description: Argonaut Resource Template - ART
     digest: 84ad1d14d032925e54baf6555954288ad8ea191fe11e0dc99721410395325808
     home: https://argonaut.dev
@@ -491,11 +540,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2023-06-22T15:31:23.93292+05:30"
+    created: "2023-07-11T11:26:15.824385+05:30"
     description: Argonaut Resource Template - ART
     digest: 80d736adbb8b1ef807365b5f02b3b1c9e0cac6a2ebb615f941e6ea84cdf26762
     home: https://argonaut.dev
@@ -507,11 +556,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2023-06-22T15:31:23.932775+05:30"
+    created: "2023-07-11T11:26:15.82426+05:30"
     description: Argonaut Resource Template - ART
     digest: daca5e6ec01ac723dc2708e3bb14c46051a8519cb4477f879dce494a816d23cf
     home: https://argonaut.dev
@@ -523,11 +572,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2023-06-22T15:31:23.932631+05:30"
+    created: "2023-07-11T11:26:15.824132+05:30"
     description: Argonaut Resource Template - ART
     digest: 57783b8577fb39df4afd4314bc7fd2ee304cd77c20bbed9487fe2367f977afe9
     home: https://argonaut.dev
@@ -539,11 +588,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2023-06-22T15:31:23.932485+05:30"
+    created: "2023-07-11T11:26:15.82391+05:30"
     description: Argonaut Resource Template - ART
     digest: a3193fbd11576db155529d130d93725c318bfefbc983966c3af932be4befbc6e
     home: https://argonaut.dev
@@ -555,11 +604,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.2.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.2.0.tgz
     version: v0.2.0
   - apiVersion: v1
     appVersion: v0.1.4
-    created: "2023-06-22T15:31:23.932337+05:30"
+    created: "2023-07-11T11:26:15.823783+05:30"
     description: Argonaut Resource Template - ART
     digest: 4014f0eb7d9208917590ffb60780a1ea495dfe19030559b26e51e49f9debeb51
     home: https://argonaut.dev
@@ -571,11 +620,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.1.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.1.4.tgz
     version: v0.1.4
   - apiVersion: v1
     appVersion: v0.1.3
-    created: "2023-06-22T15:31:23.932188+05:30"
+    created: "2023-07-11T11:26:15.82365+05:30"
     description: Argonaut Resource Template - ART
     digest: e8fd49b011c629390d85c03a5e969d356dc5855fe26d4b137beae7c049daac76
     home: https://argonaut.dev
@@ -587,11 +636,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.1.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.1.3.tgz
     version: v0.1.3
   - apiVersion: v1
     appVersion: v0.1.2
-    created: "2023-06-22T15:31:23.932035+05:30"
+    created: "2023-07-11T11:26:15.823522+05:30"
     description: Argonaut Resource Template - ART
     digest: b3c7bf54c0ff9451f3eb77ea239578e8bef96d9e5cd37d12a96771e7435d243d
     home: https://argonaut.dev
@@ -603,11 +652,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.1.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.1.2.tgz
     version: v0.1.2
   - apiVersion: v1
     appVersion: v0.1.1
-    created: "2023-06-22T15:31:23.931873+05:30"
+    created: "2023-07-11T11:26:15.823334+05:30"
     description: Argonaut Resource Template - ART
     digest: f00b2393472e8739dbc3e263be5e56f3b5429f092b464fb0b7302ccaf2e03953
     home: https://argonaut.dev
@@ -619,11 +668,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.1.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.1.1.tgz
     version: v0.1.1
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2023-06-22T15:31:23.931519+05:30"
+    created: "2023-07-11T11:26:15.823142+05:30"
     description: Argonaut Resource Template - ART
     digest: 7dea50187abf8dc1f0b3cc7b436d148db9c48f1a0e60be673c410ddff51c89e0
     home: https://argonaut.dev
@@ -635,11 +684,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/external-v0.1.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/external-v0.1.0.tgz
     version: v0.1.0
   istio-discovery:
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.941241+05:30"
+    created: "2023-07-11T11:26:15.831632+05:30"
     description: Helm chart for istio control plane
     digest: 99d4edbcd7f9e4b30898853fa41823dfee8b99ffaee57731ee1fd405f7076098
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -651,10 +700,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-discovery-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-discovery-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.939933+05:30"
+    created: "2023-07-11T11:26:15.830607+05:30"
     description: Helm chart for istio control plane
     digest: 18f71a3cbfde6d777b940a58c25f2c6dd5444646647e9fb39a00708c0f8fa2ef
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -666,10 +715,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-discovery-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-discovery-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.938869+05:30"
+    created: "2023-07-11T11:26:15.829596+05:30"
     description: Helm chart for istio control plane
     digest: 8ffc421ccfe0491cea86bb924709c310b2e1592dcecfe787afb40bcf50ae74a0
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -681,10 +730,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-discovery-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-discovery-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.937798+05:30"
+    created: "2023-07-11T11:26:15.828274+05:30"
     description: Helm chart for istio control plane
     digest: 7d55e19dd846dd041be839b1296884ef41573735ae12d084aa8f0a582ccdec71
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -696,10 +745,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-discovery-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-discovery-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.936342+05:30"
+    created: "2023-07-11T11:26:15.827244+05:30"
     description: Helm chart for istio control plane
     digest: c3ffd9ec31a0bb8bbbb2720ee0f16ed95332f3ba6c272535d9cedd8eb82baf71
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -711,11 +760,11 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-discovery-v0.2.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-discovery-v0.2.0.tgz
     version: v0.2.0
   istio-ingress:
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.94439+05:30"
+    created: "2023-07-11T11:26:15.83422+05:30"
     description: Helm chart for deploying Istio gateways
     digest: 4228f585b302135a11c97d588fce2c596ee76066ea5042cd4e074787a17361b7
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -727,10 +776,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-ingress-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-ingress-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.943848+05:30"
+    created: "2023-07-11T11:26:15.833702+05:30"
     description: Helm chart for deploying Istio gateways
     digest: 43e4f099a86e71e1a1847000905c11ec1f3a86c790558fac0379a1ac397150ac
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -742,10 +791,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-ingress-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-ingress-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.943301+05:30"
+    created: "2023-07-11T11:26:15.833181+05:30"
     description: Helm chart for deploying Istio gateways
     digest: d5bc0ec0851fbef4b18cd7180197385307ead89d367d4d39451e72b4942e011f
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -757,10 +806,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-ingress-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-ingress-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.94272+05:30"
+    created: "2023-07-11T11:26:15.832668+05:30"
     description: Helm chart for deploying Istio gateways
     digest: 6e419d0fe99b8cc8924a32b77a50a7756e1339878a7b575a2a19e12f7af60bff
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -772,10 +821,10 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-ingress-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-ingress-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
-    created: "2023-06-22T15:31:23.942167+05:30"
+    created: "2023-07-11T11:26:15.832134+05:30"
     description: Helm chart for deploying Istio gateways
     digest: 3b1acd828a2535e3f9632d8210014e9100ecbd6e800d4f76113bcd9a086397aa
     icon: https://istio.io/latest/favicons/android-192x192.png
@@ -787,12 +836,28 @@ entries:
     sources:
     - http://github.com/istio/istio
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/istio-ingress-v0.2.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/istio-ingress-v0.2.0.tgz
     version: v0.2.0
   job:
   - apiVersion: v1
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.837607+05:30"
+    description: Argonaut Resource Template - ART
+    digest: 4514f9bdf8391d4e46a040b9562faf9c503b42ff1acde05cf9eef52a7cdbf86c
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: job
+    sources:
+    - https://argonaut.dev
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v1
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.948084+05:30"
+    created: "2023-07-11T11:26:15.837315+05:30"
     description: Argonaut Resource Template - ART
     digest: f57a47b899b4758554bc9e31e922c0f59d953fd992a4202744efe065920c5222
     home: https://argonaut.dev
@@ -804,11 +869,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v1
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.947739+05:30"
+    created: "2023-07-11T11:26:15.836985+05:30"
     description: Argonaut Resource Template - ART
     digest: 6a922c52f383b037d609ba4c1913492e6df2aea02e626b19cff16a6f9f4ab78f
     home: https://argonaut.dev
@@ -820,11 +885,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v1
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.946811+05:30"
+    created: "2023-07-11T11:26:15.836655+05:30"
     description: Argonaut Resource Template - ART
     digest: 73e47b2a810b79d6024041e9adb86a071a6bc37d867240c4cdd2d33c6badd02f
     home: https://argonaut.dev
@@ -836,11 +901,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v1
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.94632+05:30"
+    created: "2023-07-11T11:26:15.836325+05:30"
     description: Argonaut Resource Template - ART
     digest: 338acdb78a2a1af46e0c76111ec1856c08a43133b2afed03fc4cfd8ac34c4053
     home: https://argonaut.dev
@@ -852,11 +917,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v1
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.945815+05:30"
+    created: "2023-07-11T11:26:15.835993+05:30"
     description: Argonaut Resource Template - ART
     digest: c9af7e12f29f5227abea194b21518714ab7ce843110d0ccacbd14a6566309abc
     home: https://argonaut.dev
@@ -868,11 +933,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v1
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.945464+05:30"
+    created: "2023-07-11T11:26:15.835654+05:30"
     description: Argonaut Resource Template - ART
     digest: 47229afce2a637d14f83c6261db12c2345bd61377f04081a6459dcc1ab06b045
     home: https://argonaut.dev
@@ -884,11 +949,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v1
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.945109+05:30"
+    created: "2023-07-11T11:26:15.835313+05:30"
     description: Argonaut Resource Template - ART
     digest: b1ecc674834768dd43d61933d6e4f1403e1b95c493defe6dcfd50126a3642b0b
     home: https://argonaut.dev
@@ -900,11 +965,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.6.0.tgz
     version: v0.6.0
   - apiVersion: v1
     appVersion: v0.5.0
-    created: "2023-06-22T15:31:23.944754+05:30"
+    created: "2023-07-11T11:26:15.83487+05:30"
     description: Argonaut Resource Template - ART
     digest: 8eb16130908118eaf509be049286cb5df61ef98a2d0cb6a68af2b39153545669
     home: https://argonaut.dev
@@ -916,12 +981,28 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/job-v0.5.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/job-v0.5.0.tgz
     version: v0.5.0
   kubectl:
   - apiVersion: v1
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.838815+05:30"
+    description: Argonaut Resource Template - ART
+    digest: 6f5e17b0e37245795ac2095c693fb0128fe147b52ba420d1204851089a1b3028
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: kubectl
+    sources:
+    - https://argonaut.dev
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v1
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.949694+05:30"
+    created: "2023-07-11T11:26:15.838719+05:30"
     description: Argonaut Resource Template - ART
     digest: fe76c93e17e222b8fd3df8d778eea4298f273ea70b3e21064e13342b94dcee69
     home: https://argonaut.dev
@@ -933,11 +1014,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v1
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.949592+05:30"
+    created: "2023-07-11T11:26:15.838453+05:30"
     description: Argonaut Resource Template - ART
     digest: 969524d09418c0876cc7e963f5bedf542de1911e29aecf837f9f574b094dde8f
     home: https://argonaut.dev
@@ -949,11 +1030,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v1
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.949332+05:30"
+    created: "2023-07-11T11:26:15.838338+05:30"
     description: Argonaut Resource Template - ART
     digest: 26ef418fe92dfe2fb36b6322466866c4ac1499a94da7ee855df13b4a2a7a5375
     home: https://argonaut.dev
@@ -965,11 +1046,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v1
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.949069+05:30"
+    created: "2023-07-11T11:26:15.838223+05:30"
     description: Argonaut Resource Template - ART
     digest: afbb2a7b7337c530836ff49357efcc4d08fd4c4678c1ff863a4f88627a48e01d
     home: https://argonaut.dev
@@ -981,11 +1062,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v1
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.948925+05:30"
+    created: "2023-07-11T11:26:15.838107+05:30"
     description: Argonaut Resource Template - ART
     digest: fb1edfcf1ee941535c9f93b8af271ee3d7d31084601aa2ec288f58e722c2298f
     home: https://argonaut.dev
@@ -997,11 +1078,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v1
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.948777+05:30"
+    created: "2023-07-11T11:26:15.837991+05:30"
     description: Argonaut Resource Template - ART
     digest: def313d83d8a9bd1197b3b6713d8c61f0759c08d843392181a0a5c6495a7a36f
     home: https://argonaut.dev
@@ -1013,11 +1094,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v1
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.948626+05:30"
+    created: "2023-07-11T11:26:15.837874+05:30"
     description: Argonaut Resource Template - ART
     digest: 9f179388b384da86b354fcafee3a49570f528983a7ade925351bc57794513104
     home: https://argonaut.dev
@@ -1029,11 +1110,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.6.0.tgz
     version: v0.6.0
   - apiVersion: v1
     appVersion: v0.5.0
-    created: "2023-06-22T15:31:23.948377+05:30"
+    created: "2023-07-11T11:26:15.837755+05:30"
     description: Argonaut Resource Template - ART
     digest: b3f9e82321682bc7cb073d53efb6d03b9cf308ef060d840e7bb85b8e21ee8219
     home: https://argonaut.dev
@@ -1045,12 +1126,32 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/kubectl-v0.5.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/kubectl-v0.5.0.tgz
     version: v0.5.0
   meilisearch:
   - apiVersion: v1
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.841868+05:30"
+    description: A Helm chart for the Meilisearch search engine
+    digest: 5d1c4d1b0a41b188f07c2f85f83438cec297d31cf1fe5e232c8d255a35378fd5
+    home: https://github.com/meilisearch/meilisearch-kubernetes/charts
+    icon: https://res.cloudinary.com/meilisearch/image/upload/v1597822872/Logo/logo_img.svg
+    maintainers:
+    - email: renehr9102@protonmail.com
+      name: Rene
+    - email: samuel@meilisearch.com
+      name: Samuel
+    - email: thomas@meilisearch.com
+      name: Thomas
+    - email: amelie@meilisearch.com
+      name: Amelie
+    name: meilisearch
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v1
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.952514+05:30"
+    created: "2023-07-11T11:26:15.841581+05:30"
     description: A Helm chart for the Meilisearch search engine
     digest: 53f8a4315fb82ffab29c7dce0d65526140a2f2633353e050da7694a47cf527a4
     home: https://github.com/meilisearch/meilisearch-kubernetes/charts
@@ -1066,11 +1167,11 @@ entries:
       name: Amelie
     name: meilisearch
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/meilisearch-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v1
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.95219+05:30"
+    created: "2023-07-11T11:26:15.841244+05:30"
     description: A Helm chart for the Meilisearch search engine
     digest: 3edc1ca1841dc1698d4320da9625b837367e3cb5377c09c3033335b45bf90155
     home: https://github.com/meilisearch/meilisearch-kubernetes/charts
@@ -1086,11 +1187,11 @@ entries:
       name: Amelie
     name: meilisearch
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/meilisearch-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v1
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.951687+05:30"
+    created: "2023-07-11T11:26:15.840916+05:30"
     description: A Helm chart for the Meilisearch search engine
     digest: 453517b121909a52170191b9887c5ea395523d7538da4037bf51999569578a75
     home: https://github.com/meilisearch/meilisearch-kubernetes/charts
@@ -1106,11 +1207,11 @@ entries:
       name: Amelie
     name: meilisearch
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/meilisearch-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v1
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.951185+05:30"
+    created: "2023-07-11T11:26:15.840583+05:30"
     description: A Helm chart for the Meilisearch search engine
     digest: fbe9ac9f9502f6e5ee381a557668e565f2693b2b58d06810707000604207a5aa
     home: https://github.com/meilisearch/meilisearch-kubernetes/charts
@@ -1126,11 +1227,11 @@ entries:
       name: Amelie
     name: meilisearch
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/meilisearch-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v1
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.950819+05:30"
+    created: "2023-07-11T11:26:15.840134+05:30"
     description: A Helm chart for the Meilisearch search engine
     digest: 3a60c1f43e08b4376527a11a45ae51bee0340a03bc80afea3bd85874d6553a73
     home: https://github.com/meilisearch/meilisearch-kubernetes/charts
@@ -1146,11 +1247,11 @@ entries:
       name: Amelie
     name: meilisearch
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/meilisearch-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v1
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.950445+05:30"
+    created: "2023-07-11T11:26:15.839608+05:30"
     description: A Helm chart for the Meilisearch search engine
     digest: a8daa8c148d7cbba1f35f22e93b6c51b394a03b52e74dacf7bf70a0616f967db
     home: https://github.com/meilisearch/meilisearch-kubernetes/charts
@@ -1166,11 +1267,11 @@ entries:
       name: Amelie
     name: meilisearch
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/meilisearch-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v1
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.950076+05:30"
+    created: "2023-07-11T11:26:15.839142+05:30"
     description: A Helm chart for the Meilisearch search engine
     digest: eaa87046edb3bc3a693d605baed7a542f8ca266e3a059941153e2aa458b7d727
     home: https://github.com/meilisearch/meilisearch-kubernetes/charts
@@ -1186,12 +1287,28 @@ entries:
       name: Amelie
     name: meilisearch
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/meilisearch-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/meilisearch-v0.6.0.tgz
     version: v0.6.0
   stateful:
   - apiVersion: v1
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.848427+05:30"
+    description: Argonaut Resource Template - ART
+    digest: cf0940aa4c222feaea8cafcc3f60686af563fb02ed7a7dfe30574f3c47f16ee4
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: stateful
+    sources:
+    - https://argonaut.dev
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v1
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.960433+05:30"
+    created: "2023-07-11T11:26:15.848108+05:30"
     description: Argonaut Resource Template - ART
     digest: 88e9bfe175b0fea23a728a636ba04b85f90f90332d29eb05fb2083db327fe989
     home: https://argonaut.dev
@@ -1203,11 +1320,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v1
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.960077+05:30"
+    created: "2023-07-11T11:26:15.847756+05:30"
     description: Argonaut Resource Template - ART
     digest: 80274a4af9b6461dea32c344a04c6a37c89f119073679b8025756d1af0a0ae06
     home: https://argonaut.dev
@@ -1219,11 +1336,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v1
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.959558+05:30"
+    created: "2023-07-11T11:26:15.8474+05:30"
     description: Argonaut Resource Template - ART
     digest: db4873b5e12d9ae1d000bb64a77ca466cde25d31e46601dfe8c266117a73728a
     home: https://argonaut.dev
@@ -1235,11 +1352,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v1
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.959023+05:30"
+    created: "2023-07-11T11:26:15.846919+05:30"
     description: Argonaut Resource Template - ART
     digest: fa2dc84bda200d66924b24c5ff882afca8543c6c47107cc76cca60377e691e31
     home: https://argonaut.dev
@@ -1251,11 +1368,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v1
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.958415+05:30"
+    created: "2023-07-11T11:26:15.846552+05:30"
     description: Argonaut Resource Template - ART
     digest: 1f3ee08252aee756c82618318dc2c4286cf454dc73e44b5bb66ddf6c2bc1e20b
     home: https://argonaut.dev
@@ -1267,11 +1384,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v1
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.957915+05:30"
+    created: "2023-07-11T11:26:15.846176+05:30"
     description: Argonaut Resource Template - ART
     digest: 9785ed7cf8851cc572a0165d9ef170e378613e5c8a949602cc075ec897ba7ce7
     home: https://argonaut.dev
@@ -1283,11 +1400,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v1
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.957528+05:30"
+    created: "2023-07-11T11:26:15.845817+05:30"
     description: Argonaut Resource Template - ART
     digest: 303b71c9158ef4073bffda17f24856890f752254b467d248c7526e118146ef39
     home: https://argonaut.dev
@@ -1299,11 +1416,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.6.0.tgz
     version: v0.6.0
   - apiVersion: v1
     appVersion: v0.5.0
-    created: "2023-06-22T15:31:23.957132+05:30"
+    created: "2023-07-11T11:26:15.845449+05:30"
     description: Argonaut Resource Template - ART
     digest: c4480f8d70d14d22ae2ddacf5a09274c3e8a769d23d452e724589b39df7579c8
     home: https://argonaut.dev
@@ -1315,11 +1432,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.5.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.5.0.tgz
     version: v0.5.0
   - apiVersion: v1
     appVersion: v0.3.4
-    created: "2023-06-22T15:31:23.956727+05:30"
+    created: "2023-07-11T11:26:15.84508+05:30"
     description: Argonaut Resource Template - ART
     digest: 88870f0ee489f4b1481b543a5b7404bac24d1d8c5e7ed2f329cbac4d437ceb94
     home: https://argonaut.dev
@@ -1331,11 +1448,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.3.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.3.4.tgz
     version: v0.3.4
   - apiVersion: v1
     appVersion: v0.3.3
-    created: "2023-06-22T15:31:23.956518+05:30"
+    created: "2023-07-11T11:26:15.844767+05:30"
     description: Argonaut Resource Template - ART
     digest: 3b71b2cc8eeeffe71e51cbe01314330a25089d31cf6b9b7dc2401cda47c645e4
     home: https://argonaut.dev
@@ -1347,11 +1464,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2023-06-22T15:31:23.956303+05:30"
+    created: "2023-07-11T11:26:15.844447+05:30"
     description: Argonaut Resource Template - ART
     digest: c24e234b6610a4654f3a2a79083c3ec88659b9c0fea0d11f76f0fd98ab59e0ea
     home: https://argonaut.dev
@@ -1363,11 +1480,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2023-06-22T15:31:23.95608+05:30"
+    created: "2023-07-11T11:26:15.84426+05:30"
     description: Argonaut Resource Template - ART
     digest: be8b70e134fd767b3ed8beb448e5d75ad63c2d82b574fdb6b6d19bf901679459
     home: https://argonaut.dev
@@ -1379,11 +1496,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2023-06-22T15:31:23.955748+05:30"
+    created: "2023-07-11T11:26:15.844075+05:30"
     description: Argonaut Resource Template - ART
     digest: 7d21349247a7f3e83ac879fecd59586e6465c201ee7a6c25b996da7d4acdd4bf
     home: https://argonaut.dev
@@ -1395,11 +1512,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2023-06-22T15:31:23.955404+05:30"
+    created: "2023-07-11T11:26:15.843888+05:30"
     description: Argonaut Resource Template - ART
     digest: c125eba53925227dba81d77231677e997c583f3c3a56e6e3eadae2f0a40e8a53
     home: https://argonaut.dev
@@ -1411,11 +1528,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.2.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.2.0.tgz
     version: v0.2.0
   - apiVersion: v1
     appVersion: v0.1.4
-    created: "2023-06-22T15:31:23.955175+05:30"
+    created: "2023-07-11T11:26:15.843691+05:30"
     description: Argonaut Resource Template - ART
     digest: 47ef260aa89ed05a5f4b8186da2d89c15b83f9b878ebaa132850ae81398c1952
     home: https://argonaut.dev
@@ -1427,11 +1544,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.1.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.1.4.tgz
     version: v0.1.4
   - apiVersion: v1
     appVersion: v0.1.3
-    created: "2023-06-22T15:31:23.954955+05:30"
+    created: "2023-07-11T11:26:15.843494+05:30"
     description: Argonaut Resource Template - ART
     digest: 11c477a282508c2e5516036b48ac617cbec4c986d55936d4559238cc94dc6394
     home: https://argonaut.dev
@@ -1443,11 +1560,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.1.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.1.3.tgz
     version: v0.1.3
   - apiVersion: v1
     appVersion: v0.1.2
-    created: "2023-06-22T15:31:23.954732+05:30"
+    created: "2023-07-11T11:26:15.843271+05:30"
     description: Argonaut Resource Template - ART
     digest: ed5540eee10458d6037c9fb436c50ff84e9453457a677b3eff3967977143ee63
     home: https://argonaut.dev
@@ -1459,11 +1576,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.1.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.1.2.tgz
     version: v0.1.2
   - apiVersion: v1
     appVersion: v0.1.1
-    created: "2023-06-22T15:31:23.954505+05:30"
+    created: "2023-07-11T11:26:15.843072+05:30"
     description: Argonaut Resource Template - ART
     digest: f9ea4fca9de0a160e8cfd0fbc5a084b10a310753b69828e4723cc40b1a09025d
     home: https://argonaut.dev
@@ -1475,11 +1592,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.1.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.1.1.tgz
     version: v0.1.1
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2023-06-22T15:31:23.954262+05:30"
+    created: "2023-07-11T11:26:15.842875+05:30"
     description: Argonaut Resource Template - ART
     digest: 3661ac46a7b840184ba8d47bc45276059a0cd8817ee14a808ee24387e6dd0d2c
     home: https://argonaut.dev
@@ -1491,12 +1608,12 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-v0.1.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-v0.1.0.tgz
     version: v0.1.0
   stateful-istio:
   - apiVersion: v1
     appVersion: v0.3.3
-    created: "2023-06-22T15:31:23.954013+05:30"
+    created: "2023-07-11T11:26:15.842677+05:30"
     description: Argonaut Resource Template - ART
     digest: db07ba00122bc2c8717c831552f087447b01e958c5cd7c7574e2d5709be7be67
     home: https://argonaut.dev
@@ -1508,11 +1625,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-istio-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-istio-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2023-06-22T15:31:23.953655+05:30"
+    created: "2023-07-11T11:26:15.842484+05:30"
     description: Argonaut Resource Template - ART
     digest: 0d87654e6ef1711d043fd8161e92ebaef32431c8f6e80bfd868095af11e53dc6
     home: https://argonaut.dev
@@ -1524,11 +1641,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-istio-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-istio-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2023-06-22T15:31:23.952973+05:30"
+    created: "2023-07-11T11:26:15.84229+05:30"
     description: Argonaut Resource Template - ART
     digest: 875cb206b329d9556b15f84e4cd32d24929200b6c95e7ba96d38cc4a1b1617fb
     home: https://argonaut.dev
@@ -1540,11 +1657,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-istio-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-istio-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2023-06-22T15:31:23.952749+05:30"
+    created: "2023-07-11T11:26:15.842091+05:30"
     description: Argonaut Resource Template - ART
     digest: aa5fac5510ecbad9b82772f8e7daf57aa7d61ae4fc13df06f07719d3700f57dc
     home: https://argonaut.dev
@@ -1556,12 +1673,28 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateful-istio-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateful-istio-v0.3.0.tgz
     version: v0.3.0
   stateless:
   - apiVersion: v1
+    appVersion: v0.6.7
+    created: "2023-07-11T11:26:15.855278+05:30"
+    description: Argonaut Resource Template - ART
+    digest: 93e029b6b48ee4b40dd25a2dffca411ab062628752e8a1edb653d25d773ae73b
+    home: https://argonaut.dev
+    icon: https://argonaut.dev/images/logo-dark.png
+    maintainers:
+    - email: dev@argonaut.dev
+      name: Argonaut
+    name: stateless
+    sources:
+    - https://argonaut.dev
+    urls:
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.7.tgz
+    version: v0.6.7
+  - apiVersion: v1
     appVersion: v0.6.6
-    created: "2023-06-22T15:31:23.968445+05:30"
+    created: "2023-07-11T11:26:15.854962+05:30"
     description: Argonaut Resource Template - ART
     digest: 74b3bba7c24552e92e59e210cce1036f9b1184e35c7f5d81bded62b1e0890311
     home: https://argonaut.dev
@@ -1573,11 +1706,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.6.6.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.6.tgz
     version: v0.6.6
   - apiVersion: v1
     appVersion: v0.6.5
-    created: "2023-06-22T15:31:23.968076+05:30"
+    created: "2023-07-11T11:26:15.854598+05:30"
     description: Argonaut Resource Template - ART
     digest: d02c9afb989681c5ef686bed03226559475f42715f6c4ec0931eb4a0e16fcf33
     home: https://argonaut.dev
@@ -1589,11 +1722,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.6.5.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.5.tgz
     version: v0.6.5
   - apiVersion: v1
     appVersion: v0.6.4
-    created: "2023-06-22T15:31:23.967562+05:30"
+    created: "2023-07-11T11:26:15.854233+05:30"
     description: Argonaut Resource Template - ART
     digest: aa50b05f172992f0e8dac1209dc4e4e9607ba769d1a48470f82f32c9eb18c2ee
     home: https://argonaut.dev
@@ -1605,11 +1738,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.6.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.4.tgz
     version: v0.6.4
   - apiVersion: v1
     appVersion: v0.6.3
-    created: "2023-06-22T15:31:23.967048+05:30"
+    created: "2023-07-11T11:26:15.85387+05:30"
     description: Argonaut Resource Template - ART
     digest: cf19de8e1199d0a9fb12c0879ea336a7d8108b8081019e7d03469817e4f877be
     home: https://argonaut.dev
@@ -1621,11 +1754,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.6.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.3.tgz
     version: v0.6.3
   - apiVersion: v1
     appVersion: v0.6.2
-    created: "2023-06-22T15:31:23.966663+05:30"
+    created: "2023-07-11T11:26:15.853504+05:30"
     description: Argonaut Resource Template - ART
     digest: 7cdc1944577441623ec71c851a83145037ac4c4a93acc3a74ae47abb0454a9b6
     home: https://argonaut.dev
@@ -1637,11 +1770,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.6.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.2.tgz
     version: v0.6.2
   - apiVersion: v1
     appVersion: v0.6.1
-    created: "2023-06-22T15:31:23.966278+05:30"
+    created: "2023-07-11T11:26:15.853138+05:30"
     description: Argonaut Resource Template - ART
     digest: 0f448f6ee16ebccef44f09f40196096da44d047f17d91d8125ac17c0cc114e98
     home: https://argonaut.dev
@@ -1653,11 +1786,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.6.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.1.tgz
     version: v0.6.1
   - apiVersion: v1
     appVersion: v0.6.0
-    created: "2023-06-22T15:31:23.965884+05:30"
+    created: "2023-07-11T11:26:15.852776+05:30"
     description: Argonaut Resource Template - ART
     digest: cedb0d0719006d1e88098a04c9091eb392eca08d170a3de950e3a59c6f5edd35
     home: https://argonaut.dev
@@ -1669,11 +1802,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.6.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.6.0.tgz
     version: v0.6.0
   - apiVersion: v1
     appVersion: v0.5.0
-    created: "2023-06-22T15:31:23.965483+05:30"
+    created: "2023-07-11T11:26:15.852408+05:30"
     description: Argonaut Resource Template - ART
     digest: 3627da655dae13a20c9e42f916bc233a8a2388ae8868a0f5785da73c407a14f5
     home: https://argonaut.dev
@@ -1685,11 +1818,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.5.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.5.0.tgz
     version: v0.5.0
   - apiVersion: v1
     appVersion: v0.3.4
-    created: "2023-06-22T15:31:23.965086+05:30"
+    created: "2023-07-11T11:26:15.852042+05:30"
     description: Argonaut Resource Template - ART
     digest: 7b49596a66d15a7b93026493fb2c78b00fc080933a06c85de03cea9f5c6b7e54
     home: https://argonaut.dev
@@ -1701,11 +1834,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.3.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.3.4.tgz
     version: v0.3.4
   - apiVersion: v1
     appVersion: v0.3.3
-    created: "2023-06-22T15:31:23.964869+05:30"
+    created: "2023-07-11T11:26:15.851851+05:30"
     description: Argonaut Resource Template - ART
     digest: a20b3133e25ab1bfacd6b790c75a4b0944223f13c1df28d96af06b44839ed829
     home: https://argonaut.dev
@@ -1717,11 +1850,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2023-06-22T15:31:23.964647+05:30"
+    created: "2023-07-11T11:26:15.851667+05:30"
     description: Argonaut Resource Template - ART
     digest: d0eb1d5db8450c87caac5f55dba3bb70b36aa23813da9e60b568df2ef4ce4426
     home: https://argonaut.dev
@@ -1733,11 +1866,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2023-06-22T15:31:23.964425+05:30"
+    created: "2023-07-11T11:26:15.851487+05:30"
     description: Argonaut Resource Template - ART
     digest: dd5f90d9c2a52dda5b7ca37fb991b69a967cef2cbfcdf097d78cd0fda751de41
     home: https://argonaut.dev
@@ -1749,11 +1882,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2023-06-22T15:31:23.964194+05:30"
+    created: "2023-07-11T11:26:15.851185+05:30"
     description: Argonaut Resource Template - ART
     digest: 17ba2954e2711bbcb91f4b1012065ded7760c28e5416d1797bbaeecbe34fbca8
     home: https://argonaut.dev
@@ -1765,11 +1898,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2023-06-22T15:31:23.963459+05:30"
+    created: "2023-07-11T11:26:15.850999+05:30"
     description: Argonaut Resource Template - ART
     digest: 5bba0983ed825ccc28a23d6370347d1fa4c180c1524e0c615a3bc39d8e22669d
     home: https://argonaut.dev
@@ -1781,11 +1914,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.2.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.2.0.tgz
     version: v0.2.0
   - apiVersion: v1
     appVersion: v0.1.4
-    created: "2023-06-22T15:31:23.963235+05:30"
+    created: "2023-07-11T11:26:15.850799+05:30"
     description: Argonaut Resource Template - ART
     digest: 8b48fe777d9a72d3dd9e61795ac8d40302b5c40e925b714ff1d35eff8df53aad
     home: https://argonaut.dev
@@ -1797,11 +1930,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.1.4.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.1.4.tgz
     version: v0.1.4
   - apiVersion: v1
     appVersion: v0.1.3
-    created: "2023-06-22T15:31:23.963022+05:30"
+    created: "2023-07-11T11:26:15.85059+05:30"
     description: Argonaut Resource Template - ART
     digest: 4c8558829ef5b1e22d960f35512a107cf50fa18f0f3275070da46b34f43825f9
     home: https://argonaut.dev
@@ -1813,11 +1946,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.1.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.1.3.tgz
     version: v0.1.3
   - apiVersion: v1
     appVersion: v0.1.2
-    created: "2023-06-22T15:31:23.962676+05:30"
+    created: "2023-07-11T11:26:15.850304+05:30"
     description: Argonaut Resource Template - ART
     digest: 590ecd3a913595a5527e9a8080f4dfa58154a252a70a708e1bca417a49005a23
     home: https://argonaut.dev
@@ -1829,11 +1962,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.1.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.1.2.tgz
     version: v0.1.2
   - apiVersion: v1
     appVersion: v0.1.1
-    created: "2023-06-22T15:31:23.962462+05:30"
+    created: "2023-07-11T11:26:15.849971+05:30"
     description: Argonaut Resource Template - ART
     digest: 17c4e20d5adb9573f1925989c38b10b209fbed66f7a66c88f8c5724f606f0e2a
     home: https://argonaut.dev
@@ -1845,11 +1978,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.1.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.1.1.tgz
     version: v0.1.1
   - apiVersion: v1
     appVersion: v0.1.0
-    created: "2023-06-22T15:31:23.962237+05:30"
+    created: "2023-07-11T11:26:15.849769+05:30"
     description: Argonaut Resource Template - ART
     digest: e40e27cf665c1966a82a0ac4e71bce59de28f830a09d89fefe65a782bc68b8c8
     home: https://argonaut.dev
@@ -1861,12 +1994,12 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-v0.1.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-v0.1.0.tgz
     version: v0.1.0
   stateless-istio:
   - apiVersion: v1
     appVersion: v0.3.3
-    created: "2023-06-22T15:31:23.961482+05:30"
+    created: "2023-07-11T11:26:15.849201+05:30"
     description: Argonaut Resource Template - ART
     digest: 39533dc62f9b486de4d50305d5832696327ccd0bb830131cd036d2fafe8de865
     home: https://argonaut.dev
@@ -1878,11 +2011,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-istio-v0.3.3.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-istio-v0.3.3.tgz
     version: v0.3.3
   - apiVersion: v1
     appVersion: v0.3.2
-    created: "2023-06-22T15:31:23.961268+05:30"
+    created: "2023-07-11T11:26:15.84901+05:30"
     description: Argonaut Resource Template - ART
     digest: 8834f6acbaaef0bfeec11bd90bef76bc4f5ae88502154d2bb440f19b4c15f747
     home: https://argonaut.dev
@@ -1894,11 +2027,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-istio-v0.3.2.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-istio-v0.3.2.tgz
     version: v0.3.2
   - apiVersion: v1
     appVersion: v0.3.1
-    created: "2023-06-22T15:31:23.961053+05:30"
+    created: "2023-07-11T11:26:15.848818+05:30"
     description: Argonaut Resource Template - ART
     digest: a62a0f73d05e1b980bf82cf98c1f40021049d3056462947039d1e90811039d87
     home: https://argonaut.dev
@@ -1910,11 +2043,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-istio-v0.3.1.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-istio-v0.3.1.tgz
     version: v0.3.1
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2023-06-22T15:31:23.960834+05:30"
+    created: "2023-07-11T11:26:15.848623+05:30"
     description: Argonaut Resource Template - ART
     digest: 98a2b125cebc448f6c178ce90671875bc43255d82121be563a8c3a87c83308d3
     home: https://argonaut.dev
@@ -1926,12 +2059,12 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-istio-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-istio-v0.3.0.tgz
     version: v0.3.0
   stateless-nginx:
   - apiVersion: v1
     appVersion: v0.3.0
-    created: "2023-06-22T15:31:23.962014+05:30"
+    created: "2023-07-11T11:26:15.849565+05:30"
     description: Argonaut Resource Template - ART
     digest: 406b0813dc53f9697db8217792cc8be4bca61764afb4b507d59acc80c24cf643
     home: https://argonaut.dev
@@ -1943,11 +2076,11 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-nginx-v0.3.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-nginx-v0.3.0.tgz
     version: v0.3.0
   - apiVersion: v1
     appVersion: v0.2.0
-    created: "2023-06-22T15:31:23.961696+05:30"
+    created: "2023-07-11T11:26:15.84938+05:30"
     description: Argonaut Resource Template - ART
     digest: a17cc2f854a3bb486c56725ab6e589e74b4022adcb5dde1373b44ca4ad99502e
     home: https://argonaut.dev
@@ -1959,6 +2092,6 @@ entries:
     sources:
     - https://argonaut.dev
     urls:
-    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.6/dist/stateless-nginx-v0.2.0.tgz
+    - https://raw.githubusercontent.com/argonautdev/charts/v0.6.7/dist/stateless-nginx-v0.2.0.tgz
     version: v0.2.0
-generated: "2023-06-22T15:31:23.911427+05:30"
+generated: "2023-07-11T11:26:15.805151+05:30"
