@@ -168,10 +168,10 @@ spec:
           {{- end }}
         {{- if .Values.initResources }}
         resources:
-{{- toYaml .Values.initResources | indent 10 }}
+{{- toYaml .Values.initResources | nindent 10 }}
         {{- end }}
         {{- if .Values.extraInitContainers }}
-{{- toYaml .Values.extraInitContainers | indent 6 }}
+{{- toYaml .Values.extraInitContainers | nindent 6 }}
         {{- end }}
       {{- end }}
       containers:
