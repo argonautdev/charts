@@ -62,7 +62,7 @@ spec:
           {{- end }}
           {{- if .Values.podSecurityContext }}
           securityContext:
-          {{- toYaml .Values.podSecurityContext | quote | nindent 12 }}
+          {{- toYaml .Values.podSecurityContext | nindent 12 }}
           {{- end }}
           {{- if .Values.rbac.create }}
           serviceAccountName: "{{ template "argonaut-deployment.sa" . }}"

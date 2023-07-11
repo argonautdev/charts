@@ -195,7 +195,7 @@ spec:
       containers:
       - name: "{{ template "argonaut-deployment.uname" . }}"
         securityContext:
-{{ toYaml .Values.securityContext | indent 10 }}
+{{- toYaml .Values.securityContext | nindent 10 }}
         image: "{{ template "argonaut-deployment.imageName" . }}"
         imagePullPolicy: "Always"
         ports:
