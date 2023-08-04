@@ -227,6 +227,9 @@ spec:
           {{- range $index, $volumeMount := .Values.persistentStorage }}
           - name: "storage-vol-{{ $index }}"
             mountPath: "{{ $volumeMount.mountPath }}"
+            {{- if $volumeMount.subPath }}
+            subPath: {{ $volumeMount.subPath }}
+            {{- end }}
           {{- end }}
           {{- if .Values.keystore }}
           - name: keystore
