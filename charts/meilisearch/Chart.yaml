@@ -1,6 +1,6 @@
 apiVersion: v1
 appVersion: v0.6.8
-description: A Helm chart for the Meilisearch search engine
+description: A Helm chart for the Meilisearch search engine.
 name: meilisearch
 version: v0.6.8
 icon: https://res.cloudinary.com/meilisearch/image/upload/v1597822872/Logo/logo_img.svg
