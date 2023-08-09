@@ -73,7 +73,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 08ec7c28eafb07ed1ff006f441a956c284be4e90766192e25ef3beb1d96b5fe2
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -90,7 +90,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 03ce6cd3fcce9a85d4a6098de01247174c5537a7c4ce10b16a0ebdcc0004470c
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -107,7 +107,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 27ebbc363d31bc5318bec9e2403ae2332fadf3a3069380b261bf9a1e6f16bd3b
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -124,7 +124,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 0fd9c6b7f7b11d879899d94957f77601254fc5f87e6d21f47591523cdb6340bb
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -141,7 +141,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 3aa5ec36b753bd0ae4104930a8233fa0293e4962c6918269558b9bf954eda18b
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -158,7 +158,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 469d3c087e4af532b1ae04e6ad453a102bd82602b601cd39e4b5c989e884f641
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -175,7 +175,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 8acfe557474e5904a721f2b00148c8c352d659c0ff9b5c57c377fe320715be43
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -192,7 +192,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: 07ef232fa3b3965735783f9e6530225d6ef9aa6ccd271ed84cabb54aabcf404e
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -209,7 +209,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: bc6b65c5ccaabe9d8c758858270a987b1b49db3ab9ea1d2b147f6a483c67a75d
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -226,7 +226,7 @@ entries:
     description: A Helm chart for Kubernetes
     digest: e7615ee70356f9834be6f1110da00841c16e03cc7be2aa1101f5bb9faf014b84
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -244,7 +244,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 135f535e1a6dedd467eb5e2ca413d764239d0ee6d16462f07704e7fd911e9907
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -260,7 +260,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 22c401e87941b2d626f94bf5eb5f32d5691c74b8670890973755846c9c4a2893
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -276,7 +276,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 4b41aaadac912e9469a39cdc2a868cf6058f57eca41da2e03f6a12c1cf9334a8
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -292,7 +292,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 8f3b5b1df1f0bc161d76e56aca197f4b5a0cf8e1361dd3910a9a6cb51c57374a
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -308,7 +308,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: ff5586bcd70b0b96e14a228533b669dd4108003749ae3abdf48c0581dca08dc9
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -324,7 +324,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: d1896a60e5b20c30fed251df7d7c41567d575889544c8effb8b4aa257ceaf763
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -340,7 +340,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: d3e96d4387be468f1b1178a2da040c4cd55a50b9dce3ce92189dcb9b5a13d26e
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -356,7 +356,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: e942ce4bec901a9927264de28998a119ba45a8ba01a32116767f5ec61d48308c
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -372,7 +372,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 8a9d54c4b290720f05b9b5bf4ad90c4eb455ebff04f52d86f3216ba31b3e5bf3
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -388,7 +388,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: d569cc0f9df54f679f2aca419eaa1e27d35d47932ea4a14df077971015d0024a
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -405,7 +405,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 03090257281d365889928e38c81450435146f48009e9f75c86cd0623efd9eea6
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -421,7 +421,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 3221f7439918a1222c89c3104df3b2abb9384fadb199548fa60591d740112bee
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -437,7 +437,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: c299f089f77534d562d1d498f97f4efde142641728cfab51fb18688e8e26cdd3
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -453,7 +453,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: f5389a784d5f2426fdc86cf31e769ae013ee79da2332089e5486da209ba1270c
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -469,7 +469,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 24db434d396e89aa45411960eda24b7de46e4a9c9904e16337fe72a117e2481b
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -485,7 +485,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 17eda5d166177a47e5463159d808aeaed1f54630f0f4d824ab4ff7fbae14d1e5
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -501,7 +501,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 10d588094209b51fef966e12e9d03f829c3a4809aa806c8f87e930e518673ca0
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -517,7 +517,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 51efdcfa96ddc538320c9a362c995919ce3bd7c34cc8d7c0f96a6cd43e3de409
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -533,7 +533,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: cc1d96fabd8e76e7fc7cb7a824545d0f0f06ab1ad2603012566f5eb5c49d4db9
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -549,7 +549,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 4a8c0e63b307192100f3dfba568ccc64e23f6ad9aba20aa790045c01857a62c6
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -565,7 +565,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 935ec52551dad09a43712e990784dbd81a84b130987554e9330157a18c568633
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -581,7 +581,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 84ad1d14d032925e54baf6555954288ad8ea191fe11e0dc99721410395325808
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -597,7 +597,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 80d736adbb8b1ef807365b5f02b3b1c9e0cac6a2ebb615f941e6ea84cdf26762
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -613,7 +613,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: daca5e6ec01ac723dc2708e3bb14c46051a8519cb4477f879dce494a816d23cf
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -629,7 +629,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 57783b8577fb39df4afd4314bc7fd2ee304cd77c20bbed9487fe2367f977afe9
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -645,7 +645,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: a3193fbd11576db155529d130d93725c318bfefbc983966c3af932be4befbc6e
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -661,7 +661,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 4014f0eb7d9208917590ffb60780a1ea495dfe19030559b26e51e49f9debeb51
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -677,7 +677,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: e8fd49b011c629390d85c03a5e969d356dc5855fe26d4b137beae7c049daac76
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -693,7 +693,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: b3c7bf54c0ff9451f3eb77ea239578e8bef96d9e5cd37d12a96771e7435d243d
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -709,7 +709,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: f00b2393472e8739dbc3e263be5e56f3b5429f092b464fb0b7302ccaf2e03953
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -725,7 +725,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 7dea50187abf8dc1f0b3cc7b436d148db9c48f1a0e60be673c410ddff51c89e0
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -894,7 +894,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: c0882d0c80b0b01c224478933fed8c25d9d74cc017749f744b56ba6839b747ec
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -910,7 +910,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 6d76d58e0b83e17d1bfa17ce67493b84593a78152484110eb2ba8a2c00576535
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -926,7 +926,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: f57a47b899b4758554bc9e31e922c0f59d953fd992a4202744efe065920c5222
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -942,7 +942,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 6a922c52f383b037d609ba4c1913492e6df2aea02e626b19cff16a6f9f4ab78f
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -958,7 +958,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 73e47b2a810b79d6024041e9adb86a071a6bc37d867240c4cdd2d33c6badd02f
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -974,7 +974,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 338acdb78a2a1af46e0c76111ec1856c08a43133b2afed03fc4cfd8ac34c4053
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -990,7 +990,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: c9af7e12f29f5227abea194b21518714ab7ce843110d0ccacbd14a6566309abc
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1006,7 +1006,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 47229afce2a637d14f83c6261db12c2345bd61377f04081a6459dcc1ab06b045
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1022,7 +1022,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: b1ecc674834768dd43d61933d6e4f1403e1b95c493defe6dcfd50126a3642b0b
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1038,7 +1038,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 8eb16130908118eaf509be049286cb5df61ef98a2d0cb6a68af2b39153545669
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1055,7 +1055,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: a095b94a9de84616c8e31d5c96824f6f6d0270dee84bc261bfb76fcdab86103a
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1071,7 +1071,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: ada87a0f023e9b87770a5f7e037fc2694d47675253c1de3d7256369cbc7f105f
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1087,7 +1087,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: fe76c93e17e222b8fd3df8d778eea4298f273ea70b3e21064e13342b94dcee69
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1103,7 +1103,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 969524d09418c0876cc7e963f5bedf542de1911e29aecf837f9f574b094dde8f
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1119,7 +1119,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 26ef418fe92dfe2fb36b6322466866c4ac1499a94da7ee855df13b4a2a7a5375
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1135,7 +1135,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: afbb2a7b7337c530836ff49357efcc4d08fd4c4678c1ff863a4f88627a48e01d
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1151,7 +1151,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: fb1edfcf1ee941535c9f93b8af271ee3d7d31084601aa2ec288f58e722c2298f
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1167,7 +1167,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: def313d83d8a9bd1197b3b6713d8c61f0759c08d843392181a0a5c6495a7a36f
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1183,7 +1183,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 9f179388b384da86b354fcafee3a49570f528983a7ade925351bc57794513104
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1199,7 +1199,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: b3f9e82321682bc7cb073d53efb6d03b9cf308ef060d840e7bb85b8e21ee8219
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1397,7 +1397,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 3db2493286e09c7691a377f18c0f8a534f61be6945fa8826cccdd448dc77f047
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1413,7 +1413,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 62321526270fb64f56edf00f2b0cc0ff1aabf9f7e6fbf903d83ff191db15d847
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1429,7 +1429,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 88e9bfe175b0fea23a728a636ba04b85f90f90332d29eb05fb2083db327fe989
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1445,7 +1445,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 80274a4af9b6461dea32c344a04c6a37c89f119073679b8025756d1af0a0ae06
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1461,7 +1461,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: db4873b5e12d9ae1d000bb64a77ca466cde25d31e46601dfe8c266117a73728a
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1477,7 +1477,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: fa2dc84bda200d66924b24c5ff882afca8543c6c47107cc76cca60377e691e31
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1493,7 +1493,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 1f3ee08252aee756c82618318dc2c4286cf454dc73e44b5bb66ddf6c2bc1e20b
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1509,7 +1509,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 9785ed7cf8851cc572a0165d9ef170e378613e5c8a949602cc075ec897ba7ce7
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1525,7 +1525,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 303b71c9158ef4073bffda17f24856890f752254b467d248c7526e118146ef39
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1541,7 +1541,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: c4480f8d70d14d22ae2ddacf5a09274c3e8a769d23d452e724589b39df7579c8
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1557,7 +1557,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 88870f0ee489f4b1481b543a5b7404bac24d1d8c5e7ed2f329cbac4d437ceb94
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1573,7 +1573,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 3b71b2cc8eeeffe71e51cbe01314330a25089d31cf6b9b7dc2401cda47c645e4
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1589,7 +1589,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: c24e234b6610a4654f3a2a79083c3ec88659b9c0fea0d11f76f0fd98ab59e0ea
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1605,7 +1605,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: be8b70e134fd767b3ed8beb448e5d75ad63c2d82b574fdb6b6d19bf901679459
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1621,7 +1621,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 7d21349247a7f3e83ac879fecd59586e6465c201ee7a6c25b996da7d4acdd4bf
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1637,7 +1637,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: c125eba53925227dba81d77231677e997c583f3c3a56e6e3eadae2f0a40e8a53
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1653,7 +1653,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 47ef260aa89ed05a5f4b8186da2d89c15b83f9b878ebaa132850ae81398c1952
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1669,7 +1669,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 11c477a282508c2e5516036b48ac617cbec4c986d55936d4559238cc94dc6394
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1685,7 +1685,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: ed5540eee10458d6037c9fb436c50ff84e9453457a677b3eff3967977143ee63
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1701,7 +1701,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: f9ea4fca9de0a160e8cfd0fbc5a084b10a310753b69828e4723cc40b1a09025d
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1717,7 +1717,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 3661ac46a7b840184ba8d47bc45276059a0cd8817ee14a808ee24387e6dd0d2c
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1734,7 +1734,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: db07ba00122bc2c8717c831552f087447b01e958c5cd7c7574e2d5709be7be67
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1750,7 +1750,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 0d87654e6ef1711d043fd8161e92ebaef32431c8f6e80bfd868095af11e53dc6
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1766,7 +1766,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 875cb206b329d9556b15f84e4cd32d24929200b6c95e7ba96d38cc4a1b1617fb
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1782,7 +1782,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: aa5fac5510ecbad9b82772f8e7daf57aa7d61ae4fc13df06f07719d3700f57dc
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1799,7 +1799,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 37be47df5263bcfa0e36e40bb71cfcf971f8563eb0b9256629ccc278047f6790
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1815,7 +1815,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 71ad4766c3c2e53fa4c07de49b85b97b4bc35bc10cbf61bc94aebf12cd36ecff
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1831,7 +1831,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 74b3bba7c24552e92e59e210cce1036f9b1184e35c7f5d81bded62b1e0890311
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1847,7 +1847,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: d02c9afb989681c5ef686bed03226559475f42715f6c4ec0931eb4a0e16fcf33
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1863,7 +1863,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: aa50b05f172992f0e8dac1209dc4e4e9607ba769d1a48470f82f32c9eb18c2ee
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1879,7 +1879,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: cf19de8e1199d0a9fb12c0879ea336a7d8108b8081019e7d03469817e4f877be
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1895,7 +1895,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 7cdc1944577441623ec71c851a83145037ac4c4a93acc3a74ae47abb0454a9b6
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1911,7 +1911,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 0f448f6ee16ebccef44f09f40196096da44d047f17d91d8125ac17c0cc114e98
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1927,7 +1927,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: cedb0d0719006d1e88098a04c9091eb392eca08d170a3de950e3a59c6f5edd35
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1943,7 +1943,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 3627da655dae13a20c9e42f916bc233a8a2388ae8868a0f5785da73c407a14f5
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1959,7 +1959,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 7b49596a66d15a7b93026493fb2c78b00fc080933a06c85de03cea9f5c6b7e54
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1975,7 +1975,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: a20b3133e25ab1bfacd6b790c75a4b0944223f13c1df28d96af06b44839ed829
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -1991,7 +1991,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: d0eb1d5db8450c87caac5f55dba3bb70b36aa23813da9e60b568df2ef4ce4426
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2007,7 +2007,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: dd5f90d9c2a52dda5b7ca37fb991b69a967cef2cbfcdf097d78cd0fda751de41
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2023,7 +2023,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 17ba2954e2711bbcb91f4b1012065ded7760c28e5416d1797bbaeecbe34fbca8
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2039,7 +2039,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 5bba0983ed825ccc28a23d6370347d1fa4c180c1524e0c615a3bc39d8e22669d
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2055,7 +2055,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 8b48fe777d9a72d3dd9e61795ac8d40302b5c40e925b714ff1d35eff8df53aad
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2071,7 +2071,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 4c8558829ef5b1e22d960f35512a107cf50fa18f0f3275070da46b34f43825f9
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2087,7 +2087,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 590ecd3a913595a5527e9a8080f4dfa58154a252a70a708e1bca417a49005a23
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2103,7 +2103,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 17c4e20d5adb9573f1925989c38b10b209fbed66f7a66c88f8c5724f606f0e2a
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2119,7 +2119,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: e40e27cf665c1966a82a0ac4e71bce59de28f830a09d89fefe65a782bc68b8c8
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2136,7 +2136,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 39533dc62f9b486de4d50305d5832696327ccd0bb830131cd036d2fafe8de865
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2152,7 +2152,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 8834f6acbaaef0bfeec11bd90bef76bc4f5ae88502154d2bb440f19b4c15f747
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2168,7 +2168,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: a62a0f73d05e1b980bf82cf98c1f40021049d3056462947039d1e90811039d87
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2184,7 +2184,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 98a2b125cebc448f6c178ce90671875bc43255d82121be563a8c3a87c83308d3
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2201,7 +2201,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: 406b0813dc53f9697db8217792cc8be4bca61764afb4b507d59acc80c24cf643
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
@@ -2217,7 +2217,7 @@ entries:
     description: Argonaut Resource Template - ART
     digest: a17cc2f854a3bb486c56725ab6e589e74b4022adcb5dde1373b44ca4ad99502e
     home: https://argonaut.dev
-    icon: https://github.com/argonautdev.png
+    icon: https://raw.githubusercontent.com/argonautdev/public/main/logos/logo-square.png
     maintainers:
     - email: dev@argonaut.dev
       name: Argonaut
