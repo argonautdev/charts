@@ -128,11 +128,11 @@ envFrom: []
 
 # A list of secrets and their paths to mount inside the pod
 # This is useful for mounting certificates for security
-secretMounts: []
-#  - name: myapp-certificates
-#    secretName: myapp-certificates
-#    path: /usr/share/myapp/config/certs
-#    defaultMode: 0755
+secretMounts:
+  - name: myapp-certificates
+    secretName: myapp-certificates
+    path: /usr/share/myapp/config/certs
+    defaultMode: 0755
 
 sidecarResources:
   {}
