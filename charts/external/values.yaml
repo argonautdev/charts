@@ -1,0 +1,3 @@
+version: "v1"
+appName: "dnsentry"
+externalName: "dnsentry.example.com"

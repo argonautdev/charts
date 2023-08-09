@@ -1,0 +1,3 @@
+version: "v1"
+appName: "database-1"
+externalName: database-1.abcde.us-east-1.rds.amazonaws.com

@@ -1,0 +1,21 @@
+{{- $name := include "argonaut-deployment.uname" . -}}
+{{- $chartName := .Chart.Name -}}
+{{- $releaseName := .Release.Name -}}
+{{- $releaseService := .Release.Service -}}
+{{- $env := .Values.argonaut.env -}}
+{{- $version := .Values.version | default .Release.Revision -}}
+
+kind: Service
+apiVersion: v1
+metadata:
+ name: "{{ $name }}"
+ labels:
+    helm.sh/chart: {{ $chartName | quote }}
+    app.kubernetes.io/name: {{ $name | quote }}
+    app.kubernetes.io/managed-by: {{ $releaseService | quote }}
+    app.kubernetes.io/instance: {{ $releaseName | quote }}
+    argonaut.dev/env: {{ $env | quote }}
+    app.kubernetes.io/version: {{ $version | quote }}
+spec:
+ type: ExternalName
+ externalName: {{ .Values.externalName }}

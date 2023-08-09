@@ -1,0 +1,116 @@
+{{- $name := include "clickhouse.name" . -}}
+---
+apiVersion: clickhouse.altinity.com/v1
+kind: ClickHouseInstallation
+metadata:
+  name: "{{ $name }}"
+  finalizers: []
+    # - finalizer.clickhouseinstallation.altinity.com
+  annotations:
+    checksum/config: "{{- print .Values.clickhouse.configuration | sha256sum -}}"
+spec:
+  restart: "RollingUpdate"
+  reconciling:
+    policy: "nowait"
+    configMapPropagationTimeout: 90
+    cleanup:
+      unknownObjects:
+        statefulSet: Delete
+        pvc: Retain
+        configMap: Delete
+        service: Delete
+      reconcileFailedObjects:
+        statefulSet: Retain
+        pvc: Retain
+        configMap: Retain
+        service: Retain
+  defaults:
+    templates:
+      dataVolumeClaimTemplate: "{{ $name }}-default-volume-claim-tmpl"
+      serviceTemplate: "{{ $name }}-default-svc-tmpl"
+      podTemplate: "{{ $name }}-default-pod-tmpl"
+  configuration:
+    users:
+      admin/password: "{{ .Values.clickhouse.password }}"
+      admin/networks/ip: "0.0.0.0/0"
+      admin/profile: default
+      admin/quota: default
+    profiles:
+      default/allow_experimental_window_functions: "1"
+    zookeeper:
+      nodes:
+        - host: "{{ $name }}-zk"
+          port: 2181
+    clusters:
+      - name: "{{ $name | trunc 11 | trimSuffix "-" }}"
+        layout:
+          shardsCount: {{ .Values.clickhouse.shardsCount }}
+          replicasCount: {{ .Values.clickhouse.replicasCount }}
+    {{- if .Values.clickhouse.configuration }}
+    {{- with .Values.clickhouse.configuration.files }}
+    files:
+    {{- toYaml . | nindent 6 }}
+    {{- end }}
+    {{- end }}
+  templates:
+    volumeClaimTemplates:
+      {{- if .Values.clickhouse.configuration }}
+      {{- if .Values.clickhouse.configuration.volumeClaimTemplates }}
+      {{- with .Values.clickhouse.configuration.volumeClaimTemplates }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
+      - name: "{{ $name }}-default-volume-claim-tmpl"
+        reclaimPolicy: Retain
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: "{{ .Values.clickhouse.storage }}"
+    podTemplates:
+      {{- if .Values.clickhouse.configuration }}
+      {{- if .Values.clickhouse.configuration.podTemplates }}
+      {{- with .Values.clickhouse.configuration.podTemplates }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
+      - name: "{{ $name }}-default-pod-tmpl"
+        spec:
+          containers:
+            - name: clickhouse-pod
+              image: yandex/clickhouse-server:21.6.5
+    serviceTemplates:
+      {{- if .Values.clickhouse.configuration }}
+      {{- if .Values.clickhouse.configuration.serviceTemplates }}
+      {{- with .Values.clickhouse.configuration.serviceTemplates }}
+      {{- toYaml . | nindent 6 }}
+      {{- end }}
+      {{- end }}
+      {{- end }}
+      - name: "{{ $name }}-default-svc-tmpl"
+        generateName: "{{ $name }}"
+        # type ObjectMeta struct from k8s.io/meta/v1
+        metadata:
+          labels:
+            managed: "argonaut"
+          annotations:
+            cloud.google.com/load-balancer-type: "Internal"
+            service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+            service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+            service.beta.kubernetes.io/openstack-internal-load-balancer: "true"
+            service.beta.kubernetes.io/cce-load-balancer-internal-vpc: "true"
+            # NLB Load Balancer
+            service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+        # type ServiceSpec struct from k8s.io/core/v1
+        spec:
+          ports:
+            - name: http
+              port: 8123
+            - name: tcp
+              port: 9000
+          type: ClusterIP # Input
+---
+
